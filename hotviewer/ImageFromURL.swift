@@ -11,8 +11,8 @@ import UIKit
 
 extension UIImageView {
     public func imageFromUrl(urlString: String) {
+        // @TODO: Add file and memory cache for image
         if let url = NSURL(string: urlString) {
-            println(urlString)
             let request = NSURLRequest(URL: url)
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
                 (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in

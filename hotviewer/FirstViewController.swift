@@ -55,7 +55,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         return cell!
     }
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let post = self.allArticles[indexPath.row]
         UIApplication.sharedApplication().openURL(NSURL(string: post.url)!)
     }
