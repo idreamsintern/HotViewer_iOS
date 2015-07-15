@@ -17,29 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="493" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" textLabel="els-ap-KTN" detailTextLabel="W5O-fG-yGD" rowHeight="47" style="IBUITableViewCellStyleSubtitle" id="OGe-Ud-D5e">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="600" id="OGe-Ud-D5e" customClass="PostCell" customModule="hotviewer" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGe-Ud-D5e" id="c1e-RK-hvO">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="els-ap-KTN">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-Ed-dPv">
+                                                    <rect key="frame" x="8" y="46" width="584" height="221"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="221" id="6zq-Hd-its"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBZ-a7-pWM">
+                                                    <rect key="frame" x="8" y="8" width="584" height="28"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W5O-fG-yGD">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Content" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWA-2g-pUm">
+                                                    <rect key="frame" x="8" y="280" width="584" height="312"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="shadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WWA-2g-pUm" firstAttribute="leading" secondItem="c1e-RK-hvO" secondAttribute="leadingMargin" id="56V-pb-GX6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="WWA-2g-pUm" secondAttribute="bottom" id="58a-uv-f7O"/>
+                                                <constraint firstItem="Yau-Ed-dPv" firstAttribute="leading" secondItem="c1e-RK-hvO" secondAttribute="leadingMargin" id="HcH-37-0VD"/>
+                                                <constraint firstItem="Yau-Ed-dPv" firstAttribute="trailing" secondItem="c1e-RK-hvO" secondAttribute="trailingMargin" id="P2p-Te-vXF"/>
+                                                <constraint firstItem="WWA-2g-pUm" firstAttribute="top" secondItem="Yau-Ed-dPv" secondAttribute="bottom" constant="14" id="Tw5-qO-xlv"/>
+                                                <constraint firstItem="tBZ-a7-pWM" firstAttribute="top" secondItem="c1e-RK-hvO" secondAttribute="topMargin" id="bQK-3S-nZG"/>
+                                                <constraint firstItem="tBZ-a7-pWM" firstAttribute="leading" secondItem="c1e-RK-hvO" secondAttribute="leadingMargin" id="jVP-n8-2Ou"/>
+                                                <constraint firstItem="tBZ-a7-pWM" firstAttribute="trailing" secondItem="c1e-RK-hvO" secondAttribute="trailingMargin" id="s9F-kf-LhI"/>
+                                                <constraint firstItem="WWA-2g-pUm" firstAttribute="trailing" secondItem="c1e-RK-hvO" secondAttribute="trailingMargin" id="tIt-fy-m0i"/>
+                                                <constraint firstItem="Yau-Ed-dPv" firstAttribute="top" secondItem="tBZ-a7-pWM" secondAttribute="bottom" constant="10" id="zv8-CE-9D4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="content" destination="WWA-2g-pUm" id="Jcg-HP-Fgt"/>
+                                            <outlet property="thumbanilImageView" destination="Yau-Ed-dPv" id="yeL-mx-JrQ"/>
+                                            <outlet property="title" destination="tBZ-a7-pWM" id="hmQ-zS-Cjj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

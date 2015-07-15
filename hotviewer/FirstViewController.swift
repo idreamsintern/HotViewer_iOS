@@ -34,32 +34,24 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     var emptyImg = UIImage()
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? PostCell
         
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: self.cellReuseIdentifier)
+            cell = PostCell(style: UITableViewCellStyle.Value1, reuseIdentifier: self.cellReuseIdentifier)
         }
         var article = contentArticles[indexPath.row]
-        cell?.textLabel?.text = article.title
+        cell?.title?.text = article.title
         
         article.getArticle({
 
             dispatch_async(dispatch_get_main_queue()) {
                 if let content = article.content {
-                    cell?.detailTextLabel?.text = content
+                    cell?.content?.text = content
                 }
             }
             
-            if let url = NSURL(string: article.thumbnailUrl!) {
-                let request = NSURLRequest(URL: url)
-                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-                    (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-                    dispatch_async(dispatch_get_main_queue()) {
-                        cell?.imageView?.image = UIImage(data: data!)
-                    }
-                }
-            }
-            
+            cell?.thumbanilImageView?.imageFromUrl(article.thumbnailUrl!)
+                        
         })
         return cell!
     }
