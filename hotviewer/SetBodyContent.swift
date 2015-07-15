@@ -14,14 +14,15 @@ extension NSMutableURLRequest {
     ///
     /// :param: contentMap A dictionary of keys and values to be added to the request
     
-    func setBodyContent(contentMap: [String : String?]) {
-        let parameters = map(contentMap) { (key, value) -> String in
+    func setAPIBodyContent(contentMap: [String : String?], token: String) {
+        var parameters = map(contentMap) { (key, value) -> String in
             if let val = value {
                 return "\(key)=\(val.stringByAddingPercentEscapesForQueryValue()!)"
             } else {
-                return "dummy="
+                return ""
             }
         }
+        parameters.append("token=\(token)")
         HTTPBody = "&".join(parameters).dataUsingEncoding(NSUTF8StringEncoding)
     }
 }

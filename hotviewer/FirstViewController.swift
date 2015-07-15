@@ -12,23 +12,25 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     let cellReuseIdentifier = "postCell"
     
     @IBOutlet weak var articlesTableView: UITableView!
-    var allArticles = [Article]()
+
+    var contentArticles = [ContentParty]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        Data.getAllArticles({
-            allArticles in
-            
-            self.allArticles = allArticles!
-            dispatch_async(dispatch_get_main_queue(),{
-                self.articlesTableView.reloadData()
-            })
+
+        searchArticleId(["sort": SortType.click.rawValue, "limit": "15"], {
+            articles in
+            if let articles = articles {
+                self.contentArticles = articles
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.articlesTableView.reloadData()
+                }
+            }
         })
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.allArticles.count
+        return contentArticles.count
     }
     var emptyImg = UIImage()
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -37,29 +39,45 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: self.cellReuseIdentifier)
         }
+        var article = contentArticles[indexPath.row]
+        cell?.textLabel?.text = article.title
         
-        let post = self.allArticles[indexPath.row]
-        cell!.textLabel?.text = post.title
-        cell!.detailTextLabel?.text = post.url
-        
-        switch post.type {
-            case .Facebook:
-                let fbPost = post as! FBPost
-                cell!.imageView?.imageFromUrl(fbPost.thumbnailUrl)
-                cell!.textLabel?.text = fbPost.pageName
-            case .Forum:
-                cell!.imageView?.image = emptyImg
-            case .PTT:
-                cell!.imageView?.image = emptyImg
-        }
+        article.getArticle({
 
+            dispatch_async(dispatch_get_main_queue()) {
+                if let content = article.content {
+                    cell?.detailTextLabel?.text = content
+                }
+            }
+            
+            if let url = NSURL(string: article.thumbnailUrl!) {
+                let request = NSURLRequest(URL: url)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
+                    (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        cell?.imageView?.image = UIImage(data: data!)
+                    }
+                }
+            }
+            
+        })
         return cell!
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let post = self.allArticles[indexPath.row]
-        UIApplication.sharedApplication().openURL(NSURL(string: post.url)!)
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var webViewCtrl = segue.destinationViewController as! WebViewController
+        webViewCtrl.url = sender as? String
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
+        if let url = contentArticles[indexPath.row].url {
+            self.performSegueWithIdentifier("showWebView", sender: url)
+        }
+        
+        //UIApplication.sharedApplication().openURL(NSURL(string: post.url)!)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

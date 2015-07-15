@@ -11,15 +11,22 @@ import Foundation
 
 typealias ServiceResponse = (JSON, NSError?) -> Void
 
-class SERAPI {
-    static private let baseUrl = "http://api.ser.ideas.iii.org.tw/api/"
-    static func post(params : Dictionary<String, String?>, url : String, postCompleted : (succeeded: Bool, msg: String, result: JSON) -> ()) {
-        var request = NSMutableURLRequest(URL: NSURL(string: baseUrl + url)!)
+class API {
+    private var baseUrl: String
+    private var token: String
+    init(apiUrl: String, token: String) {
+        self.baseUrl = apiUrl
+        self.token = token
+    }
+    func post(params : [String : String?], url : String, postCompleted : (succeeded: Bool, msg: String, result: JSON) -> ()) {
 
+        var request = NSMutableURLRequest(URL: NSURL(string: self.baseUrl + url)!)        
+        
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
-        request.setBodyContent(params)
+        request.setAPIBodyContent(params, token: self.token)
+        
         var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             var msg = "No message"
             
@@ -45,4 +52,5 @@ class SERAPI {
         task.resume()
     }
 }
+
 
