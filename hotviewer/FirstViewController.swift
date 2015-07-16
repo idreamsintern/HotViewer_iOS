@@ -13,18 +13,43 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var articlesTableView: UITableView!
 
+    
     var contentArticles = [ContentParty]()
+    
+    var refreshControl:UIRefreshControl = UIRefreshControl()
+    var currentPage: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        searchArticleId(["sort": SortType.click.rawValue, "limit": "15"], {
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.articlesTableView.addSubview(refreshControl)
+        
+        searchArticleId(["sort": SortType.click.rawValue, "limit": "10", "page":"1"], {
             articles in
             if let articles = articles {
                 self.contentArticles = articles
                 dispatch_async(dispatch_get_main_queue()) {
                     self.articlesTableView.reloadData()
+                }
+            }
+        })
+    }
+    
+    func refresh() {
+        searchArticleId(["sort": SortType.click.rawValue, "limit": "10", "page":String(++currentPage)], {
+            articles in
+            if let articles = articles {
+                for article in articles {
+                    self.contentArticles.insert(article, atIndex: 0)
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.articlesTableView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             }
         })
@@ -47,8 +72,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
         return cell!
     }
-    
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var webViewCtrl = segue.destinationViewController as! WebViewController
