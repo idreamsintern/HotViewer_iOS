@@ -30,7 +30,7 @@ class ContentParty {
        getArticle and callback as onLoad() */
     var content: String?
     var tag: String?
-    var url: String?
+    var url: NSURL?
     var thumbnailURL: NSURL?
 
     init(articleJSON: JSON) {
@@ -53,7 +53,7 @@ class ContentParty {
                 rawContent = rawContent.stringByReplacingOccurrencesOfString(" ", withString: "")
                 
                 self.tag = result["tag"].string
-                self.url = result["source_url"].string
+                self.url = NSURL(string: result["source_url"].stringValue)
                 
                 if let imgUrl = matchRegex(".+imgsrc=(.+)alt.+", text: rawContent, template: "$1") {
                     self.thumbnailURL = NSURL(string: imgUrl)

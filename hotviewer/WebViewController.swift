@@ -8,15 +8,27 @@
 
 import Foundation
 import UIKit
+import Social
 
 class WebViewController : UIViewController {
     @IBOutlet weak var webView: UIWebView!
-    var url: String?
+    var url: NSURL?
     
     override func viewWillAppear(animated: Bool) {
-        if let url = NSURL(string: url!) {
+        if let url = self.url {
             let request = NSURLRequest(URL: url)
             webView.loadRequest(request)
+        }
+
+        var shareBtn : UIBarButtonItem = UIBarButtonItem(title: "分享", style: UIBarButtonItemStyle.Plain, target: self, action: "shareClick:")
+        self.navigationItem.rightBarButtonItem = shareBtn
+    }
+    func shareClick(sender: UIBarButtonItem) {
+        if let webSite = self.url
+        {
+            let objectsToShare = [webSite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            self.presentViewController(activityVC, animated: true, completion: nil)
         }
     }
 }

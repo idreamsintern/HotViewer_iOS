@@ -52,7 +52,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var webViewCtrl = segue.destinationViewController as! WebViewController
-        webViewCtrl.url = sender as? String
+        webViewCtrl.url = sender as? NSURL
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
