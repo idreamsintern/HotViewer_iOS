@@ -12,6 +12,8 @@
 		A18BBB261B56E3C10048C29D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18BBB251B56E3C10048C29D /* PostCell.swift */; };
 		C40E3D931B56887300A8EAEB /* ContentParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentParty.swift */; };
 		C40E3D951B569B7000A8EAEB /* AllMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D941B569B7000A8EAEB /* AllMethods.swift */; };
+		C45C37651B584285000646C2 /* FBCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37641B584285000646C2 /* FBCheckin.swift */; };
+		C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37661B586775000646C2 /* FBCheckinCell.swift */; };
 		C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A0F1B53FE060012C18D /* AppDelegate.swift */; };
 		C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A111B53FE060012C18D /* FirstViewController.swift */; };
 		C49F3A141B53FE060012C18D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A131B53FE060012C18D /* SecondViewController.swift */; };
@@ -42,6 +44,8 @@
 		A18BBB251B56E3C10048C29D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		C40E3D921B56887300A8EAEB /* ContentParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentParty.swift; sourceTree = "<group>"; };
 		C40E3D941B569B7000A8EAEB /* AllMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMethods.swift; sourceTree = "<group>"; };
+		C45C37641B584285000646C2 /* FBCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCheckin.swift; sourceTree = "<group>"; };
+		C45C37661B586775000646C2 /* FBCheckinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCheckinCell.swift; sourceTree = "<group>"; };
 		C49F3A0A1B53FE060012C18D /* hotviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotviewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49F3A0E1B53FE060012C18D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49F3A0F1B53FE060012C18D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				C49F3A1A1B53FE060012C18D /* LaunchScreen.xib */,
 				C49F3A0D1B53FE060012C18D /* Supporting Files */,
 				A18BBB251B56E3C10048C29D /* PostCell.swift */,
+				C45C37661B586775000646C2 /* FBCheckinCell.swift */,
+				C45C37641B584285000646C2 /* FBCheckin.swift */,
 			);
 			path = hotviewer;
 			sourceTree = "<group>";
@@ -255,9 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49F3A141B53FE060012C18D /* SecondViewController.swift in Sources */,
+				C45C37651B584285000646C2 /* FBCheckin.swift in Sources */,
 				911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */,
 				910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */,
 				C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */,
+				C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */,
 				C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */,
 				C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */,
 				C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */,

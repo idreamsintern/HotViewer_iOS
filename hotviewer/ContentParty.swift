@@ -12,13 +12,6 @@ import CoreData
 
 let contentAPI = API(apiUrl: "http://contentparty.org/api/", token: "api_doc_token")
 
-enum SortType: String {
-    case time = "time"
-    case click = "clicks"
-    case title = "title"
-    case author = "author"
-}
-
 class ContentParty {
     var dataId: String?
     var title: String?
@@ -65,6 +58,13 @@ class ContentParty {
             }
         }
     }
+}
+
+enum ContentSortType: String {
+    case Time = "time"
+    case Click = "clicks"
+    case Title = "title"
+    case Author = "author"
 }
 
 func matchRegex(regex: String!, #text: String!, #template: String) -> String? {

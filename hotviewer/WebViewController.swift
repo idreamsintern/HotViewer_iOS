@@ -14,12 +14,11 @@ class WebViewController : UIViewController {
     @IBOutlet weak var webView: UIWebView!
     var url: NSURL?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {        
         if let url = self.url {
             let request = NSURLRequest(URL: url)
             webView.loadRequest(request)
         }
-
         var shareBtn : UIBarButtonItem = UIBarButtonItem(title: "分享", style: UIBarButtonItemStyle.Plain, target: self, action: "shareClick:")
         self.navigationItem.rightBarButtonItem = shareBtn
     }

@@ -14,7 +14,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var articlesTableView: UITableView!
 
     
-    var contentArticles = [ContentParty]()
+    var contentArticles: [ContentParty]?
     
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var currentPage: Int = 1
@@ -33,50 +33,42 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.articlesTableView.addSubview(refreshControl)
         
-        searchArticleId(["sort": SortType.click.rawValue, "limit": "10", "page": "1"], {
+        searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"], {
             articles in
-            if let articles = articles {
-                self.contentArticles = articles
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.articlesTableView.reloadData()
-                }
-            }
+            self.contentArticles = articles
+            self.articlesTableView.reloadData()
         })
     }
     
     func refresh() {
-        searchArticleId(["sort": SortType.click.rawValue, "limit": "10", "page":String(++currentPage)], {
+        searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)], {
             articles in
             if let articles = articles {
-                for article in articles {
-                    self.contentArticles.insert(article, atIndex: 0)
-                }
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.articlesTableView.reloadData()
-                    self.refreshControl.endRefreshing()
-                }
+                self.contentArticles?.splice(articles, atIndex: 0)
+                self.articlesTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         })
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentArticles.count
+        return contentArticles?.count ?? 0
     }
-    var emptyImg = UIImage()
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? PostCell
-        
-        var article = contentArticles[indexPath.row]
-        cell?.title?.text = article.title
-        
-        if article.loaded {
-            cell?.thumbnailURL = article.thumbnailURL
-            cell?.content?.text = article.content
-        } else {
-            article.getArticle({
+        if let article = contentArticles?[indexPath.row] as ContentParty? {
+            cell?.title?.text = article.title
+            
+            if article.loaded {
                 cell?.thumbnailURL = article.thumbnailURL
                 cell?.content?.text = article.content
-                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            })
+            } else {
+                article.getArticle({
+                    cell?.thumbnailURL = article.thumbnailURL
+                    cell?.content?.text = article.content
+                    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                })
+            }
         }
         return cell!
     }
@@ -86,12 +78,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         webViewCtrl.url = sender as? NSURL
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        if let url = contentArticles[indexPath.row].url {
+        if let url = (contentArticles?[indexPath.row] as ContentParty?)?.url {
             self.performSegueWithIdentifier("showWebView", sender: url)
         }
-        
-        //UIApplication.sharedApplication().openURL(NSURL(string: post.url)!)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

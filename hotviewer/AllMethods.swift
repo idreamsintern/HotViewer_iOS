@@ -13,15 +13,30 @@ import CoreData
 func searchArticleId(params: [String: String?], onLoad: (articles:[ContentParty]?) -> ()) {
     contentAPI.post(params, url: "search_article_id", postCompleted: {
         succeeded, msg, result in
-        
         var articles = [ContentParty]()
-        
-        if let articleArray = result.array {
+        if succeeded, let articleArray = result.array {
             for articleJSON in articleArray {
                 articles.append(ContentParty(articleJSON: articleJSON))
             }
         }
-        onLoad(articles: articles)
+        dispatch_async(dispatch_get_main_queue()) {
+            onLoad(articles: articles)
+        }
+    })
+}
+
+func searchFBCheckin(params: [String: String?], onLoad: (checkins:[FBCheckin]?) -> ()) {
+    serAPI.post(params, url: "fb_checkin_search", postCompleted: {
+        succeeded, msg, result in
+        var checkins = [FBCheckin]()
+        if succeeded, let checkinsArr = result.array {
+            for checkin in checkinsArr {
+                checkins.append(FBCheckin(checkinJSON: checkin))
+            }
+        }
+        dispatch_async(dispatch_get_main_queue()) {
+            onLoad(checkins: checkins)
+        }
     })
 }
 
