@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 let contentAPI = API(apiUrl: "http://contentparty.org/api/", token: "api_doc_token")
 
@@ -29,8 +31,8 @@ class ContentParty {
     var content: String?
     var tag: String?
     var url: String?
-    var thumbnailUrl: String?
-    
+    var thumbnailURL: NSURL?
+
     init(articleJSON: JSON) {
         self.dataId = articleJSON["data_id"].string
         self.title = articleJSON["title"].string
@@ -46,6 +48,27 @@ class ContentParty {
         
         contentAPI.post([ "data_id": self.dataId, "lang": "zh-tw" ], url: "get_article") {
             succeeded, msg, result in
+//            
+//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            let managedContext = appDelegate.managedObjectContext!
+//            let fetchRequest = NSFetchRequest(entityName: "ContentArticle")
+//            fetchRequest.predicate = NSPredicate(format: "dataId = %@", self.dataId!)
+//            fetchRequest.fetchLimit = 1
+//
+//            var error: NSError?
+//            let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error)
+//                as! [NSManagedObject]?
+//            
+//            if let cacheResult = fetchedResults?[0]
+//            {
+//                self.content = cacheResult.valueForKey("content") as? String
+//                for (var i=0; i < results.count; i++)
+//
+//                    let single_result = results[i]
+//                    let index = single_result.valueForKey("index") as! NSInteger
+//                    let img: NSData? = single_result.valueForKey("image") as? NSData
+//                
+//            }
             
             var rawContent = result["content"].string
             if var rawContent = rawContent {
@@ -54,17 +77,27 @@ class ContentParty {
                 self.tag = result["tag"].string
                 self.url = result["source_url"].string
                 
-                self.thumbnailUrl = matchRegex(".+imgsrc=(.+)alt.+", text: rawContent, template: "$1")
+                if let imgUrl = matchRegex(".+imgsrc=(.+)alt.+", text: rawContent, template: "$1") {
+                    self.thumbnailURL = NSURL(string: imgUrl)
+                }
                 
                 self.content = matchRegex("<divid=\\\"lucy_box\\\"><img.+>(.+)<\\/div>.+", text: rawContent, template: "$1")
             }
-            onLoad()
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                onLoad()
+            }
         }
         
       
         
     }
     
+}
+
+struct ContentArticleCache {
+    var content:String?
+    var dataId:String?
 }
 
 func matchRegex(regex: String!, #text: String!, #template: String) -> String? {

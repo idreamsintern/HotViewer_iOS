@@ -19,9 +19,7 @@ class API {
         self.token = token
     }
     func post(params : [String : String?], url : String, postCompleted : (succeeded: Bool, msg: String, result: JSON) -> ()) {
-
         var request = NSMutableURLRequest(URL: NSURL(string: self.baseUrl + url)!)        
-        
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         

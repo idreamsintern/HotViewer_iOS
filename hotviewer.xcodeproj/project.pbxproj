@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D96C01B57043500ECB425 /* SimpleCache.swift */; };
+		911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */; };
 		A18BBB261B56E3C10048C29D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18BBB251B56E3C10048C29D /* PostCell.swift */; };
 		C40E3D931B56887300A8EAEB /* ContentParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentParty.swift */; };
 		C40E3D951B569B7000A8EAEB /* AllMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D941B569B7000A8EAEB /* AllMethods.swift */; };
@@ -21,7 +23,6 @@
 		C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A331B5420470012C18D /* SwiftyJSON.swift */; };
 		C49F3A3E1B546C320012C18D /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3D1B546C320012C18D /* Shuffle.swift */; };
 		C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */; };
-		C49F3A441B546CCB0012C18D /* ImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A431B546CCB0012C18D /* ImageFromURL.swift */; };
 		C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E0301A1B56AE3F007D6284 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		910D96C01B57043500ECB425 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCache.swift; sourceTree = "<group>"; };
+		911AA4F41B572A5500AA6AED /* hotviewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hotviewer.xcdatamodel; sourceTree = "<group>"; };
 		A18BBB251B56E3C10048C29D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		C40E3D921B56887300A8EAEB /* ContentParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentParty.swift; sourceTree = "<group>"; };
 		C40E3D941B569B7000A8EAEB /* AllMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMethods.swift; sourceTree = "<group>"; };
@@ -54,7 +57,6 @@
 		C49F3A331B5420470012C18D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C49F3A3D1B546C320012C18D /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 		C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBodyContent.swift; sourceTree = "<group>"; };
-		C49F3A431B546CCB0012C18D /* ImageFromURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFromURL.swift; sourceTree = "<group>"; };
 		C4E0301A1B56AE3F007D6284 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				C40E3D921B56887300A8EAEB /* ContentParty.swift */,
 				C40E3D941B569B7000A8EAEB /* AllMethods.swift */,
 				C49F3A111B53FE060012C18D /* FirstViewController.swift */,
+				911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */,
 				C49F3A131B53FE060012C18D /* SecondViewController.swift */,
 				C49F3A151B53FE060012C18D /* Main.storyboard */,
 				C4E0301A1B56AE3F007D6284 /* WebViewController.swift */,
@@ -145,7 +148,7 @@
 				C49F3A331B5420470012C18D /* SwiftyJSON.swift */,
 				C49F3A3D1B546C320012C18D /* Shuffle.swift */,
 				C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */,
-				C49F3A431B546CCB0012C18D /* ImageFromURL.swift */,
+				910D96C01B57043500ECB425 /* SimpleCache.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -252,10 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49F3A141B53FE060012C18D /* SecondViewController.swift in Sources */,
+				911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */,
+				910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */,
 				C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */,
 				C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */,
 				C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */,
-				C49F3A441B546CCB0012C18D /* ImageFromURL.swift in Sources */,
 				C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */,
 				C49F3A3E1B546C320012C18D /* Shuffle.swift in Sources */,
 				C40E3D951B569B7000A8EAEB /* AllMethods.swift in Sources */,
@@ -476,6 +480,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				911AA4F41B572A5500AA6AED /* hotviewer.xcdatamodel */,
+			);
+			currentVersion = 911AA4F41B572A5500AA6AED /* hotviewer.xcdatamodel */;
+			path = hotviewer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C49F3A021B53FE060012C18D /* Project object */;
 }

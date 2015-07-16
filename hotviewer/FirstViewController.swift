@@ -36,22 +36,14 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? PostCell
         
-        if cell == nil {
-            cell = PostCell(style: UITableViewCellStyle.Value1, reuseIdentifier: self.cellReuseIdentifier)
-        }
         var article = contentArticles[indexPath.row]
         cell?.title?.text = article.title
         
         article.getArticle({
-
-            dispatch_async(dispatch_get_main_queue()) {
-                if let content = article.content {
-                    cell?.content?.text = content
-                }
+            cell?.thumbnailURL = article.thumbnailURL
+            if let content = article.content {
+                cell?.content?.text = content
             }
-            
-            cell?.thumbanilImageView?.imageFromUrl(article.thumbnailUrl!)
-                        
         })
         return cell!
     }
@@ -70,6 +62,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //UIApplication.sharedApplication().openURL(NSURL(string: post.url)!)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
