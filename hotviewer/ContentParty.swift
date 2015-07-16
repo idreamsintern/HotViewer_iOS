@@ -28,6 +28,7 @@ class ContentParty {
     
     /* The following properties get loaded after calling
        getArticle and callback as onLoad() */
+    var loaded: Bool = false
     var content: String?
     var tag: String?
     var url: NSURL?
@@ -42,10 +43,6 @@ class ContentParty {
     }
     
     func getArticle(onLoad: () -> ()) {
-        if self.content != nil {
-            return onLoad()
-        }
-        
         contentAPI.post([ "data_id": self.dataId, "lang": "zh-tw" ], url: "get_article") {
             succeeded, msg, result in
             var rawContent = result["content"].string
@@ -60,6 +57,7 @@ class ContentParty {
                 }
                 
                 self.content = matchRegex("<divid=\\\"lucy_box\\\"><img.+>(.+)<\\/div>.+", text: rawContent, template: "$1")
+                self.loaded = true
             }
             
             dispatch_async(dispatch_get_main_queue()) {

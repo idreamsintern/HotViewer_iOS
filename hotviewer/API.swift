@@ -31,12 +31,10 @@ class API {
             if let err = error {
                 println("Error during request DATA: '\(err.localizedDescription)'")
                 postCompleted(succeeded: false, msg: err.localizedDescription, result: nil)
-            }
-            else {
+            } else {
                 // The JSONObjectWithData constructor didn't return an error. But, we should still
                 // check and make sure that json has a value using optional binding.
                 let json:JSON = JSON(data: data)
-
                 if let message = json["message"].string {
                     postCompleted(succeeded: message == "success", msg: message, result: json["result"])
                 } else {

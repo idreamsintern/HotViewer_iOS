@@ -21,6 +21,10 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.articlesTableView.estimatedRowHeight = CGFloat(400)
+        self.articlesTableView.rowHeight = UITableViewAutomaticDimension
+        
         // Do any additional setup after loading the view, typically from a nib.
 
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
@@ -29,7 +33,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.articlesTableView.addSubview(refreshControl)
         
-        searchArticleId(["sort": SortType.click.rawValue, "limit": "10", "page":"1"], {
+        searchArticleId(["sort": SortType.click.rawValue, "limit": "10", "page": "1"], {
             articles in
             if let articles = articles {
                 self.contentArticles = articles
@@ -64,12 +68,16 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         var article = contentArticles[indexPath.row]
         cell?.title?.text = article.title
         
-        article.getArticle({
+        if article.loaded {
             cell?.thumbnailURL = article.thumbnailURL
-            if let content = article.content {
-                cell?.content?.text = content
-            }
-        })
+            cell?.content?.text = article.content
+        } else {
+            article.getArticle({
+                cell?.thumbnailURL = article.thumbnailURL
+                cell?.content?.text = article.content
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            })
+        }
         return cell!
     }
     
@@ -85,7 +93,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //UIApplication.sharedApplication().openURL(NSURL(string: post.url)!)
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
