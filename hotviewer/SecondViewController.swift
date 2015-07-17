@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let cellReuseIdentifier = "checkinCell"
@@ -61,7 +62,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @IBAction func homeScreen(segue:UIStoryboardSegue) {
+    }
     
 }
 

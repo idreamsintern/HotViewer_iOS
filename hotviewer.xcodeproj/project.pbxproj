@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D96C01B57043500ECB425 /* SimpleCache.swift */; };
 		911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */; };
+		A112D1B61B593D9E00B4917B /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A112D1B51B593D9E00B4917B /* RouteTableViewController.swift */; };
 		A18BBB261B56E3C10048C29D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18BBB251B56E3C10048C29D /* PostCell.swift */; };
 		C40E3D931B56887300A8EAEB /* ContentParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentParty.swift */; };
 		C40E3D951B569B7000A8EAEB /* AllMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D941B569B7000A8EAEB /* AllMethods.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		910D96C01B57043500ECB425 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCache.swift; sourceTree = "<group>"; };
 		911AA4F41B572A5500AA6AED /* hotviewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hotviewer.xcdatamodel; sourceTree = "<group>"; };
+		A112D1B51B593D9E00B4917B /* RouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
 		A18BBB251B56E3C10048C29D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		C40E3D921B56887300A8EAEB /* ContentParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentParty.swift; sourceTree = "<group>"; };
 		C40E3D941B569B7000A8EAEB /* AllMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMethods.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				C45C37661B586775000646C2 /* FBCheckinCell.swift */,
 				C45C37641B584285000646C2 /* FBCheckin.swift */,
 				C47E67D41B58F3F700501D61 /* MapViewController.swift */,
+				A112D1B51B593D9E00B4917B /* RouteTableViewController.swift */,
 			);
 			path = hotviewer;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */,
 				C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */,
 				C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */,
+				A112D1B61B593D9E00B4917B /* RouteTableViewController.swift in Sources */,
 				C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */,
 				C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */,
 				C49F3A3E1B546C320012C18D /* Shuffle.swift in Sources */,
