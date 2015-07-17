@@ -13,7 +13,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var articlesTableView: UITableView!
     var indicatorView: UIActivityIndicatorView!
-    var contentArticles: [ContentParty]?
+    var contentArticles: [ContentArticle]?
     
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var currentPage: Int = 1
@@ -33,24 +33,24 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.articlesTableView.addSubview(refreshControl)
         
         indicatorView = getIndicatorView()
-        searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"], {
-            articles in
+        ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"]) {
+            (articles: [ContentArticle]?) in
             self.contentArticles = articles
             self.articlesTableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             self.indicatorView.stopAnimating()
-        })
+        }
     }
     
     func refresh() {
-        searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)], {
-            articles in
+        ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)]) {
+            (articles: [ContentArticle]?) in
             if let articles = articles {
                 self.contentArticles?.splice(articles, atIndex: 0)
                 self.articlesTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
-        })
+        }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentArticles?.count ?? 0
@@ -58,7 +58,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? PostCell
-        if let article = contentArticles?[indexPath.row] as ContentParty? {
+        if let article = contentArticles?[indexPath.row] as ContentArticle? {
             cell?.title?.text = article.title
             
             if article.loaded {
@@ -77,12 +77,12 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let webViewCtrl = segue.destinationViewController as! WebViewController
-        let article = sender as! ContentParty
+        let article = sender as! ContentArticle
         webViewCtrl.url = article.url
         webViewCtrl.rawContent = article.rawContent
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let article = (contentArticles?[indexPath.row] as ContentParty?)
+        let article = (contentArticles?[indexPath.row] as ContentArticle?)
         if let rawContent = article?.rawContent, let url = article?.url {
             self.performSegueWithIdentifier("showWebView", sender: article)
         }

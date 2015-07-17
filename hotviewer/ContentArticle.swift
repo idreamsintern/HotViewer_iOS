@@ -1,5 +1,5 @@
 //
-//  ContentParty.swift
+//  ContentArticle.swift
 //  hotviewer
 //
 //  Created by 傑瑞 on 2015/7/15.
@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
-let contentAPI = API(apiUrl: "http://contentparty.org/api/", token: "api_doc_token")
 
-class ContentParty {
+class ContentArticle {
     var dataId: String?
     var title: String?
     var author: String?
@@ -37,27 +36,29 @@ class ContentParty {
     }
     
     func getArticle(onLoad: () -> ()) {
-        contentAPI.post([ "data_id": self.dataId, "lang": "zh-tw" ], url: "get_article") {
-            succeeded, msg, result in
-            var rawContent = result["content"].string
-            if var rawContent = rawContent {
-                self.rawContent = rawContent
-                
-                self.tag = result["tag"].string
-                self.url = NSURL(string: result["source_url"].stringValue)
-                
-                // Remove all whitespaces
-                rawContent = rawContent.stringByReplacingOccurrencesOfString(" ", withString: "")
-                if let imgUrl = matchRegex(".+imgsrc=(.+)alt.+", text: rawContent, template: "$1") {
-                    self.thumbnailURL = NSURL(string: imgUrl)
+        ContentAPI.instance.ensureValidToken() {
+            ContentAPI.instance.post([ "data_id": self.dataId, "lang": "zh-tw" ], url: "get_article") {
+                succeeded, msg, result in
+                var rawContent = result["content"].string
+                if var rawContent = rawContent {
+                    self.rawContent = rawContent
+                    
+                    self.tag = result["tag"].string
+                    self.url = NSURL(string: result["source_url"].stringValue)
+                    
+                    // Remove all whitespaces
+                    rawContent = rawContent.stringByReplacingOccurrencesOfString(" ", withString: "")
+                    if let imgUrl = matchRegex(".+imgsrc=(.+)alt.+", text: rawContent, template: "$1") {
+                        self.thumbnailURL = NSURL(string: imgUrl)
+                    }
+                    
+                    self.content = matchRegex("<divid=\\\"lucy_box\\\"><img.+>(.+)<\\/div>.+", text: rawContent, template: "$1")
+                    self.loaded = true
                 }
                 
-                self.content = matchRegex("<divid=\\\"lucy_box\\\"><img.+>(.+)<\\/div>.+", text: rawContent, template: "$1")
-                self.loaded = true
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                onLoad()
+                dispatch_async(dispatch_get_main_queue()) {
+                    onLoad()
+                }
             }
         }
     }

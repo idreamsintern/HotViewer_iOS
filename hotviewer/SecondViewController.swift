@@ -31,12 +31,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         indicatorView = getIndicatorView()
         indicatorView.startAnimating()
-        searchFBCheckin(["coordinates": "25.041399,121.554233", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue], {
-            checkins in
+        SERAPI.instance.searchFBCheckin(["coordinates": "25.041399,121.554233", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue]) {
+            (checkins: [FBCheckin]?) in
             self.fbCheckins = checkins
             self.checkinsTableView.reloadData()
             self.indicatorView.stopAnimating()
-        })
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
