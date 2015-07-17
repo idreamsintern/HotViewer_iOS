@@ -9,11 +9,11 @@
 import UIKit
 import MapKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     let cellReuseIdentifier = "checkinCell"
     
     @IBOutlet weak var checkinsTableView: UITableView!
-    
+    let locationManager = CLLocationManager()
     
     var fbCheckins: [FBCheckin]?
     
@@ -24,6 +24,15 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.requestWhenInUseAuthorization()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.startUpdatingLocation()
+        }
+        
         self.checkinsTableView.estimatedRowHeight = CGFloat(400)
         self.checkinsTableView.rowHeight = UITableViewAutomaticDimension
         
@@ -31,14 +40,18 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         indicatorView = getIndicatorView()
         indicatorView.startAnimating()
-        SERAPI.instance.searchFBCheckin(["coordinates": "25.041399,121.554233", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue]) {
+    }
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        manager.stopUpdatingLocation()
+        println("Current location = \(locValue.latitude) \(locValue.longitude)")
+        SERAPI.instance.searchFBCheckin(["coordinates": "\(locValue.latitude),\(locValue.longitude)", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue]) {
             (checkins: [FBCheckin]?) in
             self.fbCheckins = checkins
             self.checkinsTableView.reloadData()
             self.indicatorView.stopAnimating()
         }
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fbCheckins?.count ?? 0
     }
