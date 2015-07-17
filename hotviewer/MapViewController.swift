@@ -24,8 +24,8 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     var currentRoute:MKRoute?
     
     var currentTransportType = MKDirectionsTransportType.Automobile
-    
-    
+    var destinationCoordinate:CLLocationCoordinate2D!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,10 +43,12 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         
         mapView.delegate = self
         
+        self.destinationCoordinate = CLLocationCoordinate2D(latitude: fbCheckin.latitude!,longitude: fbCheckin.longitude!)
+        
         // Add Annotation
         let annotation = MKPointAnnotation()
         annotation.title = self.fbCheckin?.name
-        annotation.coordinate = CLLocationCoordinate2D(latitude: fbCheckin.latitude!,longitude: fbCheckin.longitude!)
+        annotation.coordinate = self.destinationCoordinate
         self.mapView.showAnnotations([annotation], animated: true)
         self.mapView.selectAnnotation(annotation, animated: true)
     }
@@ -67,7 +69,6 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         }
         
         let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
-        //leftIconView.image = UIImage(data: fbCheckin.thumbnailURL)
 
         if let url = fbCheckin.thumbnailURL {
             SimpleCache.sharedInstance.getImage(url) { image, error in
@@ -99,10 +100,10 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         
         // Set the source and destination of the route
         directionRequest.setSource(MKMapItem.mapItemForCurrentLocation())
-        let destinationPlacemark = MKPlacemark(placemark: currentPlacemark)
+        //let destinationPlacemark = MKPlacemark(placemark: currentPlacemark)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
         directionRequest.setDestination(MKMapItem(placemark: destinationPlacemark))
         directionRequest.transportType = currentTransportType
-        
         
         // Calculate the direction
         let directions = MKDirections(request: directionRequest)
