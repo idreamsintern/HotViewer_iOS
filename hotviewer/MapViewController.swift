@@ -25,9 +25,12 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     
     var currentTransportType = MKDirectionsTransportType.Automobile
     var destinationCoordinate:CLLocationCoordinate2D!
-   
+    var indicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicatorView = getIndicatorView()
         
         // Hide the segmented control
         segmentedControl.hidden = true
@@ -88,7 +91,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     
     
     @IBAction func showDirection(sender: AnyObject) {
-       
+        
         if segmentedControl.selectedSegmentIndex == 0 {
             currentTransportType = MKDirectionsTransportType.Automobile
         } else {
@@ -107,6 +110,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         
         // Calculate the direction
         let directions = MKDirections(request: directionRequest)
+        indicatorView.startAnimating()
         directions.calculateDirectionsWithCompletionHandler { (routeResponse, routeError) -> Void in
             
             if routeError != nil {
@@ -121,6 +125,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
                 let rect = route.polyline.boundingMapRect
                 self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
             }
+            self.indicatorView.stopAnimating()
         }
     }
     

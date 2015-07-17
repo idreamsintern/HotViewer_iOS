@@ -12,8 +12,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     let cellReuseIdentifier = "postCell"
     
     @IBOutlet weak var articlesTableView: UITableView!
-
-    
+    var indicatorView: UIActivityIndicatorView!
     var contentArticles: [ContentParty]?
     
     var refreshControl:UIRefreshControl = UIRefreshControl()
@@ -33,10 +32,13 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.articlesTableView.addSubview(refreshControl)
         
+        indicatorView = getIndicatorView()
         searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"], {
             articles in
             self.contentArticles = articles
             self.articlesTableView.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.indicatorView.stopAnimating()
         })
     }
     

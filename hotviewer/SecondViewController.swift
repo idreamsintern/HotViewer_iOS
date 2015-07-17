@@ -20,6 +20,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var currentPage: Int = 1
     
+    var indicatorView: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,10 +28,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.checkinsTableView.rowHeight = UITableViewAutomaticDimension
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        indicatorView = getIndicatorView()
+        indicatorView.startAnimating()
         searchFBCheckin(["coordinates": "25.041399,121.554233", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue], {
             checkins in
             self.fbCheckins = checkins
             self.checkinsTableView.reloadData()
+            self.indicatorView.stopAnimating()
         })
     }
     

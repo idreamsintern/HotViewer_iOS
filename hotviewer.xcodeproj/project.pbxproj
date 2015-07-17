@@ -26,7 +26,7 @@
 		C49F3A281B53FE060012C18D /* hotviewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A271B53FE060012C18D /* hotviewerTests.swift */; };
 		C49F3A321B53FE2B0012C18D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A311B53FE2B0012C18D /* API.swift */; };
 		C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A331B5420470012C18D /* SwiftyJSON.swift */; };
-		C49F3A3E1B546C320012C18D /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3D1B546C320012C18D /* Shuffle.swift */; };
+		C49F3A3E1B546C320012C18D /* AddIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */; };
 		C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */; };
 		C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E0301A1B56AE3F007D6284 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,7 @@
 		C49F3A271B53FE060012C18D /* hotviewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotviewerTests.swift; sourceTree = "<group>"; };
 		C49F3A311B53FE2B0012C18D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C49F3A331B5420470012C18D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		C49F3A3D1B546C320012C18D /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
+		C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIndicatorView.swift; sourceTree = "<group>"; };
 		C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBodyContent.swift; sourceTree = "<group>"; };
 		C4E0301A1B56AE3F007D6284 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C49F3A331B5420470012C18D /* SwiftyJSON.swift */,
-				C49F3A3D1B546C320012C18D /* Shuffle.swift */,
+				C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */,
 				C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */,
 				910D96C01B57043500ECB425 /* SimpleCache.swift */,
 			);
@@ -285,7 +285,7 @@
 				A112D1B61B593D9E00B4917B /* RouteTableViewController.swift in Sources */,
 				C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */,
 				C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */,
-				C49F3A3E1B546C320012C18D /* Shuffle.swift in Sources */,
+				C49F3A3E1B546C320012C18D /* AddIndicatorView.swift in Sources */,
 				C40E3D951B569B7000A8EAEB /* AllMethods.swift in Sources */,
 				C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */,
 				C49F3A321B53FE2B0012C18D /* API.swift in Sources */,
