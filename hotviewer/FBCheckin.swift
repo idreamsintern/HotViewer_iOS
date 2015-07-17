@@ -21,7 +21,7 @@ class FBCheckin {
     var startDate: String?
     var thumbnailURL: NSURL?
     
-    init(checkinJSON : JSON) {
+    init(checkinJSON : JSON) { 
         self.id = checkinJSON["id"].string
         self.name = checkinJSON["name"].string
         self.longitude = NSString(string: checkinJSON["longitude"].stringValue).doubleValue

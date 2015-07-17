@@ -50,10 +50,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        var mapViewCtrl = segue.destinationViewController as! MapViewController
+        mapViewCtrl.fbCheckin = (sender as? FBCheckin)
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var fbCheckIn = (fbCheckins?[indexPath.row] as FBCheckin?)
+        self.performSegueWithIdentifier("showMapView", sender: fbCheckIn)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
