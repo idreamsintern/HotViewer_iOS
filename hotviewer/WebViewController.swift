@@ -13,11 +13,11 @@ import Social
 class WebViewController : UIViewController {
     @IBOutlet weak var webView: UIWebView!
     var url: NSURL?
+    var rawContent: String?
     
-    override func viewWillAppear(animated: Bool) {        
-        if let url = self.url {
-            let request = NSURLRequest(URL: url)
-            webView.loadRequest(request)
+    override func viewWillAppear(animated: Bool) {
+        if let rawContent = self.rawContent {
+            webView.loadHTMLString(rawContent, baseURL: nil)
         }
         var shareBtn : UIBarButtonItem = UIBarButtonItem(title: "分享", style: UIBarButtonItemStyle.Plain, target: self, action: "shareClick:")
         self.navigationItem.rightBarButtonItem = shareBtn

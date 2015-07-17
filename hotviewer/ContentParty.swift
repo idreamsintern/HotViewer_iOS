@@ -23,6 +23,7 @@ class ContentParty {
        getArticle and callback as onLoad() */
     var loaded: Bool = false
     var content: String?
+    var rawContent: String?
     var tag: String?
     var url: NSURL?
     var thumbnailURL: NSURL?
@@ -40,11 +41,13 @@ class ContentParty {
             succeeded, msg, result in
             var rawContent = result["content"].string
             if var rawContent = rawContent {
-                rawContent = rawContent.stringByReplacingOccurrencesOfString(" ", withString: "")
+                self.rawContent = rawContent
                 
                 self.tag = result["tag"].string
                 self.url = NSURL(string: result["source_url"].stringValue)
                 
+                // Remove all whitespaces
+                rawContent = rawContent.stringByReplacingOccurrencesOfString(" ", withString: "")
                 if let imgUrl = matchRegex(".+imgsrc=(.+)alt.+", text: rawContent, template: "$1") {
                     self.thumbnailURL = NSURL(string: imgUrl)
                 }

@@ -74,12 +74,15 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var webViewCtrl = segue.destinationViewController as! WebViewController
-        webViewCtrl.url = sender as? NSURL
+        let webViewCtrl = segue.destinationViewController as! WebViewController
+        let article = sender as! ContentParty
+        webViewCtrl.url = article.url
+        webViewCtrl.rawContent = article.rawContent
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let url = (contentArticles?[indexPath.row] as ContentParty?)?.url {
-            self.performSegueWithIdentifier("showWebView", sender: url)
+        let article = (contentArticles?[indexPath.row] as ContentParty?)
+        if let rawContent = article?.rawContent, let url = article?.url {
+            self.performSegueWithIdentifier("showWebView", sender: article)
         }
     }
     override func didReceiveMemoryWarning() {
