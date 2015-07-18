@@ -7,32 +7,51 @@
 //
 
 import UIKit
+import MapKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     let cellReuseIdentifier = "checkinCell"
     
     @IBOutlet weak var checkinsTableView: UITableView!
-    
+    let locationManager = CLLocationManager()
     
     var fbCheckins: [FBCheckin]?
     
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var currentPage: Int = 1
     
+    var indicatorView: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.startUpdatingLocation()
+        }
         
         self.checkinsTableView.estimatedRowHeight = CGFloat(400)
         self.checkinsTableView.rowHeight = UITableViewAutomaticDimension
         
         // Do any additional setup after loading the view, typically from a nib.
-        searchFBCheckin(["coordinates": "25.041399,121.554233", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue], {
-            checkins in
+        
+        indicatorView = getIndicatorView()
+        indicatorView.startAnimating()
+    }
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        manager.stopUpdatingLocation()
+        println("Current location = \(locValue.latitude) \(locValue.longitude)")
+        SERAPI.instance.searchFBCheckin(["coordinates": "\(locValue.latitude),\(locValue.longitude)", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue]) {
+            (checkins: [FBCheckin]?) in
             self.fbCheckins = checkins
             self.checkinsTableView.reloadData()
-        })
+            self.indicatorView.stopAnimating()
+        }
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fbCheckins?.count ?? 0
     }
@@ -61,7 +80,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @IBAction func homeScreen(segue:UIStoryboardSegue) {
+    }
     
 }
 

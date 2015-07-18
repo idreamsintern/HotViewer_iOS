@@ -8,7 +8,6 @@
 
 import Foundation
 
-let serAPI = API(apiUrl: "http://api.ser.ideas.iii.org.tw/api/", token: "api_doc_token")
 
 class FBCheckin {
     var id: String?
