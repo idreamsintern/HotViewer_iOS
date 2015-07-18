@@ -41,8 +41,15 @@
 	<string>hotviewer</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location service is required to find out your current location</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Mohave.otf</string>
+		<string>Mohave-SemiBold.otf</string>
+		<string>Mohave-SemiBold Italics.otf</string>
+		<string>Mohave-Bold.otf</string>
+		<string>Mohave-Bold Italics.otf</string>
+		<string>Mohave Italics.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
