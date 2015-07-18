@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FEFC12D1B5A600F001240EE /* Mohave Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1271B5A600F001240EE /* Mohave Italics.otf */; };
+		1FEFC12E1B5A600F001240EE /* Mohave-Bold Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */; };
+		1FEFC12F1B5A600F001240EE /* Mohave-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */; };
+		1FEFC1301B5A600F001240EE /* Mohave-SemiBold Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC12A1B5A600F001240EE /* Mohave-SemiBold Italics.otf */; };
+		1FEFC1311B5A600F001240EE /* Mohave-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC12B1B5A600F001240EE /* Mohave-SemiBold.otf */; };
+		1FEFC1321B5A600F001240EE /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC12C1B5A600F001240EE /* Mohave.otf */; };
 		910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D96C01B57043500ECB425 /* SimpleCache.swift */; };
 		911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */; };
 		A18BBB261B56E3C10048C29D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18BBB251B56E3C10048C29D /* PostCell.swift */; };
@@ -41,6 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FEFC1271B5A600F001240EE /* Mohave Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave Italics.otf"; sourceTree = "<group>"; };
+		1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold Italics.otf"; sourceTree = "<group>"; };
+		1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold.otf"; sourceTree = "<group>"; };
+		1FEFC12A1B5A600F001240EE /* Mohave-SemiBold Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-SemiBold Italics.otf"; sourceTree = "<group>"; };
+		1FEFC12B1B5A600F001240EE /* Mohave-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-SemiBold.otf"; sourceTree = "<group>"; };
+		1FEFC12C1B5A600F001240EE /* Mohave.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mohave.otf; sourceTree = "<group>"; };
 		910D96C01B57043500ECB425 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCache.swift; sourceTree = "<group>"; };
 		911AA4F41B572A5500AA6AED /* hotviewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hotviewer.xcdatamodel; sourceTree = "<group>"; };
 		A18BBB251B56E3C10048C29D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -158,6 +170,12 @@
 		C49F3A391B5467980012C18D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1FEFC1271B5A600F001240EE /* Mohave Italics.otf */,
+				1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */,
+				1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */,
+				1FEFC12A1B5A600F001240EE /* Mohave-SemiBold Italics.otf */,
+				1FEFC12B1B5A600F001240EE /* Mohave-SemiBold.otf */,
+				1FEFC12C1B5A600F001240EE /* Mohave.otf */,
 				C49F3A331B5420470012C18D /* SwiftyJSON.swift */,
 				C49F3A3D1B546C320012C18D /* Shuffle.swift */,
 				C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */,
@@ -253,8 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49F3A171B53FE060012C18D /* Main.storyboard in Resources */,
+				1FEFC1321B5A600F001240EE /* Mohave.otf in Resources */,
+				1FEFC12E1B5A600F001240EE /* Mohave-Bold Italics.otf in Resources */,
+				1FEFC12F1B5A600F001240EE /* Mohave-Bold.otf in Resources */,
 				C49F3A1C1B53FE060012C18D /* LaunchScreen.xib in Resources */,
+				1FEFC12D1B5A600F001240EE /* Mohave Italics.otf in Resources */,
 				C49F3A191B53FE060012C18D /* Images.xcassets in Resources */,
+				1FEFC1311B5A600F001240EE /* Mohave-SemiBold.otf in Resources */,
+				1FEFC1301B5A600F001240EE /* Mohave-SemiBold Italics.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
