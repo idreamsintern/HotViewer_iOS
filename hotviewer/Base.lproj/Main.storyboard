@@ -11,6 +11,14 @@
         <mutableArray key="Hallo sans light.otf">
             <string>Hallosans-Light</string>
         </mutableArray>
+        <mutableArray key="MHeiHK-Light.otf">
+            <string>MHeiHK-Light</string>
+            <string>MHeiHK-Light</string>
+        </mutableArray>
+        <mutableArray key="MHeiHK-Medium.otf">
+            <string>MHeiHK-Medium</string>
+            <string>MHeiHK-Medium</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--ContentParty-->
@@ -25,11 +33,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="493" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="600" id="OGe-Ud-D5e" customClass="PostCell" customModule="hotviewer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="600" id="OGe-Ud-D5e" customClass="PostCell" customModule="hotviewer" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGe-Ud-D5e" id="c1e-RK-hvO">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -42,13 +50,13 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBZ-a7-pWM">
                                                     <rect key="frame" x="8" y="8" width="584" height="28"/>
-                                                    <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="MHeiHK-Medium" family="MHeiHK" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Content" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWA-2g-pUm">
                                                     <rect key="frame" x="8" y="271" width="584" height="320"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="MHeiHK-Light" family="MHeiHK" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -163,7 +171,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yQj-5r-0lI">
-                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <rect key="frame" x="238" y="7" width="125" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Car"/>
@@ -222,7 +230,7 @@
             </objects>
             <point key="canvasLocation" x="3907" y="360"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Check-in-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -234,28 +242,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="493" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RDJ-Xo-uSY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="RDJ-Xo-uSY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="checkinCell" rowHeight="600" id="C0I-1y-nPl" customClass="FBCheckinCell" customModule="hotviewer" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C0I-1y-nPl" id="yd6-CP-juN">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-Gx-J5j">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-Gx-J5j">
                                                     <rect key="frame" x="8" y="8" width="584" height="28"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="MHeiHK-Medium" family="MHeiHK" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Content" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZA-N6-QNx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Content" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZA-N6-QNx">
                                                     <rect key="frame" x="8" y="271" width="584" height="320"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="MHeiHK-Light" family="MHeiHK" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-C8-DMU">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-C8-DMU">
                                                     <rect key="frame" x="8" y="43" width="584" height="221"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="221" id="iMQ-jb-MWO"/>
@@ -296,7 +304,7 @@
                             <constraint firstItem="RDJ-Xo-uSY" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="abj-w5-6iA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="F0a-Hr-Pmb"/>
+                    <navigationItem key="navigationItem" title="Check-in" id="F0a-Hr-Pmb"/>
                     <connections>
                         <outlet property="checkinsTableView" destination="RDJ-Xo-uSY" id="1ya-Rq-FmS"/>
                         <segue destination="IqO-bT-xfL" kind="show" identifier="showMapView" id="ZF1-FH-RbZ"/>
@@ -421,6 +429,65 @@
             </objects>
             <point key="canvasLocation" x="427" y="-1039"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="IVG-Pq-zGJ">
+            <objects>
+                <viewController id="JyV-AH-wFj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5gj-LS-21G"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Bs-fX-Eq1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n18-2O-QTY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="8py-Wo-LID">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kN0-E5-Eja">
+                                <rect key="frame" x="197" y="457" width="207" height="75"/>
+                                <color key="backgroundColor" red="0.16016694719999999" green="0.56274564589999998" blue="0.91668639519999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="207" id="aUq-FV-czV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Name" translatesAutoresizingMaskIntoConstraints="NO" id="ZGK-L9-Xpx">
+                                <rect key="frame" x="199" y="332" width="202" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="uaO-t6-hDI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="8py-Wo-LID" secondAttribute="bottom" id="4mQ-dq-wiv"/>
+                            <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="kN0-E5-Eja" secondAttribute="bottom" constant="68" id="9yk-uJ-xOg"/>
+                            <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="50" id="LjB-0K-hhw"/>
+                            <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="437" id="WIe-vE-N1k"/>
+                            <constraint firstItem="kN0-E5-Eja" firstAttribute="centerX" secondItem="8py-Wo-LID" secondAttribute="centerX" id="aev-Ea-VBj"/>
+                            <constraint firstItem="8py-Wo-LID" firstAttribute="leading" secondItem="n18-2O-QTY" secondAttribute="leadingMargin" constant="-16" id="dOj-L8-zex"/>
+                            <constraint firstItem="ZGK-L9-Xpx" firstAttribute="centerX" secondItem="kN0-E5-Eja" secondAttribute="centerX" id="dja-nd-1hn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8py-Wo-LID" secondAttribute="trailing" constant="-16" id="ha5-Zk-O5r"/>
+                            <constraint firstItem="8py-Wo-LID" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" id="wsf-vl-Pl0"/>
+                            <constraint firstItem="ZGK-L9-Xpx" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="312" id="wur-7q-90Q"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c36-3i-Mep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-776" y="-353"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -539,6 +606,8 @@
     <resources>
         <image name="Home" width="30" height="30"/>
         <image name="Maps" width="30" height="30"/>
+        <image name="Name" width="689" height="253"/>
         <image name="forward" width="128" height="128"/>
+        <image name="main" width="812" height="1125"/>
     </resources>
 </document>

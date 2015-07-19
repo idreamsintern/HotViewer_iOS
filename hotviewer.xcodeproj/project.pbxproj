@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1F65FD8B1B5A785A005D7038 /* FbLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */; };
+		1F917D781B5BA8E100AB4795 /* MYuenHK-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F917D771B5BA8E100AB4795 /* MYuenHK-Light.otf */; };
+		1F917D7A1B5BAA7700AB4795 /* MHeiHK-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F917D791B5BAA7700AB4795 /* MHeiHK-Light.otf */; };
+		1F917D7C1B5BABB200AB4795 /* MHeiHK-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F917D7B1B5BABB200AB4795 /* MHeiHK-Medium.otf */; };
 		1FEFC12D1B5A600F001240EE /* Mohave Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1271B5A600F001240EE /* Mohave Italics.otf */; };
 		1FEFC12E1B5A600F001240EE /* Mohave-Bold Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */; };
 		1FEFC12F1B5A600F001240EE /* Mohave-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */; };
@@ -60,6 +63,9 @@
 
 /* Begin PBXFileReference section */
 		1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbLoginViewController.swift; sourceTree = "<group>"; };
+		1F917D771B5BA8E100AB4795 /* MYuenHK-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MYuenHK-Light.otf"; sourceTree = "<group>"; };
+		1F917D791B5BAA7700AB4795 /* MHeiHK-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MHeiHK-Light.otf"; sourceTree = "<group>"; };
+		1F917D7B1B5BABB200AB4795 /* MHeiHK-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MHeiHK-Medium.otf"; sourceTree = "<group>"; };
 		1FEFC1271B5A600F001240EE /* Mohave Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave Italics.otf"; sourceTree = "<group>"; };
 		1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold Italics.otf"; sourceTree = "<group>"; };
 		1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold.otf"; sourceTree = "<group>"; };
@@ -239,6 +245,9 @@
 				1FEFC1331B5A6428001240EE /* Hallo sans black.otf */,
 				1FEFC1341B5A6428001240EE /* Hallo sans light.otf */,
 				1FEFC1351B5A6428001240EE /* Hallo sans.otf */,
+				1F917D771B5BA8E100AB4795 /* MYuenHK-Light.otf */,
+				1F917D791B5BAA7700AB4795 /* MHeiHK-Light.otf */,
+				1F917D7B1B5BABB200AB4795 /* MHeiHK-Medium.otf */,
 				C49F3A331B5420470012C18D /* SwiftyJSON.swift */,
 				C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */,
 				C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */,
@@ -333,13 +342,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F917D781B5BA8E100AB4795 /* MYuenHK-Light.otf in Resources */,
 				C49F3A171B53FE060012C18D /* Main.storyboard in Resources */,
 				1FEFC1321B5A600F001240EE /* Mohave.otf in Resources */,
 				1FEFC1381B5A6428001240EE /* Hallo sans.otf in Resources */,
+				1F917D7C1B5BABB200AB4795 /* MHeiHK-Medium.otf in Resources */,
 				1FEFC12E1B5A600F001240EE /* Mohave-Bold Italics.otf in Resources */,
 				1FEFC12F1B5A600F001240EE /* Mohave-Bold.otf in Resources */,
 				C49F3A1C1B53FE060012C18D /* LaunchScreen.xib in Resources */,
 				1FEFC12D1B5A600F001240EE /* Mohave Italics.otf in Resources */,
+				1F917D7A1B5BAA7700AB4795 /* MHeiHK-Light.otf in Resources */,
 				C49F3A191B53FE060012C18D /* Images.xcassets in Resources */,
 				1FEFC1361B5A6428001240EE /* Hallo sans black.otf in Resources */,
 				1FEFC1311B5A600F001240EE /* Mohave-SemiBold.otf in Resources */,

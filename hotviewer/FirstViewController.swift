@@ -21,6 +21,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 238/255, green: 201/255, blue: 0/255, alpha: 1)
         
         // Launch walkthrough screens
         if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
@@ -65,9 +66,15 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentArticles?.count ?? 0
     }
-
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? PostCell
+        
+        if (indexPath.row % 2 == 1) {
+            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
+        } else {
+            cell?.backgroundColor = UIColor.whiteColor()
+        }
+        
         if let article = contentArticles?[indexPath.row] as ContentArticle? {
             cell?.title?.text = article.title
             
