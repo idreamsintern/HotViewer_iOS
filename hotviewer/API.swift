@@ -36,7 +36,7 @@ class API {
                 
                 if let expireDateString = result["token_expire"].string {
                     let dateStringFormatter = NSDateFormatter()
-                    dateStringFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                    dateStringFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     self.tokenExpireDate = dateStringFormatter.dateFromString(expireDateString)
                 }
                 
