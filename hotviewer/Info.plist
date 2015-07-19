@@ -39,6 +39,8 @@
 	<string>472650399574278</string>
 	<key>FacebookDisplayName</key>
 	<string>hotviewer</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location service is required to find out your current location</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
