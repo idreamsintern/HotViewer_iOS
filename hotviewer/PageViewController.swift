@@ -11,7 +11,7 @@ import UIKit
 class PageViewController: UIPageViewController , UIPageViewControllerDataSource {
     
     var pageHeadings = ["Personalize", "Locate", "Discover"]
-    var pageImages = ["mapintro", "mapintro", "mapintro"]
+    var pageImages = ["Personalize", "Locate", "Discover"]
     var pageSubHeadings = ["Pin your favourite restaurants and create your own food guide", "Search and locate your favourite restaurant on Maps", "Find restaurants pinned by your friends and other foodies around the world"]
     
     override func viewDidLoad() {

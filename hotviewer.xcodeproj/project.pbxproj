@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F65FD8B1B5A785A005D7038 /* FbLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */; };
 		1FEFC12D1B5A600F001240EE /* Mohave Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1271B5A600F001240EE /* Mohave Italics.otf */; };
 		1FEFC12E1B5A600F001240EE /* Mohave-Bold Italics.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */; };
 		1FEFC12F1B5A600F001240EE /* Mohave-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */; };
@@ -23,8 +24,8 @@
 		C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentArticle.swift */; };
 		C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */; };
 		C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40ECE751B5A3E1300419B86 /* PageViewController.swift */; };
-		C40ECE781B5A5C6D00419B86 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE771B5A5C6D00419B86 /* FBSDKCoreKit.framework */; };
-		C40ECE7A1B5A5C7F00419B86 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE791B5A5C7F00419B86 /* FBSDKLoginKit.framework */; };
+		C40ECE781B5A5C6D00419B86 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE771B5A5C6D00419B86 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		C40ECE7A1B5A5C7F00419B86 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE791B5A5C7F00419B86 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C40ECE7C1B5A5C8600419B86 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE7B1B5A5C8600419B86 /* FBSDKShareKit.framework */; };
 		C45C37651B584285000646C2 /* FBCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37641B584285000646C2 /* FBCheckin.swift */; };
 		C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37661B586775000646C2 /* FBCheckinCell.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbLoginViewController.swift; sourceTree = "<group>"; };
 		1FEFC1271B5A600F001240EE /* Mohave Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave Italics.otf"; sourceTree = "<group>"; };
 		1FEFC1281B5A600F001240EE /* Mohave-Bold Italics.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold Italics.otf"; sourceTree = "<group>"; };
 		1FEFC1291B5A600F001240EE /* Mohave-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold.otf"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				C47E67D41B58F3F700501D61 /* MapViewController.swift */,
 				A112D1B51B593D9E00B4917B /* RouteTableViewController.swift */,
 				C40ECE751B5A3E1300419B86 /* PageViewController.swift */,
+				1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			files = (
 				C49F3A141B53FE060012C18D /* SecondViewController.swift in Sources */,
 				C45C37651B584285000646C2 /* FBCheckin.swift in Sources */,
+				1F65FD8B1B5A785A005D7038 /* FbLoginViewController.swift in Sources */,
 				911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */,
 				910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */,
 				C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */,

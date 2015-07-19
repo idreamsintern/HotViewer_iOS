@@ -326,38 +326,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XWA-7j-eb1">
-                                <rect key="frame" x="0.0" y="263" width="600" height="337"/>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XWA-7j-eb1">
+                                <rect key="frame" x="0.0" y="172" width="600" height="428"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Heading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c0-fl-jTC">
-                                <rect key="frame" x="16" y="65" width="568" height="35"/>
-                                <fontDescription key="fontDescription" name="Hallosans-Black" family="Hallo sans" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8w-9I-qoY">
-                                <rect key="frame" x="16" y="108" width="568" height="24"/>
+                                <rect key="frame" x="16" y="115" width="568" height="24"/>
                                 <fontDescription key="fontDescription" name="Hallosans-Light" family="Hallo sans" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAf-NB-2GL">
-                                <rect key="frame" x="268" y="172" width="65" height="36"/>
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAf-NB-2GL">
+                                <rect key="frame" x="268" y="185" width="65" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.27544157875734798" blue="0.14439608448242836" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="dG2-Jb-urn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="23"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.99467697759999996" green="1" blue="0.98943248579999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="close:" destination="q7L-zO-ntf" eventType="touchUpInside" id="rs4-dY-6TG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-UD-Hs3">
-                                <rect key="frame" x="278" y="172" width="44" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-UD-Hs3">
+                                <rect key="frame" x="278" y="185" width="44" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="3Dk-9c-5qg"/>
                                     <constraint firstAttribute="height" constant="38" id="ode-Or-oLG"/>
@@ -374,30 +374,36 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QQ2-v7-nty">
-                                <rect key="frame" x="16" y="20" width="568" height="40"/>
+                                <rect key="frame" x="16" y="35" width="568" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.27544157879999998" blue="0.14439608449999999" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Heading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c0-fl-jTC">
+                                <rect key="frame" x="16" y="72" width="568" height="35"/>
+                                <fontDescription key="fontDescription" name="Hallosans-Black" family="Hallo sans" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QQ2-v7-nty" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" id="2c3-wo-apa"/>
                             <constraint firstItem="2c0-fl-jTC" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" id="2dR-QB-J4O"/>
-                            <constraint firstItem="R8w-9I-qoY" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" id="AQ6-dC-1EA"/>
                             <constraint firstAttribute="centerX" secondItem="IZd-UD-Hs3" secondAttribute="centerX" id="FfU-dA-KS0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XWA-7j-eb1" secondAttribute="trailing" constant="-16" id="Ifc-wZ-0mX"/>
-                            <constraint firstItem="XWA-7j-eb1" firstAttribute="top" secondItem="EAf-NB-2GL" secondAttribute="bottom" constant="55" id="JPa-VA-Rea"/>
-                            <constraint firstItem="XWA-7j-eb1" firstAttribute="top" secondItem="IZd-UD-Hs3" secondAttribute="bottom" constant="53" id="KMD-Xd-BY3"/>
-                            <constraint firstItem="QQ2-v7-nty" firstAttribute="top" secondItem="Txu-2A-zGE" secondAttribute="bottom" id="RML-vF-yXp"/>
-                            <constraint firstItem="R8w-9I-qoY" firstAttribute="trailing" secondItem="cjs-c0-2TV" secondAttribute="trailingMargin" id="XWq-9w-QzR"/>
-                            <constraint firstItem="IZd-UD-Hs3" firstAttribute="top" secondItem="cjs-c0-2TV" secondAttribute="top" constant="172" id="aiO-ub-vlg"/>
-                            <constraint firstItem="2c0-fl-jTC" firstAttribute="top" secondItem="QQ2-v7-nty" secondAttribute="bottom" constant="10" id="anp-ok-XoI"/>
-                            <constraint firstItem="R8w-9I-qoY" firstAttribute="top" secondItem="2c0-fl-jTC" secondAttribute="bottom" constant="9" id="bPR-Es-A29"/>
+                            <constraint firstItem="2c0-fl-jTC" firstAttribute="trailing" secondItem="cjs-c0-2TV" secondAttribute="trailingMargin" id="KEU-1d-tcp"/>
+                            <constraint firstItem="IZd-UD-Hs3" firstAttribute="top" secondItem="R8w-9I-qoY" secondAttribute="bottom" constant="46" id="LRK-ih-ITD"/>
+                            <constraint firstItem="R8w-9I-qoY" firstAttribute="top" secondItem="2c0-fl-jTC" secondAttribute="bottom" constant="15" id="M01-G0-L0T"/>
+                            <constraint firstItem="R8w-9I-qoY" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" id="OHk-LG-FJ6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XWA-7j-eb1" secondAttribute="trailing" constant="-16" id="SDH-1o-7Hv"/>
+                            <constraint firstItem="EAf-NB-2GL" firstAttribute="top" secondItem="R8w-9I-qoY" secondAttribute="bottom" constant="46" id="ZMJ-tL-uCs"/>
+                            <constraint firstItem="QQ2-v7-nty" firstAttribute="top" secondItem="Txu-2A-zGE" secondAttribute="bottom" constant="15" id="b8f-X2-Ilw"/>
                             <constraint firstItem="EAf-NB-2GL" firstAttribute="centerX" secondItem="IZd-UD-Hs3" secondAttribute="centerX" id="e3B-HE-Y2R"/>
-                            <constraint firstItem="2c0-fl-jTC" firstAttribute="trailing" secondItem="cjs-c0-2TV" secondAttribute="trailingMargin" id="gKy-ku-t85"/>
-                            <constraint firstItem="lDt-lZ-ZdH" firstAttribute="top" secondItem="XWA-7j-eb1" secondAttribute="bottom" id="p9r-T4-Oea"/>
-                            <constraint firstItem="XWA-7j-eb1" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" constant="-16" id="pbb-Ba-6LZ"/>
-                            <constraint firstItem="IZd-UD-Hs3" firstAttribute="top" secondItem="R8w-9I-qoY" secondAttribute="bottom" constant="40" id="vIu-9j-gG3"/>
+                            <constraint firstItem="XWA-7j-eb1" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" constant="-16" id="k3b-yB-mLB"/>
+                            <constraint firstItem="R8w-9I-qoY" firstAttribute="trailing" secondItem="cjs-c0-2TV" secondAttribute="trailingMargin" id="lGt-wZ-ahD"/>
+                            <constraint firstItem="lDt-lZ-ZdH" firstAttribute="top" secondItem="XWA-7j-eb1" secondAttribute="bottom" id="nTc-pV-wAg"/>
+                            <constraint firstItem="2c0-fl-jTC" firstAttribute="top" secondItem="Txu-2A-zGE" secondAttribute="bottom" constant="52" id="s4y-OZ-ZP7"/>
+                            <constraint firstItem="XWA-7j-eb1" firstAttribute="top" secondItem="Txu-2A-zGE" secondAttribute="bottom" constant="152" id="sDc-5W-4Pw"/>
+                            <constraint firstItem="2c0-fl-jTC" firstAttribute="leading" secondItem="cjs-c0-2TV" secondAttribute="leadingMargin" id="wOX-uS-ecA"/>
                             <constraint firstItem="EAf-NB-2GL" firstAttribute="top" secondItem="IZd-UD-Hs3" secondAttribute="top" id="xGq-oD-mFx"/>
                             <constraint firstItem="QQ2-v7-nty" firstAttribute="trailing" secondItem="cjs-c0-2TV" secondAttribute="trailingMargin" id="yup-xN-3Ie"/>
                         </constraints>
@@ -433,7 +439,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-28" y="0.0"/>
         </scene>
         <!--Home-->
         <scene sceneID="xhD-rj-c82">
@@ -473,10 +479,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--View Controller-->
+        <!--Fb Login View Controller-->
         <scene sceneID="As8-IF-pr2">
             <objects>
-                <viewController id="y2r-kT-9u0" sceneMemberID="viewController">
+                <viewController id="y2r-kT-9u0" customClass="FbLoginViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="are-OI-ZL0"/>
                         <viewControllerLayoutGuide type="bottom" id="fem-iM-Zah"/>
