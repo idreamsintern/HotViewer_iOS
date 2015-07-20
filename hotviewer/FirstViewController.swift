@@ -80,7 +80,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 article.getArticle({
                     cell?.thumbnailURL = article.thumbnailURL
                     cell?.content?.text = article.content
-                    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
                 })
             }
         }
