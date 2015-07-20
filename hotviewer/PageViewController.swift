@@ -11,7 +11,7 @@ import UIKit
 class PageViewController: UIPageViewController , UIPageViewControllerDataSource {
     
     var pageHeadings = ["Personalize", "Locate", "Discover"]
-    var pageImages = ["Personalize", "Locate", "Discover"]
+    var pageImages = ["personalize", "locate", "discover"]
     var pageSubHeadings = ["Brand new reading style - Make automatic selection of articles you are interested in.", "Showing check-in spots within a radius of \n10 kilometers around you on maps.", "Riches do not always bring happiness, \nreading does."]
     
     override func viewDidLoad() {
