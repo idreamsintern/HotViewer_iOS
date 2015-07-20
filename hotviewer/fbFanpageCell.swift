@@ -9,9 +9,9 @@
 import UIKit
 
 class fbFanpageCell: UITableViewCell {
-
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var thumbanilImageView: UIImageView!
-    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var description: UILabel!
     @IBOutlet weak var fanCount: UILabel!
     let loadingText = "載入中..."
     

@@ -90,10 +90,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="board" destination="aup-7o-Ecj" id="Hqv-s2-I1H"/>
-                                            <outlet property="push" destination="lqG-L2-2kE" id="6v3-OW-xLb"/>
-                                            <outlet property="thumbnailmageView" destination="6iW-e0-TfV" id="TlJ-nt-acA"/>
-                                            <outlet property="title" destination="2IG-n6-fdK" id="lwN-Tp-Vfe"/>
+                                            <outlet property="description" destination="lqG-L2-2kE" id="WSV-rE-psz"/>
+                                            <outlet property="fanCount" destination="aup-7o-Ecj" id="EZh-qK-cOX"/>
+                                            <outlet property="thumbanilImageView" destination="6iW-e0-TfV" id="2Bh-Ci-wlQ"/>
+                                            <outlet property="title" destination="2IG-n6-fdK" id="YXr-Q6-0QU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pttCell" rowHeight="121" id="7KN-PM-hVf" customClass="pttCell" customModule="hotviewer" customModuleProvider="target">
