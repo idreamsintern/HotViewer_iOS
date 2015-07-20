@@ -31,7 +31,7 @@ class SERAPI: API {
     }
     func searchPTTTopArticle(params: [String: String?], onLoad: (pttArticles: [PTTArticle]? ) -> ()) {
         self.ensureValidToken() {
-            self.post(params, url: "top_article", postCompleted: {
+            self.post(params, url: "top_article/ptt", postCompleted: {
                 succeeded, msg, result in
                 var pttArticles = [PTTArticle]()
                 
