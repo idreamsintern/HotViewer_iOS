@@ -25,12 +25,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // Launch walkthrough screens
         if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
-            
+
             self.presentViewController(pageViewController, animated: true, completion: nil)
         }
-        
-        
-
         
         self.articlesTableView.estimatedRowHeight = CGFloat(400)
         self.articlesTableView.rowHeight = UITableViewAutomaticDimension

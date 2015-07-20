@@ -546,20 +546,66 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Fb Login View Controller-->
+        <!--Preference View Controller-->
         <scene sceneID="As8-IF-pr2">
             <objects>
-                <viewController id="y2r-kT-9u0" customClass="FbLoginViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="y2r-kT-9u0" customClass="PreferenceViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="are-OI-ZL0"/>
                         <viewControllerLayoutGuide type="bottom" id="fem-iM-Zah"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M9X-Dn-HhR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2eo-Md-ThW" customClass="FongerCategoryTableView" customModule="hotviewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="89" id="BU1-hw-p4w" customClass="FongerCategoryCell" customModule="hotviewer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BU1-hw-p4w" id="Bk7-4l-zu7">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itc-lG-bks">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <size key="titleShadowOffset" width="2" height="2"/>
+                                                    <state key="normal" title="This is a full width/height button">
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onButtonClick:" destination="BU1-hw-p4w" eventType="touchUpInside" id="w8S-Zg-ycR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="itc-lG-bks" secondAttribute="trailing" constant="-8" id="5Dg-1p-zXt"/>
+                                                <constraint firstItem="itc-lG-bks" firstAttribute="top" secondItem="Bk7-4l-zu7" secondAttribute="topMargin" constant="-8" id="SjN-jb-vQY"/>
+                                                <constraint firstItem="itc-lG-bks" firstAttribute="leading" secondItem="Bk7-4l-zu7" secondAttribute="leadingMargin" constant="-8" id="XZT-vY-A9g"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="itc-lG-bks" secondAttribute="bottom" constant="-8" id="dq0-eL-UUR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="button" destination="itc-lG-bks" id="wN8-uz-ZuB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2eo-Md-ThW" firstAttribute="top" secondItem="M9X-Dn-HhR" secondAttribute="topMargin" id="Bud-fB-hyT"/>
+                            <constraint firstItem="2eo-Md-ThW" firstAttribute="bottom" secondItem="M9X-Dn-HhR" secondAttribute="bottomMargin" id="hHb-Cn-LVc"/>
+                            <constraint firstItem="2eo-Md-ThW" firstAttribute="leading" secondItem="M9X-Dn-HhR" secondAttribute="leadingMargin" constant="-16" id="pVG-Vi-OSh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2eo-Md-ThW" secondAttribute="trailing" constant="-16" id="ypv-zC-Gum"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="16p-BX-U17"/>
+                    <connections>
+                        <outlet property="prefTableView" destination="2eo-Md-ThW" id="aye-1b-Kf5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIr-Bb-xJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

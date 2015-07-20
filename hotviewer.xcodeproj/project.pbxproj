@@ -30,8 +30,14 @@
 		C40ECE781B5A5C6D00419B86 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE771B5A5C6D00419B86 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C40ECE7A1B5A5C7F00419B86 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE791B5A5C7F00419B86 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C40ECE7C1B5A5C8600419B86 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40ECE7B1B5A5C8600419B86 /* FBSDKShareKit.framework */; };
+		C42C4D361B5C717300E9C469 /* FongerCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42C4D351B5C717300E9C469 /* FongerCategoryDelegate.swift */; };
+		C42C4D381B5C719100E9C469 /* FongerCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42C4D371B5C719100E9C469 /* FongerCategoryItem.swift */; };
+		C42C4D3A1B5C71A700E9C469 /* FongerCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42C4D391B5C71A700E9C469 /* FongerCategoryTableView.swift */; };
 		C45C37651B584285000646C2 /* FBCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37641B584285000646C2 /* FBCheckin.swift */; };
 		C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37661B586775000646C2 /* FBCheckinCell.swift */; };
+		C47D0D001B5BC55B00098AE2 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D0CFF1B5BC55B00098AE2 /* PreferenceViewController.swift */; };
+		C47D0D021B5BE82D00098AE2 /* FongerCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D0D011B5BE82D00098AE2 /* FongerCategoryCell.swift */; };
+		C47D0D041B5C271C00098AE2 /* PreferenceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D0D031B5C271C00098AE2 /* PreferenceCategory.swift */; };
 		C47E12911B599C2A00705D29 /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E12901B599C2A00705D29 /* ContentAPI.swift */; };
 		C47E12931B599C3900705D29 /* SERAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E12921B599C3900705D29 /* SERAPI.swift */; };
 		C47E129A1B59BDB400705D29 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C47E12991B59BDB400705D29 /* README.md */; };
@@ -85,8 +91,14 @@
 		C40ECE771B5A5C6D00419B86 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C40ECE791B5A5C7F00419B86 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C40ECE7B1B5A5C8600419B86 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		C42C4D351B5C717300E9C469 /* FongerCategoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryDelegate.swift; sourceTree = "<group>"; };
+		C42C4D371B5C719100E9C469 /* FongerCategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryItem.swift; sourceTree = "<group>"; };
+		C42C4D391B5C71A700E9C469 /* FongerCategoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryTableView.swift; sourceTree = "<group>"; };
 		C45C37641B584285000646C2 /* FBCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCheckin.swift; sourceTree = "<group>"; };
 		C45C37661B586775000646C2 /* FBCheckinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCheckinCell.swift; sourceTree = "<group>"; };
+		C47D0CFF1B5BC55B00098AE2 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		C47D0D011B5BE82D00098AE2 /* FongerCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryCell.swift; sourceTree = "<group>"; };
+		C47D0D031B5C271C00098AE2 /* PreferenceCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceCategory.swift; sourceTree = "<group>"; };
 		C47E12901B599C2A00705D29 /* ContentAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		C47E12921B599C3900705D29 /* SERAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SERAPI.swift; sourceTree = "<group>"; };
 		C47E12991B59BDB400705D29 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -132,6 +144,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C42C4D341B5C715900E9C469 /* FongerCategoryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C42C4D351B5C717300E9C469 /* FongerCategoryDelegate.swift */,
+				C42C4D371B5C719100E9C469 /* FongerCategoryItem.swift */,
+				C42C4D391B5C71A700E9C469 /* FongerCategoryTableView.swift */,
+				C47D0D011B5BE82D00098AE2 /* FongerCategoryCell.swift */,
+			);
+			name = FongerCategoryTableView;
+			sourceTree = "<group>";
+		};
 		C47E12961B59B30000705D29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +168,7 @@
 				A112D1B51B593D9E00B4917B /* RouteTableViewController.swift */,
 				C40ECE751B5A3E1300419B86 /* PageViewController.swift */,
 				1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */,
+				C47D0CFF1B5BC55B00098AE2 /* PreferenceViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -154,6 +178,7 @@
 			children = (
 				C40E3D921B56887300A8EAEB /* ContentArticle.swift */,
 				C45C37641B584285000646C2 /* FBCheckin.swift */,
+				C47D0D031B5C271C00098AE2 /* PreferenceCategory.swift */,
 			);
 			name = Type;
 			sourceTree = "<group>";
@@ -194,6 +219,7 @@
 		C49F3A0C1B53FE060012C18D /* hotviewer */ = {
 			isa = PBXGroup;
 			children = (
+				C42C4D341B5C715900E9C469 /* FongerCategoryTableView */,
 				C47E12981B59B35C00705D29 /* API */,
 				C47E12971B59B33D00705D29 /* Type */,
 				C47E12961B59B30000705D29 /* Controller */,
@@ -378,19 +404,25 @@
 				C45C37651B584285000646C2 /* FBCheckin.swift in Sources */,
 				1F65FD8B1B5A785A005D7038 /* FbLoginViewController.swift in Sources */,
 				911AA4F51B572A5500AA6AED /* hotviewer.xcdatamodeld in Sources */,
+				C42C4D381B5C719100E9C469 /* FongerCategoryItem.swift in Sources */,
 				910D96C11B57043500ECB425 /* SimpleCache.swift in Sources */,
 				C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */,
 				C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */,
+				C47D0D041B5C271C00098AE2 /* PreferenceCategory.swift in Sources */,
 				C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */,
 				A112D1B61B593D9E00B4917B /* RouteTableViewController.swift in Sources */,
 				C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */,
+				C47D0D001B5BC55B00098AE2 /* PreferenceViewController.swift in Sources */,
+				C47D0D021B5BE82D00098AE2 /* FongerCategoryCell.swift in Sources */,
 				C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */,
+				C42C4D3A1B5C71A700E9C469 /* FongerCategoryTableView.swift in Sources */,
 				C47E12911B599C2A00705D29 /* ContentAPI.swift in Sources */,
 				C49F3A3E1B546C320012C18D /* AddIndicatorView.swift in Sources */,
 				C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */,
 				C47E129A1B59BDB400705D29 /* README.md in Sources */,
 				C49F3A321B53FE2B0012C18D /* API.swift in Sources */,
 				C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */,
+				C42C4D361B5C717300E9C469 /* FongerCategoryDelegate.swift in Sources */,
 				C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */,
 				C47E12931B599C3900705D29 /* SERAPI.swift in Sources */,
 				C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */,
