@@ -21,8 +21,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 238/255, green: 201/255, blue: 0/255, alpha: 1)
-        
         // Launch walkthrough screens
         if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
 
