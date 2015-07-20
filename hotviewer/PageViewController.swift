@@ -12,7 +12,7 @@ class PageViewController: UIPageViewController , UIPageViewControllerDataSource 
     
     var pageHeadings = ["Personalize", "Locate", "Discover"]
     var pageImages = ["Personalize", "Locate", "Discover"]
-    var pageSubHeadings = ["Pin your favourite restaurants and create your own food guide", "Search and locate your favourite restaurant on Maps", "Find restaurants pinned by your friends and other foodies around the world"]
+    var pageSubHeadings = ["Brand new reading style - Make automatic selection of articles you are interested in.", "Showing check-in spots within a radius of \n10 kilometers around you on maps.", "Riches do not always bring happiness, \nreading does."]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,6 +7,7 @@
     <customFonts key="customFonts">
         <mutableArray key="Hallo sans black.otf">
             <string>Hallosans-Black</string>
+            <string>Hallosans-Black</string>
         </mutableArray>
         <mutableArray key="Hallo sans light.otf">
             <string>Hallosans-Light</string>
@@ -21,7 +22,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--ContentParty-->
+        <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,8 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
+                                <rect key="frame" x="0.0" y="64" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="600" id="OGe-Ud-D5e" customClass="PostCell" customModule="hotviewer" customModuleProvider="target">
@@ -95,7 +96,20 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ROb-Mk-UEf" secondAttribute="trailing" constant="-16" id="vHb-AF-jwl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ContentParty" id="fmO-Wm-yeZ"/>
+                    <navigationItem key="navigationItem" id="fmO-Wm-yeZ">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" id="Wjc-3A-vyZ">
+                            <rect key="frame" x="158" y="7" width="284" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="284" id="VCV-Wo-TEv"/>
+                            </constraints>
+                            <segments>
+                                <segment title="ContentParty"/>
+                                <segment title="Facebook"/>
+                                <segment title="Ptt"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="ROb-Mk-UEf" id="CC7-if-tpA"/>
                         <segue destination="wSp-q3-5QC" kind="show" identifier="showWebView" id="TpP-xT-fsO"/>
@@ -165,7 +179,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="UCI-A0-wEb">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Direction" id="kb1-xp-GlE">
+                        <barButtonItem key="leftBarButtonItem" title="Navigation" id="kb1-xp-GlE">
                             <connections>
                                 <action selector="showDirection:" destination="IqO-bT-xfL" id="cCj-YW-tFj"/>
                             </connections>
@@ -178,7 +192,7 @@
                                 <segment title="Walking"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="t9Z-f5-hbx">
+                        <barButtonItem key="rightBarButtonItem" title="Exit" id="t9Z-f5-hbx">
                             <connections>
                                 <segue destination="xIZ-Wi-hQh" kind="unwind" unwindAction="homeScreen:" id="eie-yG-cqP"/>
                             </connections>
@@ -264,7 +278,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-C8-DMU">
-                                                    <rect key="frame" x="8" y="43" width="584" height="221"/>
+                                                    <rect key="frame" x="8" y="44" width="584" height="221"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="221" id="iMQ-jb-MWO"/>
                                                     </constraints>
@@ -340,7 +354,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8w-9I-qoY">
                                 <rect key="frame" x="16" y="115" width="568" height="24"/>
                                 <fontDescription key="fontDescription" name="Hallosans-Light" family="Hallo sans" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAf-NB-2GL">
@@ -465,15 +479,24 @@
                                     <constraint firstAttribute="width" constant="202" id="uaO-t6-hDI"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="8py-Wo-LID">
-                                <rect key="frame" x="16" y="-16" width="600" height="580"/>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="8py-Wo-LID">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Name" translatesAutoresizingMaskIntoConstraints="NO" id="EIy-3L-Jgc">
+                                <rect key="frame" x="180" y="312" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="aH3-XX-9rZ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="8py-Wo-LID" secondAttribute="bottom" id="4mQ-dq-wiv"/>
+                            <constraint firstItem="EIy-3L-Jgc" firstAttribute="centerX" secondItem="ZGK-L9-Xpx" secondAttribute="centerX" id="844-6X-qOd"/>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="kN0-E5-Eja" secondAttribute="bottom" constant="68" id="9yk-uJ-xOg"/>
+                            <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="EIy-3L-Jgc" secondAttribute="bottom" constant="17" id="Kfy-xY-gGD"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="50" id="LjB-0K-hhw"/>
+                            <constraint firstItem="EIy-3L-Jgc" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="292" id="TKf-1z-bDO"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="437" id="WIe-vE-N1k"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="centerX" secondItem="8py-Wo-LID" secondAttribute="centerX" id="aev-Ea-VBj"/>
                             <constraint firstItem="8py-Wo-LID" firstAttribute="leading" secondItem="n18-2O-QTY" secondAttribute="leadingMargin" constant="-16" id="dOj-L8-zex"/>
@@ -546,7 +569,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Preference View Controller-->
+        <!--Category-->
         <scene sceneID="As8-IF-pr2">
             <objects>
                 <viewController id="y2r-kT-9u0" customClass="PreferenceViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -570,10 +593,11 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itc-lG-bks">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <fontDescription key="fontDescription" name="Hallosans-Black" family="Hallo sans" pointSize="40"/>
                                                     <size key="titleShadowOffset" width="2" height="2"/>
                                                     <state key="normal" title="This is a full width/height button">
-                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="onButtonClick:" destination="BU1-hw-p4w" eventType="touchUpInside" id="w8S-Zg-ycR"/>
@@ -602,7 +626,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2eo-Md-ThW" secondAttribute="trailing" constant="-16" id="ypv-zC-Gum"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="16p-BX-U17"/>
+                    <navigationItem key="navigationItem" title="Category" id="16p-BX-U17"/>
                     <connections>
                         <outlet property="prefTableView" destination="2eo-Md-ThW" id="aye-1b-Kf5"/>
                     </connections>
@@ -629,11 +653,11 @@
             </objects>
             <point key="canvasLocation" x="3105" y="360"/>
         </scene>
-        <!--Item-->
+        <!--Category-->
         <scene sceneID="915-JX-DmY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TBE-Ye-Zaa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="M53-VR-y8L"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="Category" id="M53-VR-y8L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uK2-KV-F3f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -650,6 +674,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
         <image name="Maps" width="30" height="30"/>
         <image name="Name" width="689" height="253"/>
