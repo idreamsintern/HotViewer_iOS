@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // Change navigation bar appearance
+        
+        UISegmentedControl.appearance().tintColor = UIColor.whiteColor()
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.blackColor()], forState: UIControlState.Selected)
+        
         UINavigationBar.appearance().barTintColor = UIColor(red: 255/255, green: 185/255, blue: 15/255, alpha: 1)
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
