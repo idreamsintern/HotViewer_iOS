@@ -443,7 +443,7 @@
             </objects>
             <point key="canvasLocation" x="427" y="-1039"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="IVG-Pq-zGJ">
             <objects>
                 <viewController id="JyV-AH-wFj" sceneMemberID="viewController">
@@ -506,6 +506,7 @@
                             <constraint firstItem="ZGK-L9-Xpx" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="312" id="wur-7q-90Q"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="K2t-ud-ePc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c36-3i-Mep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -679,6 +680,6 @@
         <image name="Maps" width="30" height="30"/>
         <image name="Name" width="689" height="253"/>
         <image name="forward" width="128" height="128"/>
-        <image name="main" width="406" height="563"/>
+        <image name="main" width="246" height="341"/>
     </resources>
 </document>
