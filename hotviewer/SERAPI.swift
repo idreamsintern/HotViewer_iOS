@@ -29,4 +29,21 @@ class SERAPI: API {
             })
         }
     }
+    func searchPTTTopArticle(params: [String: String?], onLoad: (pttArticles: [PTTArticle]? ) -> ()) {
+        self.ensureValidToken() {
+            self.post(params, url: "top_article", postCompleted: {
+                succeeded, msg, result in
+                var pttArticles = [PTTArticle]()
+                
+                if succeeded, let pttArr = result.array {
+                    for pttArticle in pttArr {
+                        pttArticles.append(PTTArticle(pttJSON: pttArticle))
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    onLoad(pttArticles: pttArticles)
+                }
+            })
+        }
+    }
 }
