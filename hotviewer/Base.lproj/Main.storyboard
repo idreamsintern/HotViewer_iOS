@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JyV-AH-wFj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -446,7 +446,7 @@
         <!--View Controller-->
         <scene sceneID="IVG-Pq-zGJ">
             <objects>
-                <viewController id="JyV-AH-wFj" sceneMemberID="viewController">
+                <viewController id="JyV-AH-wFj" customClass="ViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gj-LS-21G"/>
                         <viewControllerLayoutGuide type="bottom" id="0Bs-fX-Eq1"/>
@@ -482,21 +482,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="8py-Wo-LID">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Name" translatesAutoresizingMaskIntoConstraints="NO" id="EIy-3L-Jgc">
-                                <rect key="frame" x="180" y="312" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="aH3-XX-9rZ"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="8py-Wo-LID" secondAttribute="bottom" id="4mQ-dq-wiv"/>
-                            <constraint firstItem="EIy-3L-Jgc" firstAttribute="centerX" secondItem="ZGK-L9-Xpx" secondAttribute="centerX" id="844-6X-qOd"/>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="kN0-E5-Eja" secondAttribute="bottom" constant="68" id="9yk-uJ-xOg"/>
-                            <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="EIy-3L-Jgc" secondAttribute="bottom" constant="17" id="Kfy-xY-gGD"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="50" id="LjB-0K-hhw"/>
-                            <constraint firstItem="EIy-3L-Jgc" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="292" id="TKf-1z-bDO"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="437" id="WIe-vE-N1k"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="centerX" secondItem="8py-Wo-LID" secondAttribute="centerX" id="aev-Ea-VBj"/>
                             <constraint firstItem="8py-Wo-LID" firstAttribute="leading" secondItem="n18-2O-QTY" secondAttribute="leadingMargin" constant="-16" id="dOj-L8-zex"/>
@@ -514,7 +505,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -679,6 +670,6 @@
         <image name="Maps" width="30" height="30"/>
         <image name="Name" width="689" height="253"/>
         <image name="forward" width="128" height="128"/>
-        <image name="main" width="406" height="563"/>
+        <image name="main" width="246" height="341"/>
     </resources>
 </document>
