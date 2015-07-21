@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ROb-Mk-UEf">
                                 <rect key="frame" x="0.0" y="64" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -97,7 +97,7 @@
                                             <outlet property="title" destination="2IG-n6-fdK" id="YXr-Q6-0QU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pttCell" rowHeight="121" id="7KN-PM-hVf" customClass="pttCell" customModule="hotviewer" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pttCell" rowHeight="121" id="7KN-PM-hVf" customClass="pttCell" customModule="hotviewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7KN-PM-hVf" id="JG6-kY-Aho">
@@ -630,16 +630,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="8py-Wo-LID">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Name" translatesAutoresizingMaskIntoConstraints="NO" id="G44-3Z-yGg">
+                                <rect key="frame" x="160" y="410" width="280" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="GWc-NO-Exu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="8py-Wo-LID" secondAttribute="bottom" id="4mQ-dq-wiv"/>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="kN0-E5-Eja" secondAttribute="bottom" constant="68" id="9yk-uJ-xOg"/>
+                            <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="G44-3Z-yGg" secondAttribute="bottom" constant="92" id="CMl-ng-JwJ"/>
+                            <constraint firstItem="G44-3Z-yGg" firstAttribute="centerX" secondItem="kN0-E5-Eja" secondAttribute="centerX" id="Cvo-cy-Wtd"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="50" id="LjB-0K-hhw"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="437" id="WIe-vE-N1k"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="centerX" secondItem="8py-Wo-LID" secondAttribute="centerX" id="aev-Ea-VBj"/>
                             <constraint firstItem="8py-Wo-LID" firstAttribute="leading" secondItem="n18-2O-QTY" secondAttribute="leadingMargin" constant="-16" id="dOj-L8-zex"/>
                             <constraint firstItem="ZGK-L9-Xpx" firstAttribute="centerX" secondItem="kN0-E5-Eja" secondAttribute="centerX" id="dja-nd-1hn"/>
+                            <constraint firstItem="G44-3Z-yGg" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="3" id="ejg-fw-XaE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8py-Wo-LID" secondAttribute="trailing" constant="-16" id="ha5-Zk-O5r"/>
                             <constraint firstItem="8py-Wo-LID" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" id="wsf-vl-Pl0"/>
                             <constraint firstItem="ZGK-L9-Xpx" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="312" id="wur-7q-90Q"/>
@@ -884,7 +893,7 @@
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
         <image name="Maps" width="30" height="30"/>
-        <image name="Name" width="689" height="253"/>
+        <image name="Name" width="189" height="78"/>
         <image name="forward" width="128" height="128"/>
         <image name="main" width="246" height="341"/>
     </resources>
