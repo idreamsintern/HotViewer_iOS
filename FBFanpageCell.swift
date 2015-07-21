@@ -8,10 +8,10 @@
 
 import UIKit
 
-class fbFanpageCell: UITableViewCell {
+class FBFanpageCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var thumbanilImageView: UIImageView!
-    @IBOutlet weak var description: UILabel!
+    @IBOutlet weak var about: UILabel!
     @IBOutlet weak var fanCount: UILabel!
     let loadingText = "載入中..."
     
@@ -38,10 +38,10 @@ class fbFanpageCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -50,7 +50,6 @@ class fbFanpageCell: UITableViewCell {
             SimpleCache.sharedInstance.cancelImage(thumbnailURL)
         }
         thumbanilImageView.image = nil
-        content.text = loadingText
     }
-
+    
 }

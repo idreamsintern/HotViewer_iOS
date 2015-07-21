@@ -22,6 +22,7 @@ class FBFanpage {
     var fanCount: String?
     var talkingCount: String?
     var about: String?
+    var thumbnailURL: NSURL?
     init(fanpageJSON: JSON) {
         /*
             id：粉絲頁ID
@@ -43,5 +44,8 @@ class FBFanpage {
         self.fanCount = fanpageJSON["fan_count"].string
         self.talkingCount = fanpageJSON["talking_about_count"].string
         self.about = fanpageJSON["about"].string
+        if let id = self.id {
+            self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(id)/picture/?width=150&height=150")
+        }
     }
 }

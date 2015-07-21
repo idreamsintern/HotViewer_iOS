@@ -37,6 +37,7 @@
 		C42C4D361B5C717300E9C469 /* FongerCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42C4D351B5C717300E9C469 /* FongerCategoryDelegate.swift */; };
 		C42C4D381B5C719100E9C469 /* FongerCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42C4D371B5C719100E9C469 /* FongerCategoryItem.swift */; };
 		C42C4D3A1B5C71A700E9C469 /* FongerCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42C4D391B5C71A700E9C469 /* FongerCategoryTableView.swift */; };
+		C43F18F01B5E51A20071A421 /* FBFanpageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F18EF1B5E51A20071A421 /* FBFanpageCell.swift */; };
 		C45C37651B584285000646C2 /* FBCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37641B584285000646C2 /* FBCheckin.swift */; };
 		C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C37661B586775000646C2 /* FBCheckinCell.swift */; };
 		C47D0D001B5BC55B00098AE2 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D0CFF1B5BC55B00098AE2 /* PreferenceViewController.swift */; };
@@ -92,7 +93,6 @@
 		A112D1B51B593D9E00B4917B /* RouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
 		A18BBB251B56E3C10048C29D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A19B87401B5D06850029D54E /* pttCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pttCell.swift; sourceTree = "<group>"; };
-		A19B87421B5D32480029D54E /* fbFanpageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fbFanpageCell.swift; sourceTree = "<group>"; };
 		A1CEFBD11B5E321100B5B95F /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		A1CEFBD71B5E334D00B5B95F /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		A1CEFBD91B5E36D900B5B95F /* hotviewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hotviewer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -107,6 +107,7 @@
 		C42C4D351B5C717300E9C469 /* FongerCategoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryDelegate.swift; sourceTree = "<group>"; };
 		C42C4D371B5C719100E9C469 /* FongerCategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryItem.swift; sourceTree = "<group>"; };
 		C42C4D391B5C71A700E9C469 /* FongerCategoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FongerCategoryTableView.swift; sourceTree = "<group>"; };
+		C43F18EF1B5E51A20071A421 /* FBFanpageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBFanpageCell.swift; path = ../FBFanpageCell.swift; sourceTree = "<group>"; };
 		C45C37641B584285000646C2 /* FBCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCheckin.swift; sourceTree = "<group>"; };
 		C45C37661B586775000646C2 /* FBCheckinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBCheckinCell.swift; sourceTree = "<group>"; };
 		C47D0CFF1B5BC55B00098AE2 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +189,6 @@
 				C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */,
 				A18BBB251B56E3C10048C29D /* PostCell.swift */,
 				A19B87401B5D06850029D54E /* pttCell.swift */,
-				A19B87421B5D32480029D54E /* fbFanpageCell.swift */,
 				C4E0301A1B56AE3F007D6284 /* WebViewController.swift */,
 				C45C37661B586775000646C2 /* FBCheckinCell.swift */,
 				C47E67D41B58F3F700501D61 /* MapViewController.swift */,
@@ -198,6 +198,7 @@
 				C47D0CFF1B5BC55B00098AE2 /* PreferenceViewController.swift */,
 				A1CEFBD11B5E321100B5B95F /* TagCell.swift */,
 				A1CEFBD71B5E334D00B5B95F /* MenuController.swift */,
+				C43F18EF1B5E51A20071A421 /* FBFanpageCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -443,6 +444,7 @@
 				A1CEFBDC1B5E36DA00B5B95F /* SWRevealViewController.m in Sources */,
 				C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */,
 				C45C37671B586775000646C2 /* FBCheckinCell.swift in Sources */,
+				C43F18F01B5E51A20071A421 /* FBFanpageCell.swift in Sources */,
 				C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */,
 				A112D1B61B593D9E00B4917B /* RouteTableViewController.swift in Sources */,
 				C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */,
