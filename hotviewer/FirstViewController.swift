@@ -11,6 +11,8 @@ import UIKit
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var articlesTableView: UITableView!
+    let reusedCellIdentifier = ["postCell", "pttCell", "fbFanpageCell"]
+    
     var indicatorView: UIActivityIndicatorView!
     
     var currentArticleTypeIndex: Int = 0
@@ -56,31 +58,22 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         loadContentArticles()
     }
     
-    func refresh() {
-        ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)]) {
-            (articles: [ContentArticle]?) in
-            if let articles = articles {
-                self.contentArticles?.splice(articles, atIndex: 0)
-                self.articlesTableView.reloadData()
-                self.refreshControl.endRefreshing()
-            }
-        }
+    @IBAction func articleTypeChanged(sender: UISegmentedControl) {
+        currentArticleTypeIndex = sender.selectedSegmentIndex
+        [loadContentArticles, loadPTTArticles, loadFBFanpage][currentArticleTypeIndex]()
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return [contentArticles?.count, pttArticles?.count, fbFanpages?.count][currentArticleTypeIndex] ?? 0
     }
-    let reusedCellIdentifier = ["postCell","pttCell","fbFanpageCell"]
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? PostCell
         var cell = tableView.dequeueReusableCellWithIdentifier(reusedCellIdentifier[currentArticleTypeIndex]) as? UITableViewCell
-//        
-//        if (indexPath.row % 2 == 1) {
-//            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
-//        } else {
-//            cell?.backgroundColor = UIColor.whiteColor()
-//        }
-
         
+        if (indexPath.row % 2 == 1) {
+            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
+        } else {
+            cell?.backgroundColor = UIColor.whiteColor()
+        }
         
         switch currentArticleTypeIndex {
             case 0:
@@ -104,49 +97,52 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                     cell.board.text = pttArticle.board
                     cell.push.text = pttArticle.push
                 }
-            case 2:
+            default:
                 if let cell = cell as? FBFanpageCell, let fbFanpage = fbFanpages?[indexPath.row] as FBFanpage? {
                     cell.title.text = fbFanpage.name
                     cell.about.text = fbFanpage.about
                     cell.fanCount.text = fbFanpage.fanCount
                     cell.thumbnailURL = fbFanpage.thumbnailURL
                 }
-            default:
-                break
         }
         return cell!
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let webViewCtrl = segue.destinationViewController as! WebViewController
-        let article = sender as! ContentArticle
-        webViewCtrl.url = article.url
-        webViewCtrl.rawContent = article.rawContent
-    }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let article = (contentArticles?[indexPath.row] as ContentArticle?)
-        if let rawContent = article?.rawContent, let url = article?.url {
-            self.performSegueWithIdentifier("showWebView", sender: article)
-        }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func articleTypeChanged(sender: UISegmentedControl) {
-        currentArticleTypeIndex = sender.selectedSegmentIndex
+        var sender: AnyObject?
         switch currentArticleTypeIndex {
             case 0:
-                loadContentArticles()
+                let article = (contentArticles?[indexPath.row] as ContentArticle?)
+                if let rawContent = article?.rawContent, let url = article?.url {
+                    sender = article
+                }
             case 1:
-                loadPttArticles()
-            case 2:
-                loadFBFanpage()
+                let ptt = (pttArticles?[indexPath.row] as PTTArticle?)
+                sender = ptt
+            default:
+                let fbpage = (fbFanpages?[indexPath.row] as FBFanpage?)
+                sender = fbpage
+        }
+        self.performSegueWithIdentifier("showWebView", sender: sender)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let webViewCtrl = segue.destinationViewController as! WebViewController
+        switch sender {
+            case is ContentArticle:
+                let article = sender as! ContentArticle
+                webViewCtrl.url = article.url
+                webViewCtrl.rawContent = article.rawContent
+            case is PTTArticle:
+                let ptt = sender as! PTTArticle
+                webViewCtrl.url = ptt.url
+            case is FBFanpage:
+                let fbpage = sender as! FBFanpage
+                webViewCtrl.url = fbpage.url
             default:
                 break
         }
     }
+    
     func loadContentArticles() {
         self.indicatorView.startAnimating()
         ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"]) {
@@ -157,7 +153,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
 
     }
-    func loadPttArticles() {
+    func loadPTTArticles() {
         self.indicatorView.startAnimating()
         SERAPI.instance.searchPTTTopArticle(["period":"10"], onLoad: {
             (pttArticles: [PTTArticle]?) in
@@ -174,6 +170,27 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.articlesTableView.reloadData()
             self.indicatorView.stopAnimating()
         })
+    }
+    func refresh() {
+        switch currentArticleTypeIndex {
+            case 0:
+                ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)]) {
+                    (articles: [ContentArticle]?) in
+                    if let articles = articles {
+                        self.contentArticles?.splice(articles, atIndex: 0)
+                        self.articlesTableView.reloadData()
+                        self.refreshControl.endRefreshing()
+                    }
+                }
+            case 1:
+                loadPTTArticles()
+            default:
+                loadFBFanpage()
+        }
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 

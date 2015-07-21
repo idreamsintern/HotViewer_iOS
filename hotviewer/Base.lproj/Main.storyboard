@@ -224,9 +224,9 @@
                                 <constraint firstAttribute="width" constant="284" id="VCV-Wo-TEv"/>
                             </constraints>
                             <segments>
-                                <segment title="CP"/>
+                                <segment title="Article"/>
+                                <segment title="PTT"/>
                                 <segment title="FB"/>
-                                <segment title="Ptt"/>
                             </segments>
                             <connections>
                                 <action selector="articleTypeChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="pbP-Oh-NQ6"/>
