@@ -11,6 +11,8 @@ import UIKit
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let cellReuseIdentifier = "postCell"
     
+    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var articlesTableView: UITableView!
     var indicatorView: UIActivityIndicatorView!
     var contentArticles: [ContentArticle]?
@@ -22,6 +24,15 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //menu button
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+            // Uncomment to change the width of menu
+            //self.revealViewController().rearViewRevealWidth = 62
+        }
         // Launch walkthrough screens
         if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
             self.presentViewController(pageViewController, animated: true, completion: nil)
