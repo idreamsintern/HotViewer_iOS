@@ -309,7 +309,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yQj-5r-0lI">
-                            <rect key="frame" x="238" y="7" width="125" height="30"/>
+                            <rect key="frame" x="237.5" y="7" width="125" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Car"/>
@@ -621,16 +621,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Name" translatesAutoresizingMaskIntoConstraints="NO" id="ZGK-L9-Xpx">
-                                <rect key="frame" x="199" y="332" width="202" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="uaO-t6-hDI"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="8py-Wo-LID">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Name" translatesAutoresizingMaskIntoConstraints="NO" id="G44-3Z-yGg">
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LogoText" translatesAutoresizingMaskIntoConstraints="NO" id="G44-3Z-yGg">
                                 <rect key="frame" x="160" y="410" width="280" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="GWc-NO-Exu"/>
@@ -643,15 +637,11 @@
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="kN0-E5-Eja" secondAttribute="bottom" constant="68" id="9yk-uJ-xOg"/>
                             <constraint firstItem="0Bs-fX-Eq1" firstAttribute="top" secondItem="G44-3Z-yGg" secondAttribute="bottom" constant="92" id="CMl-ng-JwJ"/>
                             <constraint firstItem="G44-3Z-yGg" firstAttribute="centerX" secondItem="kN0-E5-Eja" secondAttribute="centerX" id="Cvo-cy-Wtd"/>
-                            <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="50" id="LjB-0K-hhw"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="437" id="WIe-vE-N1k"/>
                             <constraint firstItem="kN0-E5-Eja" firstAttribute="centerX" secondItem="8py-Wo-LID" secondAttribute="centerX" id="aev-Ea-VBj"/>
                             <constraint firstItem="8py-Wo-LID" firstAttribute="leading" secondItem="n18-2O-QTY" secondAttribute="leadingMargin" constant="-16" id="dOj-L8-zex"/>
-                            <constraint firstItem="ZGK-L9-Xpx" firstAttribute="centerX" secondItem="kN0-E5-Eja" secondAttribute="centerX" id="dja-nd-1hn"/>
-                            <constraint firstItem="G44-3Z-yGg" firstAttribute="top" secondItem="ZGK-L9-Xpx" secondAttribute="bottom" constant="3" id="ejg-fw-XaE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8py-Wo-LID" secondAttribute="trailing" constant="-16" id="ha5-Zk-O5r"/>
                             <constraint firstItem="8py-Wo-LID" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" id="wsf-vl-Pl0"/>
-                            <constraint firstItem="ZGK-L9-Xpx" firstAttribute="top" secondItem="5gj-LS-21G" secondAttribute="bottom" constant="312" id="wur-7q-90Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="K2t-ud-ePc"/>
@@ -892,8 +882,8 @@
         <image name="3" width="30" height="30"/>
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
+        <image name="LogoText" width="189" height="78"/>
         <image name="Maps" width="30" height="30"/>
-        <image name="Name" width="189" height="78"/>
         <image name="forward" width="128" height="128"/>
         <image name="main" width="246" height="341"/>
     </resources>
