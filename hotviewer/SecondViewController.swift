@@ -24,12 +24,18 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
         
-        let status = CLLocationManager.authorizationStatus()
-        if status == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        // Check if this method exists for iOS 7 compability
+        if (locationManager.respondsToSelector(Selector("requestWhenInUseAuthorization"))) {
+            // in iOS 8, request authorization when needed
+            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
+                locationManager.startUpdatingLocation()
+            } else {
+                locationManager.requestWhenInUseAuthorization()
+            }
+        } else {
+            // in iOS 7, just startUpdating
             locationManager.startUpdatingLocation()
         }
         
@@ -40,6 +46,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         indicatorView = getIndicatorView()
         indicatorView.startAnimating()
+    }
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse || status == CLAuthorizationStatus.AuthorizedAlways {
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
