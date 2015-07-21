@@ -84,9 +84,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         var cell = tableView.dequeueReusableCellWithIdentifier("pttCell") as? pttCell
         
         if (indexPath.row % 2 == 1) {
-            //cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
+            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
         } else {
-            //cell?.backgroundColor = UIColor.whiteColor()
+            cell?.backgroundColor = UIColor.whiteColor()
         }
         if let pttArticle = pttArticles?[indexPath.row] as PTTArticle? {
             cell?.title.text = pttArticle.title
