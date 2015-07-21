@@ -46,4 +46,21 @@ class SERAPI: API {
             })
         }
     }
+    func searchFBFanpage(category: String, sortBy: FBFanpageSort, onLoad: (fbFanpage: [FBFanpage]?) -> ()) {
+        self.ensureValidToken() {
+            self.post(["category": category, "sort": sortBy.rawValue, "limit": "100"], url: "fb_fanpage_search", postCompleted: {
+                succeeded, msg, result in
+                var fbFanpages = [FBFanpage]()
+                
+                if succeeded, let fbArr = result.array {
+                    for fbFanpage in fbArr {
+                        fbFanpages.append(FBFanpage(fanpageJSON: fbFanpage))
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    onLoad(fbFanpage: fbFanpages)
+                }
+            })
+        }
+    }
 }

@@ -37,10 +37,14 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         segmentedControl.addTarget(self, action: "showDirection:", forControlEvents: .ValueChanged)
         
         // Request for a user's authorization for location services
-        locationManager.requestWhenInUseAuthorization()
+        
+        // Check if this method exists for iOS 7 compability
+        if (locationManager.respondsToSelector(Selector("requestWhenInUseAuthorization"))) {
+            locationManager.requestWhenInUseAuthorization()
+        }
         
         let status = CLLocationManager.authorizationStatus()
-        if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse || status == CLAuthorizationStatus.AuthorizedAlways {
             self.mapView.showsUserLocation = true
         }
         

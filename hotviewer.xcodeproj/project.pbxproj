@@ -58,6 +58,7 @@
 		C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A331B5420470012C18D /* SwiftyJSON.swift */; };
 		C49F3A3E1B546C320012C18D /* AddIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */; };
 		C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */; };
+		C4BAA2E71B5E104800F1D65D /* FBFanpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BAA2E61B5E104800F1D65D /* FBFanpage.swift */; };
 		C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E0301A1B56AE3F007D6284 /* WebViewController.swift */; };
 		CE4C3D031B5D1DBF0049BF14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C3D021B5D1DBF0049BF14 /* ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,7 @@
 		C49F3A331B5420470012C18D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIndicatorView.swift; sourceTree = "<group>"; };
 		C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBodyContent.swift; sourceTree = "<group>"; };
+		C4BAA2E61B5E104800F1D65D /* FBFanpage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFanpage.swift; sourceTree = "<group>"; };
 		C4E0301A1B56AE3F007D6284 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		CE4C3D021B5D1DBF0049BF14 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,6 +208,7 @@
 				C40E3D921B56887300A8EAEB /* ContentArticle.swift */,
 				C45C37641B584285000646C2 /* FBCheckin.swift */,
 				C47D37741B5D07B300EC03A2 /* PTTArticle.swift */,
+				C4BAA2E61B5E104800F1D65D /* FBFanpage.swift */,
 			);
 			name = Type;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				CE4C3D031B5D1DBF0049BF14 /* ViewController.swift in Sources */,
 				C49F3A321B53FE2B0012C18D /* API.swift in Sources */,
 				C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */,
+				C4BAA2E71B5E104800F1D65D /* FBFanpage.swift in Sources */,
 				C42C4D361B5C717300E9C469 /* FongerCategoryDelegate.swift in Sources */,
 				C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */,
 				C47E12931B599C3900705D29 /* SERAPI.swift in Sources */,
