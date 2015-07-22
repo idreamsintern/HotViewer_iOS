@@ -46,9 +46,9 @@ class SERAPI: API {
             })
         }
     }
-    func searchFBFanpage(category: String, sortBy: FBFanpageSort, onLoad: (fbFanpage: [FBFanpage]?) -> ()) {
+    func searchFBFanpage(keyword:String?,category: String?, sortBy: FBFanpageSort, onLoad: (fbFanpage: [FBFanpage]?) -> ()) {
         self.ensureValidToken() {
-            self.post(["category": category, "sort": sortBy.rawValue, "limit": "100", "keyword": " "], url: "fb_fanpage_search", postCompleted: {
+            self.post(["category": category, "sort": sortBy.rawValue, "limit": "100", "keyword": keyword ?? " "], url: "fb_fanpage_search", postCompleted: {
                 succeeded, msg, result in
                 var fbFanpages = [FBFanpage]()
                 

@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 
-class ContentArticle {
+class ContentArticle{
     var dataId: String?
     var title: String?
     var author: String?
