@@ -19,6 +19,12 @@ struct FongerCategoryItem {
         self.imageNamed = imageNamed
     }
     
+    init(text: String, imageNamed: String, tag: String) {
+        self.text = text
+        self.imageNamed = imageNamed
+        self.tag = tag
+    }
+    
     init(text: String, imageNamed: String, selected: Bool) {
         self.text = text
         self.imageNamed = imageNamed

@@ -38,12 +38,13 @@ class SERAPI: API {
             })
         }
     }
-    func searchPTTTopArticle(#period: Int, board: String? = nil, category: String? = nil, onLoad: (pttArticles: [PTTArticle]? ) -> ()) {
+    func searchPTTTopArticle(#period: Int, board: String? = nil, category: String? = nil, limit: Int? = 10, onLoad: (pttArticles: [PTTArticle]? ) -> ()) {
         self.ensureValidToken() {
             self.post([
                     "period": String(period),
                     "board": board,
-                    "category": category
+                    "category": category,
+                    "limit": String(limit!)
                 ], url: "top_article/ptt", postCompleted: {
                 succeeded, msg, result in
                 var pttArticles = [PTTArticle]()

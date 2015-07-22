@@ -234,6 +234,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="articleTypeSegment" destination="Wjc-3A-vyZ" id="Ar0-nr-hcn"/>
                         <outlet property="articlesTableView" destination="ROb-Mk-UEf" id="CC7-if-tpA"/>
                         <outlet property="menuButton" destination="lgX-9h-u9d" id="dW7-5T-QeS"/>
                         <segue destination="wSp-q3-5QC" kind="show" identifier="showWebView" id="TpP-xT-fsO"/>

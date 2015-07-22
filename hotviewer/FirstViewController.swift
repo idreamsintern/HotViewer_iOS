@@ -10,6 +10,7 @@ import UIKit
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SWRevealViewControllerDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var articleTypeSegment: UISegmentedControl!
     @IBOutlet weak var articlesTableView: UITableView!
     let reusedCellIdentifier = ["postCell", "pttCell", "fbFanpageCell"]
     
@@ -25,17 +26,33 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     func revealController(revealController: SWRevealViewController!, animateToPosition position: FrontViewPosition) {
-        if position == .Left { // Closed category list
+        if position == .Left {
+            // If the category list is closed...
             self.articlesTableView.userInteractionEnabled = true
-            if let prefController = revealController.rearViewController as? PreferenceViewController {
-                for category in prefController.prefCategories {
-                    if category.selected {
-                        println(category.text)
-                    }
-                }
-            }
-        } else { //Opened category list
+            // Fire the articleTypeChanged to reload article
+            self.articleTypeChanged(self.articleTypeSegment)
+        } else {
+            // If the category list is opened...
             self.articlesTableView.userInteractionEnabled = false
+            switch self.currentArticleTypeIndex {
+                case 1:
+                    if let prefController = revealController.rearViewController as? PreferenceViewController {
+                        prefController.categories = [
+                            FongerCategoryItem(text: "Food", imageNamed: "food", tag: "food"),
+                            FongerCategoryItem(text: "Love", imageNamed: "love", tag: "boy-girl"),
+                            FongerCategoryItem(text: "Sex", imageNamed: "sex", tag: "sex"),
+                            FongerCategoryItem(text: "Travel", imageNamed: "travel", tag: "travel"),
+                            FongerCategoryItem(text: "Fitness", imageNamed: "sport", tag: "fitness"),
+                            FongerCategoryItem(text: "Technology", imageNamed: "technology", tag: "tech_job"),
+                            FongerCategoryItem(text: "Makeup", imageNamed: "makeup", tag: "makeup"),
+                            FongerCategoryItem(text: "Health", imageNamed: "health", tag: "health"),
+                            FongerCategoryItem(text: "Nature", imageNamed: "nature", tag: "geography"),
+                            FongerCategoryItem(text: "Language", imageNamed: "language", tag: "language")
+                        ]
+                    }
+                default:
+                    break;
+            }
         }
     }
 
@@ -79,9 +96,11 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func articleTypeChanged(sender: UISegmentedControl) {
         currentArticleTypeIndex = sender.selectedSegmentIndex
         switch currentArticleTypeIndex {
-        case 0:loadContentArticles()
+        case 0:
+            loadContentArticles()
             
-        case 1:loadPTTArticles()
+        case 1:
+            loadPTTArticles()
             
         default:loadFBFanpage()
         
@@ -180,17 +199,51 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     }
     func loadPTTArticles() {
-        self.indicatorView.startAnimating()
-        SERAPI.instance.searchPTTTopArticle(period: 10, onLoad: {
-            (pttArticles: [PTTArticle]?) in
-            self.pttArticles = pttArticles
+        if let prefController = self.revealViewController().rearViewController as? PreferenceViewController {
+            self.indicatorView.startAnimating()
+            // Release the pttArticles from memory
+            self.pttArticles?.removeAll()
+            self.pttArticles = [PTTArticle]()
             self.articlesTableView.reloadData()
-            self.indicatorView.stopAnimating()
-        })
+            
+            
+            if prefController.atLeastOneSelected {
+                // If preference has been set, load by users' preference
+                
+                // A count of loaded categories
+                var loadedCount = 0
+                for category in prefController.selectedCategories {
+                    // We use ensureValidToken here to prevent simultaneously request multiple tokens for the first time
+                    SERAPI.instance.ensureValidToken() {
+                        SERAPI.instance.searchPTTTopArticle(period: 10, board: category.tag, limit: 100 / prefController.selectedCount, onLoad: {
+                            (pttArticles: [PTTArticle]?) in
+                            if let articles = pttArticles {
+                                self.pttArticles? += articles
+                                self.articlesTableView.reloadData()
+                            }
+                            // Stop the loading indicator only if after all categories are loaded
+                            if ++loadedCount == prefController.selectedCount {
+                                self.indicatorView.stopAnimating()
+                            }
+                        })
+                    }
+                }
+            } else {
+                // If preference has NOT been set, load all without board
+                SERAPI.instance.searchPTTTopArticle(period: 10, limit: 100, onLoad: {
+                    (pttArticles: [PTTArticle]?) in
+                    if let articles = pttArticles {
+                        self.pttArticles? += articles
+                        self.articlesTableView.reloadData()
+                        self.indicatorView.stopAnimating()
+                    }
+                })
+            }
+        }
     }
     func loadFBFanpage() {
         self.indicatorView.startAnimating()
-        SERAPI.instance.searchFBFanpage(category:"休閒旅遊", sortBy: FBFanpageSort.PTA, onLoad: {
+        SERAPI.instance.searchFBFanpage(category: "休閒旅遊", sortBy: FBFanpageSort.PTA, onLoad: {
             (fbFanpages: [FBFanpage]?) in
             self.fbFanpages = fbFanpages
             self.articlesTableView.reloadData()

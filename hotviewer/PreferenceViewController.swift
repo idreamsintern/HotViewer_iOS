@@ -8,27 +8,43 @@
 
 import Foundation
 import UIKit
+class PTTPrefViewController : PreferenceViewController {
+    
+}
 
 class PreferenceViewController : UIViewController, FongerCategoryDelegate {
-    @IBOutlet weak var prefTableView: FongerCategoryTableView!
+    @IBOutlet weak var prefTableView: FongerCategoryTableView?
     
-    var prefCategories =
-    [
-        FongerCategoryItem(text: "Technology", imageNamed: "technology"),
-        FongerCategoryItem(text: "Food", imageNamed: "food"),
-        FongerCategoryItem(text: "Love", imageNamed: "love"),
-        FongerCategoryItem(text: "Sex", imageNamed: "sex"),
-        FongerCategoryItem(text: "Travel", imageNamed: "travel"),
-        FongerCategoryItem(text: "Sport", imageNamed: "sport"),
-        FongerCategoryItem(text: "Makeup", imageNamed: "makeup"),
-        FongerCategoryItem(text: "Health", imageNamed: "health"),
-        FongerCategoryItem(text: "Nature", imageNamed: "nature"),
-        FongerCategoryItem(text: "Language", imageNamed: "language")
-    ]
-    
+    var selectedCount = 0
+    private var _categories = [FongerCategoryItem(text: "Not Set", imageNamed: "")]
+    var categories: [FongerCategoryItem] {
+        get {
+            return _categories
+        }
+        set(newCategories) {
+            _categories = newCategories
+            prefTableView?.reloadData()
+        }
+    }
+    var atLeastOneSelected: Bool {
+        get {
+            return selectedCount != 0
+        }
+    }
+    var selectedCategories: [FongerCategoryItem] {
+        get {
+            var selected = [FongerCategoryItem]()
+            for category in _categories {
+                if category.selected {
+                    selected.append(category)
+                }
+            }
+            return selected
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        prefTableView.categoryDelegate = self
+        prefTableView?.categoryDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,13 +53,13 @@ class PreferenceViewController : UIViewController, FongerCategoryDelegate {
     
     // Total Category Count
     func categoryView(tableView: UITableView, numberOfCategoriesInSection section: Int) -> Int {
-        return prefCategories.count
+        return _categories.count
     }
     
     // Populate Category View
     func categoryView(tableView: UITableView, itemForCategoryAtIndexPath indexPath: NSIndexPath) -> FongerCategoryItem {
         // Get the item
-        var item = prefCategories[indexPath.row]
+        var item = _categories[indexPath.row]
         
         // Set item selected (default false)
         //item.selected = true
@@ -53,7 +69,12 @@ class PreferenceViewController : UIViewController, FongerCategoryDelegate {
     
     // Category selection change
     func categoryView(tableView: UITableView, selected: Bool, didSelectedChangeCategoryAtIndexPath indexPath: NSIndexPath) {
-        prefCategories[indexPath.row].selected = selected
-        println("No.\(indexPath.row) \(prefCategories[indexPath.row].text) \(selected)")
+        _categories[indexPath.row].selected = selected
+        if selected {
+            self.selectedCount++
+        } else {
+            self.selectedCount--
+        }
+        println("No.\(indexPath.row) \(categories[indexPath.row].text) \(selected)")
     }
 }
