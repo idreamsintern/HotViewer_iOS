@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SWRevealViewControllerDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var articlesTableView: UITableView!
     let reusedCellIdentifier = ["postCell", "pttCell", "fbFanpageCell"]
@@ -23,21 +23,35 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var currentPage: Int = 1
     
+    
+    func revealController(revealController: SWRevealViewController!, animateToPosition position: FrontViewPosition) {
+        if position == .Left { // Closed category list
+            self.articlesTableView.userInteractionEnabled = true
+            if let prefController = revealController.rearViewController as? PreferenceViewController {
+                for category in prefController.prefCategories {
+                    if category.selected {
+                        println(category.text)
+                    }
+                }
+            }
+        } else { //Opened category list
+            self.articlesTableView.userInteractionEnabled = false
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //menu button
         if self.revealViewController() != nil {
+            self.revealViewController().delegate = self
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
             // Uncomment to change the width of menu
-            // self.revealViewController().rearViewRevealWidth = 62
+            self.revealViewController().rearViewRevealWidth = self.view.frame.width - 62
         }
         
         let defaults = NSUserDefaults.standardUserDefaults()
-
         if !defaults.boolForKey("hasViewedWalkthrough") {
             // Launch walkthrough screens
             if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
@@ -131,6 +145,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let webViewCtrl = segue.destinationViewController as! WebViewController
+        
         switch sender {
             case is ContentArticle:
                 let article = sender as! ContentArticle
