@@ -57,7 +57,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
         manager.stopUpdatingLocation()
         println("Current location = \(locValue.latitude) \(locValue.longitude)")
-        SERAPI.instance.searchFBCheckin(["coordinates": "\(locValue.latitude),\(locValue.longitude)", "radius": "10", "period": FBCheckinPeriod.Week.rawValue, "sort": FBCheckinSortType.Total.rawValue]) {
+        SERAPI.instance.searchFBCheckin(coordinate: locValue, radius: 10, period: FBCheckinPeriod.Week, sort: FBCheckinSortType.Total) {
             (checkins: [FBCheckin]?) in
             self.fbCheckins = checkins
             self.checkinsTableView.reloadData()

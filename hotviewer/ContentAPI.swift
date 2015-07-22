@@ -12,9 +12,15 @@ class ContentAPI: API {
     init() {
         super.init(apiUrl: "http://contentparty.org/api/", tokenUrl: "get_token", tokenParams: ["user_code":"0a556cd13e85397f623f2a3adef54cf4"])
     }
-    func searchArticleId(params: [String: String?], onLoad: (articles:[ContentArticle]?) -> ()) {
+    func searchArticleId(#limit: Int, page: Int, sort: ContentSortType, keyword: String? = nil, tag: String? = nil, onLoad: (articles:[ContentArticle]?) -> ()) {
         self.ensureValidToken() {
-            self.post(params, url: "search_article_id", postCompleted: {
+            self.post([
+                    "limit": String(limit),
+                    "page": String(page),
+                    "sort": sort.rawValue,
+                    "keyword": keyword,
+                    "tag": tag
+                ], url: "search_article_id", postCompleted: {
                 succeeded, msg, result in
                 var articles = [ContentArticle]()
                 if succeeded, let articleArray = result.array {

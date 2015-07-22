@@ -171,7 +171,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func loadContentArticles() {
         self.indicatorView.startAnimating()
-        ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"]) {
+        ContentAPI.instance.searchArticleId(limit: 10, page: 1, sort: ContentSortType.Click) {
             (articles: [ContentArticle]?) in
             self.contentArticles = articles
             self.articlesTableView.reloadData()
@@ -181,7 +181,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     func loadPTTArticles() {
         self.indicatorView.startAnimating()
-        SERAPI.instance.searchPTTTopArticle(["period":"10"], onLoad: {
+        SERAPI.instance.searchPTTTopArticle(period: 10, onLoad: {
             (pttArticles: [PTTArticle]?) in
             self.pttArticles = pttArticles
             self.articlesTableView.reloadData()
@@ -190,7 +190,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     func loadFBFanpage() {
         self.indicatorView.startAnimating()
-        SERAPI.instance.searchFBFanpage(nil,category:"休閒旅遊", sortBy: FBFanpageSort.PTA, onLoad: {
+        SERAPI.instance.searchFBFanpage(category:"休閒旅遊", sortBy: FBFanpageSort.PTA, onLoad: {
             (fbFanpages: [FBFanpage]?) in
             self.fbFanpages = fbFanpages
             self.articlesTableView.reloadData()
@@ -200,7 +200,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func refresh() {
         switch currentArticleTypeIndex {
             case 0:
-                ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)]) {
+                ContentAPI.instance.searchArticleId(limit: 10, page: ++currentPage, sort: ContentSortType.Click) {
                     (articles: [ContentArticle]?) in
                     if let articles = articles {
                         self.contentArticles?.splice(articles, atIndex: 0)
@@ -209,9 +209,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                 }
             case 1:
-                loadPTTArticles()
+                self.refreshControl.endRefreshing()
             default:
-                loadFBFanpage()
+                self.refreshControl.endRefreshing()
         }
     }
     override func didReceiveMemoryWarning() {

@@ -145,7 +145,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
     func loadContentArticles(keyword:String) {
         if keyword != ""{
             self.indicatorView.startAnimating()
-            ContentAPI.instance.searchArticleId(["keyword":keyword ?? " ","sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"]) {
+            ContentAPI.instance.searchArticleId(limit: 10, page: 1, sort: ContentSortType.Click, keyword: keyword ?? " ") {
                 (articles: [ContentArticle]?) in
                 self.contentArticles = articles
                 self.articlesTableView.reloadData()
@@ -159,9 +159,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
         
     }
     func loadPTTArticles(board:String) {
-        if board != ""{
+        if board != "" {
             self.indicatorView.startAnimating()
-            SERAPI.instance.searchPTTTopArticle(["board":board ?? " ","period":"10"], onLoad: {
+            SERAPI.instance.searchPTTTopArticle(period: 10, board: board, onLoad: {
                 (pttArticles: [PTTArticle]?) in
                 self.pttArticles = pttArticles
                 self.articlesTableView.reloadData()
@@ -173,9 +173,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
         }
     }
     func loadFBFanpage(keyword:String) {
-        if keyword != ""{
+        if keyword != "" {
             self.indicatorView.startAnimating()
-            SERAPI.instance.searchFBFanpage(keyword, category: nil , sortBy: FBFanpageSort.PTA, onLoad: {
+            SERAPI.instance.searchFBFanpage(keyword: keyword, sortBy: FBFanpageSort.PTA, onLoad: {
                 (fbFanpages: [FBFanpage]?) in
                 self.fbFanpages = fbFanpages
                 self.articlesTableView.reloadData()
