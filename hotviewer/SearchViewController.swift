@@ -1,15 +1,17 @@
 //
-//  FirstViewController.swift
+//  SearchViewController.swift
 //  hotviewer
 //
-//  Created by 傑瑞 on 2015/7/13.
+//  Created by Andy on 2015/7/22.
 //  Copyright (c) 2015年 傑瑞. All rights reserved.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+class SearchViewController: UIViewController, UISearchResultsUpdating{
+    
+    
+    
     @IBOutlet weak var articlesTableView: UITableView!
     let reusedCellIdentifier = ["postCell", "pttCell", "fbFanpageCell"]
     
@@ -22,56 +24,42 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var currentPage: Int = 1
+    //for search article
+    var searchController: UISearchController!
+    var searchResults:[FBFanpage]?
+    var searchKeyWord: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //menu button
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            // Uncomment to change the width of menu
-            // self.revealViewController().rearViewRevealWidth = 62
-        }
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-
-        if !defaults.boolForKey("hasViewedWalkthrough") {
-            // Launch walkthrough screens
-            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
-                self.presentViewController(pageViewController, animated: true, completion: nil)
-            }
-        }
+    
         self.articlesTableView.estimatedRowHeight = CGFloat(400)
         self.articlesTableView.rowHeight = UITableViewAutomaticDimension
-        
-        // Do any additional setup after loading the view, typically from a nib.
-
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
-        
-        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
-        
-        self.articlesTableView.addSubview(refreshControl)
-        
+    
         indicatorView = getIndicatorView()
+        
+        // Create the search controller, but we'll make sure that this SearchShowResultsInSourceViewController
+        // performs the results updating.
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.tintColor = UIColor.blackColor()
+        //        searchController.searchBar.barTintColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
+        //
+        //        searchController.searchBar.placeholder = "Search your restaurant"
+        //        searchController.searchBar.prompt = "Quick Search"
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        // Make sure the that the search bar is visible within the navigation bar.
+        searchController.searchBar.sizeToFit()
+        // Include the search controller's search bar within the table's header view.
+        articlesTableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(animated: Bool) {
-        loadContentArticles()
+        //loadContentArticles()
     }
     
     @IBAction func articleTypeChanged(sender: UISegmentedControl) {
         currentArticleTypeIndex = sender.selectedSegmentIndex
-        switch currentArticleTypeIndex {
-        case 0:loadContentArticles()
-            
-        case 1:loadPTTArticles()
-            
-        default:loadFBFanpage()
-        
-        }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return [contentArticles?.count, pttArticles?.count, fbFanpages?.count][currentArticleTypeIndex] ?? 0
@@ -79,7 +67,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(reusedCellIdentifier[currentArticleTypeIndex]) as? UITableViewCell
- 
+        
         if (indexPath.row % 2 == 1) {
             cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
         } else {
@@ -118,7 +106,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         return cell!
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var sender: AnyObject?
         switch currentArticleTypeIndex {
@@ -154,54 +142,68 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func loadContentArticles() {
-        self.indicatorView.startAnimating()
-        ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"]) {
-            (articles: [ContentArticle]?) in
-            self.contentArticles = articles
-            self.articlesTableView.reloadData()
-            self.indicatorView.stopAnimating()
+    func loadContentArticles(keyword:String) {
+        if keyword != ""{
+            self.indicatorView.startAnimating()
+            ContentAPI.instance.searchArticleId(["keyword":keyword ?? " ","sort": ContentSortType.Click.rawValue, "limit": "10", "page": "1"]) {
+                (articles: [ContentArticle]?) in
+                self.contentArticles = articles
+                self.articlesTableView.reloadData()
+                self.indicatorView.stopAnimating()
+            }
+        }else{
+            contentArticles?.removeAll(keepCapacity: false)
+            articlesTableView.reloadData()
         }
-
+        
+        
     }
-    func loadPTTArticles() {
-        self.indicatorView.startAnimating()
-        SERAPI.instance.searchPTTTopArticle(["period":"10"], onLoad: {
-            (pttArticles: [PTTArticle]?) in
-            self.pttArticles = pttArticles
-            self.articlesTableView.reloadData()
-            self.indicatorView.stopAnimating()
-        })
+    func loadPTTArticles(board:String) {
+        if board != ""{
+            self.indicatorView.startAnimating()
+            SERAPI.instance.searchPTTTopArticle(["board":board ?? " ","period":"10"], onLoad: {
+                (pttArticles: [PTTArticle]?) in
+                self.pttArticles = pttArticles
+                self.articlesTableView.reloadData()
+                self.indicatorView.stopAnimating()
+            })
+        }else{
+            pttArticles?.removeAll(keepCapacity: false)
+            articlesTableView.reloadData()
+        }
     }
-    func loadFBFanpage() {
-        self.indicatorView.startAnimating()
-        SERAPI.instance.searchFBFanpage(nil,category:"休閒旅遊", sortBy: FBFanpageSort.PTA, onLoad: {
-            (fbFanpages: [FBFanpage]?) in
-            self.fbFanpages = fbFanpages
-            self.articlesTableView.reloadData()
-            self.indicatorView.stopAnimating()
-        })
-    }
-    func refresh() {
-        switch currentArticleTypeIndex {
-            case 0:
-                ContentAPI.instance.searchArticleId(["sort": ContentSortType.Click.rawValue, "limit": "10", "page":String(++currentPage)]) {
-                    (articles: [ContentArticle]?) in
-                    if let articles = articles {
-                        self.contentArticles?.splice(articles, atIndex: 0)
-                        self.articlesTableView.reloadData()
-                        self.refreshControl.endRefreshing()
-                    }
-                }
-            case 1:
-                loadPTTArticles()
-            default:
-                loadFBFanpage()
+    func loadFBFanpage(keyword:String) {
+        if keyword != ""{
+            self.indicatorView.startAnimating()
+            SERAPI.instance.searchFBFanpage(keyword, category: nil , sortBy: FBFanpageSort.PTA, onLoad: {
+                (fbFanpages: [FBFanpage]?) in
+                self.fbFanpages = fbFanpages
+                self.articlesTableView.reloadData()
+                self.indicatorView.stopAnimating()
+            })
+        }else{
+            fbFanpages?.removeAll(keepCapacity: false)
+            articlesTableView.reloadData()
         }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        let searchText = searchController.searchBar.text
+        switch currentArticleTypeIndex {
+            case 0:
+                loadContentArticles(searchText)
+                contentArticles?.removeAll(keepCapacity: false)
+            case 1:
+                loadPTTArticles(searchText)
+                pttArticles?.removeAll(keepCapacity: false)
+            default:
+                loadFBFanpage(searchText)
+                fbFanpages?.removeAll(keepCapacity: false)
+        }
+    }
 }
-

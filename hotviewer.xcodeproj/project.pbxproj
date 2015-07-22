@@ -28,6 +28,7 @@
 		A1CEFBD21B5E321100B5B95F /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBD11B5E321100B5B95F /* TagCell.swift */; };
 		A1CEFBD81B5E334D00B5B95F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBD71B5E334D00B5B95F /* MenuController.swift */; };
 		A1CEFBDC1B5E36DA00B5B95F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBDB1B5E36DA00B5B95F /* SWRevealViewController.m */; };
+		A1F2CAE31B5F9CED007EC7E8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */; };
 		C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentArticle.swift */; };
 		C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */; };
 		C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40ECE751B5A3E1300419B86 /* PageViewController.swift */; };
@@ -98,6 +99,7 @@
 		A1CEFBD91B5E36D900B5B95F /* hotviewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hotviewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1CEFBDA1B5E36DA00B5B95F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A1CEFBDB1B5E36DA00B5B95F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C40E3D921B56887300A8EAEB /* ContentArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentArticle.swift; sourceTree = "<group>"; };
 		C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		C40ECE751B5A3E1300419B86 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				A1CEFBD11B5E321100B5B95F /* TagCell.swift */,
 				A1CEFBD71B5E334D00B5B95F /* MenuController.swift */,
 				C43F18EF1B5E51A20071A421 /* FBFanpageCell.swift */,
+				A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */,
 				C4BAA2E71B5E104800F1D65D /* FBFanpage.swift in Sources */,
 				C42C4D361B5C717300E9C469 /* FongerCategoryDelegate.swift in Sources */,
+				A1F2CAE31B5F9CED007EC7E8 /* SearchViewController.swift in Sources */,
 				C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */,
 				C47E12931B599C3900705D29 /* SERAPI.swift in Sources */,
 				C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */,
