@@ -34,24 +34,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             // If the category list is opened...
             self.articlesTableView.userInteractionEnabled = false
-            switch self.currentArticleTypeIndex {
-                case 1:
-                    if let prefController = revealController.rearViewController as? PreferenceViewController {
-                        prefController.categories = [
-                            FongerCategoryItem(text: "Food", imageNamed: "food", tag: "food"),
-                            FongerCategoryItem(text: "Love", imageNamed: "love", tag: "boy-girl"),
-                            FongerCategoryItem(text: "Sex", imageNamed: "sex", tag: "sex"),
-                            FongerCategoryItem(text: "Travel", imageNamed: "travel", tag: "travel"),
-                            FongerCategoryItem(text: "Fitness", imageNamed: "sport", tag: "fitness"),
-                            FongerCategoryItem(text: "Technology", imageNamed: "technology", tag: "tech_job"),
-                            FongerCategoryItem(text: "Makeup", imageNamed: "makeup", tag: "makeup"),
-                            FongerCategoryItem(text: "Health", imageNamed: "health", tag: "health"),
-                            FongerCategoryItem(text: "Nature", imageNamed: "nature", tag: "geography"),
-                            FongerCategoryItem(text: "Language", imageNamed: "language", tag: "language")
-                        ]
-                    }
-                default:
-                    break;
+            if let prefController = revealController.rearViewController as? PreferenceViewController {
+                prefController.articleTypeIndex = currentArticleTypeIndex
             }
         }
     }
@@ -233,7 +217,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 SERAPI.instance.searchPTTTopArticle(period: 10, limit: 100, onLoad: {
                     (pttArticles: [PTTArticle]?) in
                     if let articles = pttArticles {
-                        self.pttArticles? += articles
+                        self.pttArticles? = articles
                         self.articlesTableView.reloadData()
                         self.indicatorView.stopAnimating()
                     }
