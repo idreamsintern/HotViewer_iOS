@@ -9,10 +9,12 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import FBSDKShareKit
+
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate
 {
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -30,7 +32,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate
         loginButton.readPermissions = ["public_profile", "email", "user_friends"]
         loginButton.center = self.view.center
         loginButton.delegate = self
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
         self.view.addSubview(loginButton)
+        
         
     }
 
@@ -48,7 +52,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate
         {
             println("Login complete.")
             //self.performSegueWithIdentifier("showNew", sender: self)
-            let tab = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UITabBarController
+            let tab = self.storyboard?.instantiateViewControllerWithIdentifier("Controller") as! UIViewController
             self.presentViewController(tab, animated: true, completion: nil)
             
         }
@@ -63,6 +67,5 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate
     {
         println("User logged out...")
     }
-
 }
 

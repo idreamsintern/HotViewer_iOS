@@ -29,6 +29,7 @@
 		A1CEFBD21B5E321100B5B95F /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBD11B5E321100B5B95F /* TagCell.swift */; };
 		A1CEFBD81B5E334D00B5B95F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBD71B5E334D00B5B95F /* MenuController.swift */; };
 		A1CEFBDC1B5E36DA00B5B95F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBDB1B5E36DA00B5B95F /* SWRevealViewController.m */; };
+		A1E795431B60F8EA00104230 /* fbGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E795421B60F8EA00104230 /* fbGraphViewController.swift */; };
 		A1F2CAE31B5F9CED007EC7E8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */; };
 		C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentArticle.swift */; };
 		C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */; };
@@ -100,6 +101,7 @@
 		A1CEFBD91B5E36D900B5B95F /* hotviewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hotviewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1CEFBDA1B5E36DA00B5B95F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A1CEFBDB1B5E36DA00B5B95F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A1E795421B60F8EA00104230 /* fbGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fbGraphViewController.swift; sourceTree = "<group>"; };
 		A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C40E3D921B56887300A8EAEB /* ContentArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentArticle.swift; sourceTree = "<group>"; };
 		C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				A1CEFBD71B5E334D00B5B95F /* MenuController.swift */,
 				C43F18EF1B5E51A20071A421 /* FBFanpageCell.swift */,
 				A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */,
+				A1E795421B60F8EA00104230 /* fbGraphViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				C47E12911B599C2A00705D29 /* ContentAPI.swift in Sources */,
 				C49F3A3E1B546C320012C18D /* AddIndicatorView.swift in Sources */,
 				C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */,
+				A1E795431B60F8EA00104230 /* fbGraphViewController.swift in Sources */,
 				C47E129A1B59BDB400705D29 /* README.md in Sources */,
 				CE4C3D031B5D1DBF0049BF14 /* ViewController.swift in Sources */,
 				C49F3A321B53FE2B0012C18D /* API.swift in Sources */,
