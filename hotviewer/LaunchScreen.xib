@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="VLZ-bQ-4pK">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let HotBoard enrich your life :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                    <rect key="frame" x="20" y="417" width="441" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="it is by standing on the shoulders of giants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxo-Ak-hLw">
+                    <rect key="frame" x="78" y="331" width="325" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="49L-qO-Ro2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If I have seen further" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpB-gZ-evX">
+                    <rect key="frame" x="162" y="302" width="157" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="yXi-V4-qVy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="E3F-Yu-B3W">
+                    <rect key="frame" x="144" y="101" width="192" height="170"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="39G-VB-M1E"/>
+                        <constraint firstAttribute="width" constant="192" id="evu-a3-8di"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="Qxo-Ak-hLw" secondAttribute="bottom" constant="65" id="1Kt-gm-iiG"/>
+                <constraint firstItem="E3F-Yu-B3W" firstAttribute="centerX" secondItem="PpB-gZ-evX" secondAttribute="centerX" id="1gT-MH-Sk4"/>
+                <constraint firstItem="PpB-gZ-evX" firstAttribute="centerX" secondItem="Qxo-Ak-hLw" secondAttribute="centerX" id="2l7-tE-45l"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6YU-VX-C7W"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Bk7-St-EOE"/>
+                <constraint firstAttribute="trailing" secondItem="VLZ-bQ-4pK" secondAttribute="trailing" id="Elk-dj-YOl"/>
+                <constraint firstItem="Qxo-Ak-hLw" firstAttribute="top" secondItem="PpB-gZ-evX" secondAttribute="bottom" constant="8" symbolic="YES" id="Nd9-vb-L0U"/>
+                <constraint firstItem="VLZ-bQ-4pK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QiQ-hC-xvG"/>
+                <constraint firstItem="Qxo-Ak-hLw" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="bJs-90-QXu"/>
+                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="42" id="cF4-v6-X56"/>
+                <constraint firstItem="VLZ-bQ-4pK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dPn-Xq-y2T"/>
+                <constraint firstItem="PpB-gZ-evX" firstAttribute="top" secondItem="E3F-Yu-B3W" secondAttribute="bottom" constant="31" id="ejy-03-ies"/>
+                <constraint firstItem="E3F-Yu-B3W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="101" id="lBd-2Z-0kO"/>
+                <constraint firstAttribute="bottom" secondItem="VLZ-bQ-4pK" secondAttribute="bottom" id="ubS-kr-BaA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Logo" width="112" height="112"/>
+        <image name="yellowBackground" width="108" height="180"/>
+    </resources>
+</document>

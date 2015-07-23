@@ -1097,7 +1097,7 @@
         <scene sceneID="dIF-fj-CBw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZ7-DP-ehU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="qLa-PP-SK8"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="Search" id="qLa-PP-SK8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="23g-oW-rqA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1152,6 +1152,7 @@
         <image name="Home" width="30" height="30"/>
         <image name="LogoText" width="189" height="78"/>
         <image name="Maps" width="30" height="30"/>
+        <image name="Search" width="30" height="30"/>
         <image name="forward" width="128" height="128"/>
         <image name="main" width="246" height="341"/>
     </resources>

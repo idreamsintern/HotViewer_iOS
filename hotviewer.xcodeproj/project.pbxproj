@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F46D7461B60E59E00995987 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F46D7451B60E59E00995987 /* LaunchScreen.xib */; };
 		1F65FD8B1B5A785A005D7038 /* FbLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */; };
 		1F917D781B5BA8E100AB4795 /* MYuenHK-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F917D771B5BA8E100AB4795 /* MYuenHK-Light.otf */; };
 		1F917D7A1B5BAA7700AB4795 /* MHeiHK-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F917D791B5BAA7700AB4795 /* MHeiHK-Light.otf */; };
@@ -54,7 +55,6 @@
 		C49F3A141B53FE060012C18D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A131B53FE060012C18D /* SecondViewController.swift */; };
 		C49F3A171B53FE060012C18D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49F3A151B53FE060012C18D /* Main.storyboard */; };
 		C49F3A191B53FE060012C18D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49F3A181B53FE060012C18D /* Images.xcassets */; };
-		C49F3A1C1B53FE060012C18D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49F3A1A1B53FE060012C18D /* LaunchScreen.xib */; };
 		C49F3A281B53FE060012C18D /* hotviewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A271B53FE060012C18D /* hotviewerTests.swift */; };
 		C49F3A321B53FE2B0012C18D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A311B53FE2B0012C18D /* API.swift */; };
 		C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A331B5420470012C18D /* SwiftyJSON.swift */; };
@@ -76,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F46D7451B60E59E00995987 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		1F65FD8A1B5A785A005D7038 /* FbLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbLoginViewController.swift; sourceTree = "<group>"; };
 		1F917D771B5BA8E100AB4795 /* MYuenHK-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MYuenHK-Light.otf"; sourceTree = "<group>"; };
 		1F917D791B5BAA7700AB4795 /* MHeiHK-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MHeiHK-Light.otf"; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		C49F3A131B53FE060012C18D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C49F3A161B53FE060012C18D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C49F3A181B53FE060012C18D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C49F3A1B1B53FE060012C18D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C49F3A211B53FE060012C18D /* hotviewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hotviewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49F3A261B53FE060012C18D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49F3A271B53FE060012C18D /* hotviewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotviewerTests.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */,
 				C49F3A151B53FE060012C18D /* Main.storyboard */,
 				C49F3A181B53FE060012C18D /* Images.xcassets */,
-				C49F3A1A1B53FE060012C18D /* LaunchScreen.xib */,
+				1F46D7451B60E59E00995987 /* LaunchScreen.xib */,
 				C49F3A0D1B53FE060012C18D /* Supporting Files */,
 			);
 			path = hotviewer;
@@ -411,11 +411,11 @@
 				1F917D7C1B5BABB200AB4795 /* MHeiHK-Medium.otf in Resources */,
 				1FEFC12E1B5A600F001240EE /* Mohave-Bold Italics.otf in Resources */,
 				1FEFC12F1B5A600F001240EE /* Mohave-Bold.otf in Resources */,
-				C49F3A1C1B53FE060012C18D /* LaunchScreen.xib in Resources */,
 				1FEFC12D1B5A600F001240EE /* Mohave Italics.otf in Resources */,
 				1F917D7A1B5BAA7700AB4795 /* MHeiHK-Light.otf in Resources */,
 				C49F3A191B53FE060012C18D /* Images.xcassets in Resources */,
 				1FEFC1361B5A6428001240EE /* Hallo sans black.otf in Resources */,
+				1F46D7461B60E59E00995987 /* LaunchScreen.xib in Resources */,
 				1FEFC1311B5A600F001240EE /* Mohave-SemiBold.otf in Resources */,
 				1FEFC1371B5A6428001240EE /* Hallo sans light.otf in Resources */,
 				1FEFC1301B5A600F001240EE /* Mohave-SemiBold Italics.otf in Resources */,
@@ -500,14 +500,6 @@
 				C49F3A161B53FE060012C18D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C49F3A1A1B53FE060012C18D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C49F3A1B1B53FE060012C18D /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
