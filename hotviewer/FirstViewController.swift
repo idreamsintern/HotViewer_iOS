@@ -34,9 +34,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             // If the category list is opened...
             self.articlesTableView.userInteractionEnabled = false
-            if let prefController = revealController.rearViewController as? PreferenceViewController {
-                prefController.articleTypeIndex = currentArticleTypeIndex
-            }
         }
     }
 
@@ -79,14 +76,20 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func articleTypeChanged(sender: UISegmentedControl) {
         currentArticleTypeIndex = sender.selectedSegmentIndex
+        // Update the category list
+        if let prefController = self.revealViewController().rearViewController as? PreferenceViewController {
+            prefController.articleTypeIndex = currentArticleTypeIndex
+        }
         switch currentArticleTypeIndex {
-        case 0:
-            loadContentArticles()
-            
-        case 1:
-            loadPTTArticles()
-            
-        default:loadFBFanpage()
+            case 0:
+                currentPage = 1
+                loadContentArticles()
+                
+            case 1:
+                loadPTTArticles()
+                
+            default:
+                loadFBFanpage()
         
         }
     }
@@ -113,9 +116,12 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                         cell.content?.text = article.content
                     } else {
                         article.getArticle({
-                            cell.thumbnailURL = article.thumbnailURL
-                            cell.content?.text = article.content
-                            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                            if indexPath.row < tableView.numberOfRowsInSection(0) {
+                                cell.thumbnailURL = article.thumbnailURL
+                                tableView.beginUpdates()
+                                cell.content?.text = article.content
+                                tableView.endUpdates()
+                            }
                         })
                     }
                 }
@@ -173,14 +179,47 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func loadContentArticles() {
-        self.indicatorView.startAnimating()
-        ContentAPI.instance.searchArticleId(limit: 10, page: 1, sort: ContentSortType.Click) {
-            (articles: [ContentArticle]?) in
-            self.contentArticles = articles
+        if let prefController = self.revealViewController().rearViewController as? PreferenceViewController {
+            self.indicatorView.startAnimating()
+            // Release the contentArticles from memory
+            self.contentArticles?.removeAll()
+            self.contentArticles = [ContentArticle]()
             self.articlesTableView.reloadData()
-            self.indicatorView.stopAnimating()
+            
+            
+            if prefController.atLeastOneSelected {
+                // If preference has been set, load by users' preference
+                
+                // A count of loaded categories
+                var loadedCount = 0
+                for category in prefController.selectedCategories {
+                    // We use ensureValidToken here to prevent simultaneously request multiple tokens for the first time
+                    ContentAPI.instance.ensureValidToken() {
+                        ContentAPI.instance.searchArticleId(limit: 10, page: self.currentPage, sort: ContentSortType.Click, tag: category.tag) {
+                            (articles: [ContentArticle]?) in
+                            if let articles = articles {
+                                self.contentArticles? += articles
+                                self.articlesTableView.reloadData()
+                            }
+                            // Stop the loading indicator only if after all categories are loaded
+                            if ++loadedCount == prefController.selectedCount {
+                                self.indicatorView.stopAnimating()
+                            }
+                        }
+                    }
+                }
+            } else {
+                // If preference has NOT been set, load all without board
+                ContentAPI.instance.searchArticleId(limit: 10, page: currentPage, sort: ContentSortType.Click) {
+                    (articles: [ContentArticle]?) in
+                    if let articles = articles {
+                        self.contentArticles? = articles
+                        self.articlesTableView.reloadData()
+                        self.indicatorView.stopAnimating()
+                    }
+                }
+            }
         }
-
     }
     func loadPTTArticles() {
         if let prefController = self.revealViewController().rearViewController as? PreferenceViewController {

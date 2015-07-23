@@ -84,7 +84,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
                             if indexPath.row < tableView.numberOfRowsInSection(0) {
                                 cell.thumbnailURL = article.thumbnailURL
                                 cell.content?.text = article.content
-                                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                                tableView.beginUpdates()
+                                cell.content?.text = article.content
+                                tableView.endUpdates()
                             }
                         })
                     }

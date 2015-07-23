@@ -15,9 +15,16 @@ class PTTPrefViewController : PreferenceViewController {
 class PreferenceViewController : UIViewController, FongerCategoryDelegate {
     @IBOutlet weak var prefTableView: FongerCategoryTableView?
     
+    
     var categories = [
         [
-            FongerCategoryItem(text: "No category", imageNamed: "")
+            FongerCategoryItem(text: "Food", imageNamed: "food", tag: "食記"),
+            FongerCategoryItem(text: "Travel", imageNamed: "travel", tag: "旅行"),
+            FongerCategoryItem(text: "Technology", imageNamed: "food", tag: "科技"),
+            FongerCategoryItem(text: "Entertainment", imageNamed: "", tag: "新奇搞笑"),
+            FongerCategoryItem(text: "News", imageNamed: "", tag: "時事"),
+            FongerCategoryItem(text: "Health", imageNamed: "", tag: "健康"),
+            FongerCategoryItem(text: "Movie", imageNamed: "", tag: "電影")
         ],
         [
             FongerCategoryItem(text: "Food", imageNamed: "food", tag: "food"),
@@ -35,8 +42,9 @@ class PreferenceViewController : UIViewController, FongerCategoryDelegate {
             FongerCategoryItem(text: "No category", imageNamed: "")
         ]
     ]
+
     
-    var selectedCount = 0
+    private var _selectedCounts = [0, 0, 0]
     private var _articleTypeIndex: Int = 0
     var articleTypeIndex: Int {
         get {
@@ -47,15 +55,20 @@ class PreferenceViewController : UIViewController, FongerCategoryDelegate {
             prefTableView?.reloadData()
         }
     }
+    var selectedCount: Int {
+        get {
+            return _selectedCounts[_articleTypeIndex]
+        }
+    }
     var atLeastOneSelected: Bool {
         get {
-            return selectedCount != 0
+            return _selectedCounts[_articleTypeIndex] != 0
         }
     }
     var selectedCategories: [FongerCategoryItem] {
         get {
             var selected = [FongerCategoryItem]()
-            for category in categories[articleTypeIndex] {
+            for category in categories[_articleTypeIndex] {
                 if category.selected {
                     selected.append(category)
                 }
@@ -92,9 +105,9 @@ class PreferenceViewController : UIViewController, FongerCategoryDelegate {
     func categoryView(tableView: UITableView, selected: Bool, didSelectedChangeCategoryAtIndexPath indexPath: NSIndexPath) {
         categories[_articleTypeIndex][indexPath.row].selected = selected
         if selected {
-            self.selectedCount++
+            self._selectedCounts[_articleTypeIndex]++
         } else {
-            self.selectedCount--
+            self._selectedCounts[_articleTypeIndex]--
         }
         println("No.\(indexPath.row) \(categories[_articleTypeIndex][indexPath.row].text) \(selected)")
     }

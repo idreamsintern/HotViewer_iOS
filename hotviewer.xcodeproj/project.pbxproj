@@ -121,6 +121,7 @@
 		C47E12991B59BDB400705D29 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C47E67D21B58F39A00501D61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C47E67D41B58F3F700501D61 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C494DC4D1B60F14B00576175 /* hotviewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = hotviewer.entitlements; sourceTree = "<group>"; };
 		C49F3A0A1B53FE060012C18D /* hotviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotviewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49F3A0E1B53FE060012C18D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49F3A0F1B53FE060012C18D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +254,7 @@
 		C49F3A0C1B53FE060012C18D /* hotviewer */ = {
 			isa = PBXGroup;
 			children = (
+				C494DC4D1B60F14B00576175 /* hotviewer.entitlements */,
 				A1CEFBCC1B5E2B2000B5B95F /* SWRevealViewController */,
 				C42C4D341B5C715900E9C469 /* FongerCategoryTableView */,
 				C47E12981B59B35C00705D29 /* API */,
@@ -369,8 +371,14 @@
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 8X47GCE9B3;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
