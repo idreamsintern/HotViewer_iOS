@@ -8,10 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchResultsUpdating{
-    
-    
-    
+class SearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var articlesTableView: UITableView!
     let reusedCellIdentifier = ["postCell", "pttCell", "fbFanpageCell"]
     
@@ -84,9 +81,11 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
                         cell.content?.text = article.content
                     } else {
                         article.getArticle({
-                            cell.thumbnailURL = article.thumbnailURL
-                            cell.content?.text = article.content
-                            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                            if indexPath.row < tableView.numberOfRowsInSection(0) {
+                                cell.thumbnailURL = article.thumbnailURL
+                                cell.content?.text = article.content
+                                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                            }
                         })
                     }
                 }
@@ -106,7 +105,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
         }
         return cell!
     }
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var sender: AnyObject?
         switch currentArticleTypeIndex {
@@ -124,6 +123,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
         }
         self.performSegueWithIdentifier("showWebView", sender: sender)
     }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let webViewCtrl = segue.destinationViewController as! WebViewController
         switch sender {
@@ -141,18 +141,24 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
                 break
         }
     }
-    
-    func loadContentArticles(keyword:String) {
-        if keyword != ""{
+    var loadContentCounter = 0
+
+    func loadContentArticles(keyword:String, latestCount:Int) {
+        if keyword != "" {
             self.indicatorView.startAnimating()
-            ContentAPI.instance.searchArticleId(limit: 10, page: 1, sort: ContentSortType.Click, keyword: keyword ?? " ") {
+            //self.articlesTableView.reloadData()
+            ContentAPI.instance.searchArticleId(limit: 10, page: 1, sort: ContentSortType.Click, keyword: keyword) {
                 (articles: [ContentArticle]?) in
-                self.contentArticles = articles
-                self.articlesTableView.reloadData()
-                self.indicatorView.stopAnimating()
+                if latestCount == self.loadContentCounter {
+
+                    println("Count:")
+                    self.contentArticles = articles
+                    self.articlesTableView.reloadData()
+                    self.indicatorView.stopAnimating()
+                }
             }
         }else{
-            contentArticles?.removeAll(keepCapacity: false)
+            contentArticles?.removeAll(keepCapacity: true)
             articlesTableView.reloadData()
         }
         
@@ -161,6 +167,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
     func loadPTTArticles(board:String) {
         if board != "" {
             self.indicatorView.startAnimating()
+            self.pttArticles?.removeAll()
             SERAPI.instance.searchPTTTopArticle(period: 10, board: board, onLoad: {
                 (pttArticles: [PTTArticle]?) in
                 self.pttArticles = pttArticles
@@ -175,6 +182,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
     func loadFBFanpage(keyword:String) {
         if keyword != "" {
             self.indicatorView.startAnimating()
+            self.fbFanpages?.removeAll()
             SERAPI.instance.searchFBFanpage(keyword: keyword, sortBy: FBFanpageSort.PTA, onLoad: {
                 (fbFanpages: [FBFanpage]?) in
                 self.fbFanpages = fbFanpages
@@ -196,14 +204,11 @@ class SearchViewController: UIViewController, UISearchResultsUpdating{
         let searchText = searchController.searchBar.text
         switch currentArticleTypeIndex {
             case 0:
-                loadContentArticles(searchText)
-                contentArticles?.removeAll(keepCapacity: false)
+                loadContentArticles(searchText, latestCount: ++loadContentCounter)
             case 1:
                 loadPTTArticles(searchText)
-                pttArticles?.removeAll(keepCapacity: false)
             default:
                 loadFBFanpage(searchText)
-                fbFanpages?.removeAll(keepCapacity: false)
         }
     }
 }
