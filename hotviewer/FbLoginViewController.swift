@@ -7,29 +7,69 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
-class FbLoginViewController: UIViewController {
-
+class FbLoginViewController: UIViewController , FBSDKLoginButtonDelegate{
+    var loginButton = FBSDKLoginButton()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        loginButton.center = self.view.center
+        loginButton.delegate = self
+        
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
     }
-
-    override func didReceiveMemoryWarning() {
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+       
+        if (FBSDKAccessToken.currentAccessToken() == nil)
+        {
+            self.view.addSubview(loginButton)
+            println("Not logged in...")
+        }
+        else
+        {
+            
+            let tab = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UIViewController
+            self.presentViewController(tab, animated: true, completion: nil)
+            println("Logged in...")
+        }
+        
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Facebook Login
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        if error == nil
+        {
+            println("Login complete.")
+            //self.performSegueWithIdentifier("showNew", sender: self)
+            let tab = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UIViewController
+            self.presentViewController(tab, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            println(error.localizedDescription)
+        }
     }
-    */
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+    {
+        println("User logged out...")
+    }
+
 
 }

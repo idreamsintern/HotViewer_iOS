@@ -9,13 +9,19 @@
 import UIKit
 import CoreData
 import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool
+    {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // Change navigation bar appearance
@@ -38,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Change status bar style
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         // Override point for customization after application launch.
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -125,6 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
     
     
     
