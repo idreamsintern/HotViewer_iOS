@@ -72,7 +72,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier) as? FBCheckinCell
         
         if (indexPath.row % 2 == 1) {
-            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
+            cell?.backgroundColor = UIColor(red: 240/255, green: 248/255, blue: 255/255, alpha: 1)
         } else {
             cell?.backgroundColor = UIColor.whiteColor()
         }

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.blackColor()], forState: UIControlState.Selected)
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 255/255, green: 185/255, blue: 15/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 135/255, green: 206/255, blue: 250/255, alpha: 1)
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         

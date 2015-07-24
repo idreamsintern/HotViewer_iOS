@@ -13,8 +13,8 @@ class pttCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var board: UILabel!
     @IBOutlet weak var push: UILabel!
-    @IBOutlet weak var thumbnailmageView: UIImageView!
-    
+    //@IBOutlet weak var thumbnailmageView: UIImageView!
+    @IBOutlet weak var pushImageView: UIImageView!
    
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -38,19 +38,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="E3F-Yu-B3W">
-                    <rect key="frame" x="144" y="101" width="192" height="170"/>
+                    <rect key="frame" x="149" y="99" width="183" height="170"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="170" id="39G-VB-M1E"/>
-                        <constraint firstAttribute="width" constant="192" id="evu-a3-8di"/>
+                        <constraint firstAttribute="width" constant="183" id="6gf-sy-3dr"/>
+                        <constraint firstAttribute="height" constant="170" id="87F-XM-OhH"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="Qxo-Ak-hLw" secondAttribute="bottom" constant="65" id="1Kt-gm-iiG"/>
-                <constraint firstItem="E3F-Yu-B3W" firstAttribute="centerX" secondItem="PpB-gZ-evX" secondAttribute="centerX" id="1gT-MH-Sk4"/>
                 <constraint firstItem="PpB-gZ-evX" firstAttribute="centerX" secondItem="Qxo-Ak-hLw" secondAttribute="centerX" id="2l7-tE-45l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6YU-VX-C7W"/>
+                <constraint firstItem="E3F-Yu-B3W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="99" id="Az8-3o-aw9"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Bk7-St-EOE"/>
                 <constraint firstAttribute="trailing" secondItem="VLZ-bQ-4pK" secondAttribute="trailing" id="Elk-dj-YOl"/>
                 <constraint firstItem="Qxo-Ak-hLw" firstAttribute="top" secondItem="PpB-gZ-evX" secondAttribute="bottom" constant="8" symbolic="YES" id="Nd9-vb-L0U"/>
@@ -58,8 +58,8 @@
                 <constraint firstItem="Qxo-Ak-hLw" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="bJs-90-QXu"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="42" id="cF4-v6-X56"/>
                 <constraint firstItem="VLZ-bQ-4pK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dPn-Xq-y2T"/>
-                <constraint firstItem="PpB-gZ-evX" firstAttribute="top" secondItem="E3F-Yu-B3W" secondAttribute="bottom" constant="31" id="ejy-03-ies"/>
-                <constraint firstItem="E3F-Yu-B3W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="101" id="lBd-2Z-0kO"/>
+                <constraint firstItem="PpB-gZ-evX" firstAttribute="top" secondItem="E3F-Yu-B3W" secondAttribute="bottom" constant="33" id="nER-hA-hf8"/>
+                <constraint firstItem="E3F-Yu-B3W" firstAttribute="centerX" secondItem="PpB-gZ-evX" secondAttribute="centerX" id="pzR-8Y-kq2"/>
                 <constraint firstAttribute="bottom" secondItem="VLZ-bQ-4pK" secondAttribute="bottom" id="ubS-kr-BaA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
