@@ -63,7 +63,6 @@
 		C49F3A401B546C4F0012C18D /* SetBodyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */; };
 		C4BAA2E71B5E104800F1D65D /* FBFanpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BAA2E61B5E104800F1D65D /* FBFanpage.swift */; };
 		C4E0301B1B56AE3F007D6284 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E0301A1B56AE3F007D6284 /* WebViewController.swift */; };
-		CE4C3D031B5D1DBF0049BF14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C3D021B5D1DBF0049BF14 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +138,6 @@
 		C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBodyContent.swift; sourceTree = "<group>"; };
 		C4BAA2E61B5E104800F1D65D /* FBFanpage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFanpage.swift; sourceTree = "<group>"; };
 		C4E0301A1B56AE3F007D6284 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		CE4C3D021B5D1DBF0049BF14 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,7 +260,6 @@
 				C47E12971B59B33D00705D29 /* Type */,
 				C47E12961B59B30000705D29 /* Controller */,
 				C49F3A391B5467980012C18D /* Extensions */,
-				CE4C3D021B5D1DBF0049BF14 /* ViewController.swift */,
 				C49F3A0F1B53FE060012C18D /* AppDelegate.swift */,
 				911AA4F31B572A5500AA6AED /* hotviewer.xcdatamodeld */,
 				C49F3A151B53FE060012C18D /* Main.storyboard */,
@@ -465,7 +462,6 @@
 				C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */,
 				A1E795431B60F8EA00104230 /* fbGraphViewController.swift in Sources */,
 				C47E129A1B59BDB400705D29 /* README.md in Sources */,
-				CE4C3D031B5D1DBF0049BF14 /* ViewController.swift in Sources */,
 				C49F3A321B53FE2B0012C18D /* API.swift in Sources */,
 				C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */,
 				C4BAA2E71B5E104800F1D65D /* FBFanpage.swift in Sources */,

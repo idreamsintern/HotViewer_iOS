@@ -595,7 +595,7 @@
         <!--Title-->
         <scene sceneID="IVG-Pq-zGJ">
             <objects>
-                <viewController id="JyV-AH-wFj" customClass="ViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JyV-AH-wFj" customClass="FbLoginViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gj-LS-21G"/>
                         <viewControllerLayoutGuide type="bottom" id="0Bs-fX-Eq1"/>
