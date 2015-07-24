@@ -15,7 +15,7 @@ class pttCell: UITableViewCell {
     @IBOutlet weak var push: UILabel!
     @IBOutlet weak var thumbnailmageView: UIImageView!
     
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

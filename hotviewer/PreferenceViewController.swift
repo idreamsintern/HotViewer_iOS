@@ -8,9 +8,6 @@
 
 import Foundation
 import UIKit
-class PTTPrefViewController : PreferenceViewController {
-    
-}
 
 class PreferenceViewController : UIViewController, FongerCategoryDelegate {
     @IBOutlet weak var prefTableView: FongerCategoryTableView?

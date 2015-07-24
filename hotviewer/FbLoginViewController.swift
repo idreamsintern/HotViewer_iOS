@@ -21,25 +21,43 @@ class FbLoginViewController: UIViewController , FBSDKLoginButtonDelegate{
         loginButton.delegate = self
         
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onProfileUpdated", name:FBSDKProfileDidChangeNotification, object: nil)
     }
     
+    func onProfileUpdated()
+    {
+        let name = FBSDKProfile.currentProfile().name
+        let userId = FBSDKProfile.currentProfile().userID
+        let thumbnailURL = NSURL(string: "https://graph.facebook.com/\(userId)/picture")!
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let firstTime = !defaults.boolForKey("hasViewedWalkthrough")
+        let viewCtrl = self.storyboard?.instantiateViewControllerWithIdentifier(firstTime ? "PageViewController" : "tabController") as! UIViewController
+        self.presentViewController(viewCtrl, animated: true, completion: {
+            SimpleCache.sharedInstance.getImage(thumbnailURL) { image, error in
+                if let err = error {
+                    println(err)
+                } else if let fullImage = image {
+                    viewCtrl.view.makeToast(message: "Welcome \(name)", duration: 2, position: HRToastPositionCenter, title: "Have a nice day!", image: fullImage)
+                }
+            }
+        })
+    }
+
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
        
         if (FBSDKAccessToken.currentAccessToken() == nil)
         {
-            self.view.addSubview(loginButton)
             println("Not logged in...")
+            self.view.addSubview(loginButton)
         }
         else
         {
-            
-            let tab = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UIViewController
-            self.presentViewController(tab, animated: true, completion: nil)
             println("Logged in...")
+            self.onProfileUpdated()
         }
-        
     }
     
     override func didReceiveMemoryWarning()
@@ -56,9 +74,7 @@ class FbLoginViewController: UIViewController , FBSDKLoginButtonDelegate{
         {
             println("Login complete.")
             //self.performSegueWithIdentifier("showNew", sender: self)
-            let tab = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UIViewController
-            self.presentViewController(tab, animated: true, completion: nil)
-            
+
         }
         else
         {
@@ -70,6 +86,6 @@ class FbLoginViewController: UIViewController , FBSDKLoginButtonDelegate{
     {
         println("User logged out...")
     }
-
+    
 
 }

@@ -49,13 +49,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.revealViewController().rearViewRevealWidth = self.view.frame.width - 62
         }
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if !defaults.boolForKey("hasViewedWalkthrough") {
-            // Launch walkthrough screens
-            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
-                self.presentViewController(pageViewController, animated: true, completion: nil)
-            }
-        }
         self.articlesTableView.estimatedRowHeight = CGFloat(400)
         self.articlesTableView.rowHeight = UITableViewAutomaticDimension
         

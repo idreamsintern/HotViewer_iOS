@@ -42,8 +42,9 @@ class PageContentViewController: UIViewController {
     @IBAction func close(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(true, forKey: "hasViewedWalkthrough")
-        
-        dismissViewControllerAnimated(true, completion: nil)
+        if let tab = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as? UIViewController {
+            self.presentViewController(tab, animated: true, completion: nil)
+        }
     }
     @IBAction func nextScreen(sender: AnyObject) {
         let pageViewController = self.parentViewController as! PageViewController

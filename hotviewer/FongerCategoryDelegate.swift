@@ -14,3 +14,4 @@ protocol FongerCategoryDelegate {
     func categoryView(tableView: UITableView, itemForCategoryAtIndexPath indexPath: NSIndexPath) -> FongerCategoryItem
     func categoryView(tableView: UITableView, numberOfCategoriesInSection section: Int) -> Int
 }
+

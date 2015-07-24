@@ -29,7 +29,6 @@
 		A1CEFBD21B5E321100B5B95F /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBD11B5E321100B5B95F /* TagCell.swift */; };
 		A1CEFBD81B5E334D00B5B95F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBD71B5E334D00B5B95F /* MenuController.swift */; };
 		A1CEFBDC1B5E36DA00B5B95F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFBDB1B5E36DA00B5B95F /* SWRevealViewController.m */; };
-		A1E795431B60F8EA00104230 /* fbGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E795421B60F8EA00104230 /* fbGraphViewController.swift */; };
 		A1F2CAE31B5F9CED007EC7E8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */; };
 		C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E3D921B56887300A8EAEB /* ContentArticle.swift */; };
 		C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */; };
@@ -51,6 +50,7 @@
 		C47E129A1B59BDB400705D29 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C47E12991B59BDB400705D29 /* README.md */; };
 		C47E67D31B58F39A00501D61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47E67D21B58F39A00501D61 /* MapKit.framework */; };
 		C47E67D51B58F3F700501D61 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E67D41B58F3F700501D61 /* MapViewController.swift */; };
+		C494DC531B62581100576175 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494DC521B62581100576175 /* HRToast+UIView.swift */; };
 		C49F3A101B53FE060012C18D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A0F1B53FE060012C18D /* AppDelegate.swift */; };
 		C49F3A121B53FE060012C18D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A111B53FE060012C18D /* FirstViewController.swift */; };
 		C49F3A141B53FE060012C18D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F3A131B53FE060012C18D /* SecondViewController.swift */; };
@@ -100,7 +100,6 @@
 		A1CEFBD91B5E36D900B5B95F /* hotviewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hotviewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1CEFBDA1B5E36DA00B5B95F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A1CEFBDB1B5E36DA00B5B95F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		A1E795421B60F8EA00104230 /* fbGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fbGraphViewController.swift; sourceTree = "<group>"; };
 		A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C40E3D921B56887300A8EAEB /* ContentArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentArticle.swift; sourceTree = "<group>"; };
 		C40ECE731B5A3BE000419B86 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		C47E67D21B58F39A00501D61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C47E67D41B58F3F700501D61 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C494DC4D1B60F14B00576175 /* hotviewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = hotviewer.entitlements; sourceTree = "<group>"; };
+		C494DC521B62581100576175 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		C49F3A0A1B53FE060012C18D /* hotviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotviewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49F3A0E1B53FE060012C18D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49F3A0F1B53FE060012C18D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,7 +203,6 @@
 				A1CEFBD71B5E334D00B5B95F /* MenuController.swift */,
 				C43F18EF1B5E51A20071A421 /* FBFanpageCell.swift */,
 				A1F2CAE21B5F9CED007EC7E8 /* SearchViewController.swift */,
-				A1E795421B60F8EA00104230 /* fbGraphViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -316,6 +315,7 @@
 				C49F3A3D1B546C320012C18D /* AddIndicatorView.swift */,
 				C49F3A3F1B546C4F0012C18D /* SetBodyContent.swift */,
 				910D96C01B57043500ECB425 /* SimpleCache.swift */,
+				C494DC521B62581100576175 /* HRToast+UIView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -468,7 +468,6 @@
 				C47E12911B599C2A00705D29 /* ContentAPI.swift in Sources */,
 				C49F3A3E1B546C320012C18D /* AddIndicatorView.swift in Sources */,
 				C49F3A341B5420470012C18D /* SwiftyJSON.swift in Sources */,
-				A1E795431B60F8EA00104230 /* fbGraphViewController.swift in Sources */,
 				C47E129A1B59BDB400705D29 /* README.md in Sources */,
 				C49F3A321B53FE2B0012C18D /* API.swift in Sources */,
 				C40ECE761B5A3E1300419B86 /* PageViewController.swift in Sources */,
@@ -477,6 +476,7 @@
 				A1F2CAE31B5F9CED007EC7E8 /* SearchViewController.swift in Sources */,
 				C40E3D931B56887300A8EAEB /* ContentArticle.swift in Sources */,
 				C47E12931B599C3900705D29 /* SERAPI.swift in Sources */,
+				C494DC531B62581100576175 /* HRToast+UIView.swift in Sources */,
 				C40ECE741B5A3BE000419B86 /* PageContentViewController.swift in Sources */,
 				A18BBB261B56E3C10048C29D /* PostCell.swift in Sources */,
 				C47E67D51B58F3F700501D61 /* MapViewController.swift in Sources */,
