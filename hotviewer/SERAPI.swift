@@ -60,6 +60,28 @@ class SERAPI: API {
             })
         }
     }
+    func searchPTTTopArticleByKeyword(type:String,keyword: String?  = nil,limit: Int,sort:String, onLoad: (pttArticles: [PTTArticle]? ) -> ()) {
+        self.ensureValidToken() {
+            self.post([
+                "type" : type,
+                "limit" : String(limit),
+                "keyword": keyword,
+                "sort":sort
+                ], url: "keyword_search/ptt", postCompleted: {
+                    succeeded, msg, result in
+                    var pttArticles = [PTTArticle]()
+                    
+                    if succeeded, let pttArr = result.array {
+                        for pttArticle in pttArr {
+                            pttArticles.append(PTTArticle(pttJSON: pttArticle))
+                        }
+                    }
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onLoad(pttArticles: pttArticles)
+                    }
+            })
+        }
+    }
     func searchFBFanpage(keyword:String? = nil, category: String? = nil, sortBy: FBFanpageSort, onLoad: (fbFanpage: [FBFanpage]?) -> ()) {
         self.ensureValidToken() {
             self.post(

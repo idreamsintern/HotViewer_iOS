@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var articlesTableView: UITableView!
+    @IBOutlet weak var articleTypeSegment: UISegmentedControl!
     let reusedCellIdentifier = ["postCell", "pttCell", "fbFanpageCell"]
     
     var indicatorView: UIActivityIndicatorView!
@@ -40,7 +41,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
         searchController.searchBar.tintColor = UIColor.blackColor()
         //        searchController.searchBar.barTintColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
         //
-        //        searchController.searchBar.placeholder = "Search your restaurant"
         //        searchController.searchBar.prompt = "Quick Search"
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -49,14 +49,22 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
         // Include the search controller's search bar within the table's header view.
         articlesTableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
+        articleTypeChanged(articleTypeSegment)
     }
     
     override func viewWillAppear(animated: Bool) {
         //loadContentArticles()
     }
-    
     @IBAction func articleTypeChanged(sender: UISegmentedControl) {
         currentArticleTypeIndex = sender.selectedSegmentIndex
+        switch currentArticleTypeIndex {
+        case 0:
+            searchController.searchBar.placeholder = "請輸入文章標題關鍵字"
+        case 1:
+            searchController.searchBar.placeholder = "請輸入文章標題關鍵字"
+        default :
+            searchController.searchBar.placeholder = "請輸入粉絲頁標題關鍵字"
+        }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return [contentArticles?.count, pttArticles?.count, fbFanpages?.count][currentArticleTypeIndex] ?? 0
@@ -152,8 +160,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
             ContentAPI.instance.searchArticleId(limit: 10, page: 1, sort: ContentSortType.Click, keyword: keyword) {
                 (articles: [ContentArticle]?) in
                 if latestCount == self.loadContentCounter {
-
-                    println("Count:")
                     self.contentArticles = articles
                     self.articlesTableView.reloadData()
                     self.indicatorView.stopAnimating()
@@ -166,11 +172,11 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
         
         
     }
-    func loadPTTArticles(board:String) {
-        if board != "" {
+    func loadPTTArticles(keyword:String) {
+        if keyword != "" {
             self.indicatorView.startAnimating()
             self.pttArticles?.removeAll()
-            SERAPI.instance.searchPTTTopArticle(period: 10, board: board, onLoad: {
+            SERAPI.instance.searchPTTTopArticleByKeyword("title",keyword: keyword,limit:10, sort: "time_desc",onLoad: {
                 (pttArticles: [PTTArticle]?) in
                 self.pttArticles = pttArticles
                 self.articlesTableView.reloadData()

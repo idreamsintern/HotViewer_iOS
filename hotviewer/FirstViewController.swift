@@ -94,7 +94,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         var cell = tableView.dequeueReusableCellWithIdentifier(reusedCellIdentifier[currentArticleTypeIndex]) as? UITableViewCell
  
         if (indexPath.row % 2 == 1) {
-            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
+            cell?.backgroundColor = UIColor(red: 240/255, green: 248/255, blue: 255/255, alpha: 1)
         } else {
             cell?.backgroundColor = UIColor.whiteColor()
         }
@@ -121,8 +121,16 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             case 1:
                 if let cell = cell as? pttCell, let pttArticle = pttArticles?[indexPath.row] as PTTArticle? {
                     cell.title.text = pttArticle.title
-                    cell.board.text = pttArticle.board
+                    cell.board.text = "看板 : " + pttArticle.board!
                     cell.push.text = pttArticle.push
+                    var img: UIImage?
+                    if cell.push.text?.toInt() >= 500 {
+                        img = UIImage(named: "pushHot")
+                    }
+                    else {
+                        img = UIImage(named: "pushNotHot")
+                    }
+                    cell.pushImageView.image = img
                 }
             default:
                 if let cell = cell as? FBFanpageCell, let fbFanpage = fbFanpages?[indexPath.row] as FBFanpage? {
@@ -171,7 +179,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func loadContentArticles() {
+    func loadContentArticles(completition: (()->())? = nil) {
         if let prefController = self.revealViewController().rearViewController as? PreferenceViewController {
             self.indicatorView.startAnimating()
             // Release the contentArticles from memory
@@ -197,6 +205,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                             // Stop the loading indicator only if after all categories are loaded
                             if ++loadedCount == prefController.selectedCount {
                                 self.indicatorView.stopAnimating()
+                                if let completition = completition {
+                                    completition()
+                                }
                             }
                         }
                     }
@@ -209,6 +220,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                         self.contentArticles? = articles
                         self.articlesTableView.reloadData()
                         self.indicatorView.stopAnimating()
+                        if let completition = completition {
+                            completition()
+                        }
                     }
                 }
             }
@@ -269,13 +283,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func refresh() {
         switch currentArticleTypeIndex {
             case 0:
-                ContentAPI.instance.searchArticleId(limit: 10, page: ++currentPage, sort: ContentSortType.Click) {
-                    (articles: [ContentArticle]?) in
-                    if let articles = articles {
-                        self.contentArticles?.splice(articles, atIndex: 0)
-                        self.articlesTableView.reloadData()
-                        self.refreshControl.endRefreshing()
-                    }
+                currentPage++
+                loadContentArticles() {
+                    self.refreshControl.endRefreshing()
                 }
             case 1:
                 self.refreshControl.endRefreshing()
