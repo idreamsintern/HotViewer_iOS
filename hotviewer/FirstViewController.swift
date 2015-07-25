@@ -171,7 +171,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func loadContentArticles() {
+    func loadContentArticles(completition: (()->())? = nil) {
         if let prefController = self.revealViewController().rearViewController as? PreferenceViewController {
             self.indicatorView.startAnimating()
             // Release the contentArticles from memory
@@ -197,6 +197,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                             // Stop the loading indicator only if after all categories are loaded
                             if ++loadedCount == prefController.selectedCount {
                                 self.indicatorView.stopAnimating()
+                                if let completition = completition {
+                                    completition()
+                                }
                             }
                         }
                     }
@@ -209,6 +212,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                         self.contentArticles? = articles
                         self.articlesTableView.reloadData()
                         self.indicatorView.stopAnimating()
+                        if let completition = completition {
+                            completition()
+                        }
                     }
                 }
             }
@@ -269,13 +275,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func refresh() {
         switch currentArticleTypeIndex {
             case 0:
-                ContentAPI.instance.searchArticleId(limit: 10, page: ++currentPage, sort: ContentSortType.Click) {
-                    (articles: [ContentArticle]?) in
-                    if let articles = articles {
-                        self.contentArticles?.splice(articles, atIndex: 0)
-                        self.articlesTableView.reloadData()
-                        self.refreshControl.endRefreshing()
-                    }
+                currentPage++
+                loadContentArticles() {
+                    self.refreshControl.endRefreshing()
                 }
             case 1:
                 self.refreshControl.endRefreshing()
