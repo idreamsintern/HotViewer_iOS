@@ -10,7 +10,11 @@ import UIKit
 
 class PrincessCell: UITableViewCell {
     @IBOutlet weak var thumbanilImageView: UIImageView!
+    @IBOutlet weak var iDoButton: UIButton!
+    var delegate: MatchButtonDelegate?
+    
     private var _thumbnailURL: NSURL!
+    
     var thumbnailURL: NSURL? {
         get {
             return self._thumbnailURL
@@ -30,6 +34,7 @@ class PrincessCell: UITableViewCell {
     }
     
     @IBAction func IDo(sender: UIButton) {
+        delegate?.iDoClick(iDoButton.tag)
     }
     @IBOutlet weak var request: UILabel!
 }

@@ -10,10 +10,10 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class MatchTableViewController: UITableViewController {
+class MatchTableViewController: UITableViewController, MatchButtonDelegate {
     var princess: Princess?
     var toolMan: ToolMan?
-    var identity: Int = 1
+    var identity: Int = 0
     var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -65,14 +65,14 @@ class MatchTableViewController: UITableViewController {
         }
     }
 
-    let reusedCells = ["toolManCell", "princessCell"]
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
 
         if identity == 0 {
             // If I am a princess
             // Display toolman picture
-            let cell = tableView.dequeueReusableCellWithIdentifier("toolmanCell", forIndexPath: indexPath) as! ToolManCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("toolManCell", forIndexPath: indexPath) as! ToolManCell
+            cell.iAlsoDoButton.tag = indexPath.row
+            cell.delegate = self
             cell.thumbnailURL = princess?.toolmen[indexPath.row].thumbnailURL
             return cell
         } else {
@@ -80,12 +80,27 @@ class MatchTableViewController: UITableViewController {
             // Display princess picture with request message
             let cell = tableView.dequeueReusableCellWithIdentifier("princessCell", forIndexPath: indexPath) as! PrincessCell
             let princess = toolMan?.princesses[indexPath.row]
+            cell.iDoButton.tag = indexPath.row
+            cell.delegate = self
             cell.thumbnailURL = princess?.thumbnailURL
             cell.request.text = princess?.requestMessage
             return cell
         }
     }
-    
+
+    func iDoClick(numberOfRow: Int) {
+        if identity == 0 {
+            // If I am princess and I pick a toolman...
+            princess?.removeSelf()
+            // @TODO: Open Toolman's Facebook Page
+            
+        } else {
+            // If I am toolman and I pick a princess...
+            if let princess = toolMan?.princesses[numberOfRow] {
+                princess.addToolMan(toolMan!.userId)
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

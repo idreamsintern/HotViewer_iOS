@@ -513,7 +513,7 @@
                                     <action selector="close:" destination="q7L-zO-ntf" eventType="touchUpInside" id="rs4-dY-6TG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-UD-Hs3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-UD-Hs3">
                                 <rect key="frame" x="278" y="185" width="44" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="3Dk-9c-5qg"/>
@@ -535,7 +535,7 @@
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.27544157879999998" blue="0.14439608449999999" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c0-fl-jTC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Heading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c0-fl-jTC">
                                 <rect key="frame" x="16" y="72" width="568" height="35"/>
                                 <fontDescription key="fontDescription" name="Hallosans-Black" family="Hallo sans" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -716,6 +716,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="iAlsoDoButton" destination="z13-l5-OLu" id="IQi-YS-tNy"/>
                                     <outlet property="thumbanilImageView" destination="fbg-ys-QW4" id="vHR-ok-OaQ"/>
                                 </connections>
                             </tableViewCell>
@@ -759,6 +760,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="iDoButton" destination="llz-xh-kAN" id="xaY-ij-YoJ"/>
                                     <outlet property="request" destination="eOi-BR-TtP" id="UMf-iM-p5O"/>
                                     <outlet property="thumbanilImageView" destination="9fu-Se-Qq9" id="gjG-ue-Q2l"/>
                                 </connections>

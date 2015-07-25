@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol MatchButtonDelegate {
+    func iDoClick(numberOfRow: Int)
+}
+
 class ToolManCell: UITableViewCell {
 
     @IBOutlet weak var thumbanilImageView: UIImageView!
+    @IBOutlet weak var iAlsoDoButton: UIButton!
+    var delegate: MatchButtonDelegate?
     private var _thumbnailURL: NSURL!
     var thumbnailURL: NSURL? {
         get {
@@ -32,6 +38,7 @@ class ToolManCell: UITableViewCell {
 
     
     @IBAction func IAlsodo(sender: UIButton) {
+        delegate?.iDoClick(iAlsoDoButton.tag)
     }
     
     

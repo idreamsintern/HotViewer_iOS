@@ -18,7 +18,7 @@ class Princess {
     private var toolmanPath: String!
     init(userId: String, toolManUpdate: (() -> ())) {
         self.userId = userId
-        toolmanPath = userId + "/toolman"
+        self.toolmanPath = userId + "/toolman"
         firebase.childByAppendingPath(toolmanPath).observeEventType(.ChildAdded, withBlock: { snapshot in
             self.toolmen.append(ToolMan(userId: snapshot.key))
             
@@ -31,6 +31,7 @@ class Princess {
     }
     init(userId: String, requestMessage: String) {
         self.userId = userId
+        self.toolmanPath = userId + "/toolman"
         self.requestMessage = requestMessage
         self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture?width=600&height=600")
     }
@@ -38,9 +39,9 @@ class Princess {
         firebase.childByAppendingPath(userId).setValue(["request": message])
     }
     func addToolMan(toolManId: String) {
-        firebase.childByAppendingPath(toolmanPath).setValue(false, forKey: toolManId)
+        firebase.childByAppendingPath(toolmanPath).childByAppendingPath(toolManId).setValue(false)
     }
     func removeSelf() {
-        firebase.childByAppendingPath(toolmanPath).removeValue()
+        firebase.childByAppendingPath(self.userId).removeValue()
     }
 }
