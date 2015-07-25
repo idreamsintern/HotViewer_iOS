@@ -26,6 +26,9 @@ class MatchTableViewController: UITableViewController {
         princess = Princess(userId: userID) {
             self.tableView.reloadData()
         }
+        
+        self.tableView.estimatedRowHeight = CGFloat(400)
+        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         /*
         princess.updateRequestMessage("我想吃茹絲葵")
         var toolman = ToolMan(userId: userID) {
