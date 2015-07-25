@@ -10,12 +10,13 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class MatchTableViewController: UITableViewController, MatchButtonDelegate {
+class MatchTableViewController: UITableViewController, MatchButtonDelegate, RequestMessageDelegate {
     var princess: Princess?
     var toolMan: ToolMan?
-    var identity: Int = 0
+    var identity: Int = 0 // 0 = Princess, 1 = Toolman
     var indicatorView: UIActivityIndicatorView!
     
+    @IBOutlet weak var newRequestButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,18 +28,13 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate {
         
         indicatorView = getIndicatorView()
         
-        let userID = FBSDKProfile.currentProfile().userID
         indicatorView.startAnimating()
         if identity == 0 {
-            princess = Princess(userId: userID) {
-                self.tableView.reloadData()
-                self.indicatorView.stopAnimating()
-            }
+            initPrincess()
         } else {
-            toolMan = ToolMan(userId: userID) {
-                self.tableView.reloadData()
-                self.indicatorView.stopAnimating()
-            }
+            initToolMan()
+            // Toolman should not have request functionality
+            newRequestButton.enabled = false
         }
         
         /*
@@ -48,7 +44,18 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate {
         }*/
 
     }
-
+    func initPrincess() {
+        princess = Princess(userId: FBSDKProfile.currentProfile().userID) {
+            self.tableView.reloadData()
+            self.indicatorView.stopAnimating()
+        }
+    }
+    func initToolMan() {
+        toolMan = ToolMan(userId: FBSDKProfile.currentProfile().userID) {
+            self.tableView.reloadData()
+            self.indicatorView.stopAnimating()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -92,14 +99,29 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate {
         if identity == 0 {
             // If I am princess and I pick a toolman...
             princess?.removeSelf()
+            self.initPrincess()
             // @TODO: Open Toolman's Facebook Page
-            
         } else {
             // If I am toolman and I pick a princess...
             if let princess = toolMan?.princesses[numberOfRow] {
                 princess.addToolMan(toolMan!.userId)
             }
         }
+    }
+    
+    @IBAction func presentRequestSetting(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("showRequestView", sender: self)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showRequestView" {
+            let destination = segue.destinationViewController as! UINavigationController
+            let requestViewController = destination.topViewController as! AddRequestTableViewController
+            requestViewController.delegate = self
+        }
+        super.prepareForSegue(segue, sender: sender)
+    }
+    func newRequest(requestMsg: String) {
+        princess?.updateRequestMessage(requestMsg)
     }
 
     /*

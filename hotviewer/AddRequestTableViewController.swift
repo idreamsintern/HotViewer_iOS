@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol RequestMessageDelegate {
+    func newRequest(requestMsg: String)
+}
+
 class AddRequestTableViewController: UITableViewController {
 
     @IBOutlet weak var princeseImage: UIImageView!
     @IBOutlet weak var princeseRequestTextField: UITextField!
+    var delegate: RequestMessageDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +55,7 @@ class AddRequestTableViewController: UITableViewController {
         
         // If all fields are correctly filled in, extract the field value
         println("princeseRequest: " + princeseRequestTextField.text)
+        delegate?.newRequest(princeseRequestTextField.text)
         
         // Execute the unwind segue and go back to the home screen
         performSegueWithIdentifier("unwindToHomeScreen", sender: self)

@@ -22,7 +22,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     var fbFanpages: [FBFanpage]?
     
     var refreshControl:UIRefreshControl = UIRefreshControl()
-    var currentPage: Int = 1
+    var currentPage: Int = 0
     
     
     func revealController(revealController: SWRevealViewController!, animateToPosition position: FrontViewPosition) {

@@ -775,10 +775,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B1w-Fa-4Pi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="m1g-jR-2xd" kind="modal" id="nf5-0w-3nK"/>
+                                <action selector="presentRequestSetting:" destination="DDz-7d-vBt" id="2a2-Sn-Oms"/>
+                                <segue destination="m1g-jR-2xd" kind="presentation" identifier="showRequestView" id="nd1-2c-jc8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newRequestButton" destination="B1w-Fa-4Pi" id="2we-K4-V8g"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UkP-Hz-q6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ceL-a5-M2R" userLabel="Exit" sceneMemberID="exit"/>
@@ -1349,6 +1353,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VDR-bu-9Jl">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNe-wT-yxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m1g-jR-2xd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bBy-7r-FAg">
@@ -1360,7 +1365,6 @@
                         <segue destination="t9S-Ib-Gp1" kind="relationship" relationship="rootViewController" id="w24-Fo-JVo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FNe-wT-yxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2234" y="-333"/>
         </scene>
