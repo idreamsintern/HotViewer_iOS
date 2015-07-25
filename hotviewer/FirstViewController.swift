@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SWRevealViewControllerDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -39,6 +43,13 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var princess = Princess(userId: FBSDKProfile.currentProfile().userID)
+        princess.updateRequestMessage("我想吃茹絲葵")
+        var toolman = ToolMan(userId: FBSDKProfile.currentProfile().userID) {
+            
+        }
+        
         //menu button
         if self.revealViewController() != nil {
             self.revealViewController().delegate = self
