@@ -12,7 +12,6 @@ class PrincessCell: UITableViewCell {
     @IBOutlet weak var thumbanilImageView: UIImageView!
     @IBOutlet weak var iDoButton: UIButton!
     var delegate: MatchButtonDelegate?
-    
     private var _thumbnailURL: NSURL!
     
     var thumbnailURL: NSURL? {

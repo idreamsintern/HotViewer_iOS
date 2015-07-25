@@ -13,7 +13,7 @@ import FBSDKLoginKit
 class MatchTableViewController: UITableViewController, MatchButtonDelegate, RequestMessageDelegate {
     var princess: Princess?
     var toolMan: ToolMan?
-    var identity: Int = 0 // 0 = Princess, 1 = Toolman
+    var identity: Int = 1 // 0 = Princess, 1 = Toolman
     var indicatorView: UIActivityIndicatorView!
     
     @IBOutlet weak var newRequestButton: UIBarButtonItem!
@@ -36,13 +36,6 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate, Requ
             // Toolman should not have request functionality
             newRequestButton.enabled = false
         }
-        
-        /*
-        princess.updateRequestMessage("我想吃茹絲葵")
-        var toolman = ToolMan(userId: userID) {
-            
-        }*/
-
     }
     func initPrincess() {
         princess = Princess(userId: FBSDKProfile.currentProfile().userID) {
@@ -86,11 +79,12 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate, Requ
             // If I am a toolman
             // Display princess picture with request message
             let cell = tableView.dequeueReusableCellWithIdentifier("princessCell", forIndexPath: indexPath) as! PrincessCell
-            let princess = toolMan?.princesses[indexPath.row]
-            cell.iDoButton.tag = indexPath.row
-            cell.delegate = self
-            cell.thumbnailURL = princess?.thumbnailURL
-            cell.request.text = princess?.requestMessage
+            if let princess = toolMan?.princesses[indexPath.row] {
+                cell.iDoButton.tag = indexPath.row
+                cell.delegate = self
+                cell.thumbnailURL = princess.thumbnailURL
+                cell.request.text = princess.requestMessage
+            }
             return cell
         }
     }
@@ -105,6 +99,9 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate, Requ
             // If I am toolman and I pick a princess...
             if let princess = toolMan?.princesses[numberOfRow] {
                 princess.addToolMan(toolMan!.userId)
+                toolMan?.princesses.removeAtIndex(numberOfRow)
+                self.view.makeToast(message: "成功囉！請期待女神同意吧～")
+                self.tableView.reloadData()
             }
         }
     }
@@ -122,6 +119,7 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate, Requ
     }
     func newRequest(requestMsg: String) {
         princess?.updateRequestMessage(requestMsg)
+        self.view.makeToast(message: "請求已經成功囉！")
     }
 
     /*

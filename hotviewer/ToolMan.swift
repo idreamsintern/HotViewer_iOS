@@ -21,7 +21,9 @@ class ToolMan {
         self.userId = userId
         firebase.observeEventType(.ChildAdded, withBlock: { snapshot in
             let msg = snapshot.value["request"] as? String ?? "對方無提供資料"
-            self.princesses.append(Princess(userId: snapshot.key, requestMessage: msg))
+            var princess = Princess(userId: snapshot.key, requestMessage: msg)
+            
+            self.princesses.append(princess)
 
             princessUpdate()
 
