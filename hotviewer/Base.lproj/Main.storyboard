@@ -1312,7 +1312,7 @@
                     <connections>
                         <outlet property="articleTypeSegment" destination="fFI-LV-Lca" id="tAg-ix-rRW"/>
                         <outlet property="articlesTableView" destination="DIq-Ia-D5n" id="PlE-6l-Y6u"/>
-                        <segue destination="hHg-JB-4Fa" kind="show" id="0BY-JI-xFh"/>
+                        <segue destination="hHg-JB-4Fa" kind="show" identifier="showWebView" id="0BY-JI-xFh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEc-pz-JFL" sceneMemberID="firstResponder"/>
