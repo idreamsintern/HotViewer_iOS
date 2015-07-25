@@ -75,13 +75,26 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         switch currentArticleTypeIndex {
             case 0:
+                menuButton.enabled = true
+                menuButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
                 currentPage = 1
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
                 loadContentArticles()
                 
             case 1:
+                menuButton.enabled = true
+                menuButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
                 loadPTTArticles()
                 
             default:
+                menuButton.enabled = false
+                menuButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+                if let recognizers = view.gestureRecognizers {
+                    for recognizer in recognizers {
+                        view.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
+                    }
+                }
                 loadFBFanpage()
         
         }
