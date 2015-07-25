@@ -12,6 +12,9 @@ import FBSDKLoginKit
 
 class MatchTableViewController: UITableViewController {
     var princess: Princess?
+    var toolMan: ToolMan?
+    var identity: Int = 1
+    var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +24,23 @@ class MatchTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
+        
+        indicatorView = getIndicatorView()
+        
         let userID = FBSDKProfile.currentProfile().userID
-        princess = Princess(userId: userID) {
-            self.tableView.reloadData()
+        indicatorView.startAnimating()
+        if identity == 0 {
+            princess = Princess(userId: userID) {
+                self.tableView.reloadData()
+                self.indicatorView.stopAnimating()
+            }
+        } else {
+            toolMan = ToolMan(userId: userID) {
+                self.tableView.reloadData()
+                self.indicatorView.stopAnimating()
+            }
         }
+        
         /*
         princess.updateRequestMessage("我想吃茹絲葵")
         var toolman = ToolMan(userId: userID) {
@@ -43,15 +58,32 @@ class MatchTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return princess?.toolmen.count ?? 0
+        if identity == 0 {
+            return princess?.toolmen.count ?? 0
+        } else {
+            return toolMan?.princesses.count ?? 0
+        }
     }
 
-    
+    let reusedCells = ["toolManCell", "princessCell"]
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("toolManCell", forIndexPath: indexPath) as! ToolManCell
-        
-        cell.thumbnailURL = princess?.toolmen[indexPath.row].thumbnailURL
-        return cell
+
+
+        if identity == 0 {
+            // If I am a princess
+            // Display toolman picture
+            let cell = tableView.dequeueReusableCellWithIdentifier("toolmanCell", forIndexPath: indexPath) as! ToolManCell
+            cell.thumbnailURL = princess?.toolmen[indexPath.row].thumbnailURL
+            return cell
+        } else {
+            // If I am a toolman
+            // Display princess picture with request message
+            let cell = tableView.dequeueReusableCellWithIdentifier("princessCell", forIndexPath: indexPath) as! PrincessCell
+            let princess = toolMan?.princesses[indexPath.row]
+            cell.thumbnailURL = princess?.thumbnailURL
+            cell.request.text = princess?.requestMessage
+            return cell
+        }
     }
     
 
