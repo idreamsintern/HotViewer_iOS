@@ -32,7 +32,7 @@ class Princess {
     init(userId: String, requestMessage: String) {
         self.userId = userId
         self.requestMessage = requestMessage
-        self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture?type=large")
+        self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture?width=600&height=600")
     }
     func updateRequestMessage(message: String) {
         firebase.childByAppendingPath(userId).setValue(["request": message])

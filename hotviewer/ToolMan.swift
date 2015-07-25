@@ -15,7 +15,7 @@ class ToolMan {
     
     init(userId: String) {
         self.userId = userId
-        self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture?type=large")
+        self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture?width=600&height=600")
     }
     init(userId: String, princessUpdate: () -> ()) {
         self.userId = userId
