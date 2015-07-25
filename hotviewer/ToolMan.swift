@@ -11,8 +11,11 @@ import Foundation
 class ToolMan {
     var userId: String
     var princesses = [Princess]()
+    var thumbnailURL: NSURL?
+    
     init(userId: String) {
         self.userId = userId
+        self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture")
     }
     init(userId: String, princessUpdate: () -> ()) {
         self.userId = userId

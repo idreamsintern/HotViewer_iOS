@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class MatchTableViewController: UITableViewController {
-
+    var princess: Princess?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,17 @@ class MatchTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
+        let userID = FBSDKProfile.currentProfile().userID
+        princess = Princess(userId: userID) {
+            self.tableView.reloadData()
+        }
+        /*
+        princess.updateRequestMessage("我想吃茹絲葵")
+        var toolman = ToolMan(userId: userID) {
+            
+        }*/
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,18 +43,17 @@ class MatchTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return princess?.toolmen.count ?? 0
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("toolManCell", forIndexPath: indexPath) as! ToolManCell
+        
+        cell.thumbnailURL = princess?.toolmen[indexPath.row].thumbnailURL
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

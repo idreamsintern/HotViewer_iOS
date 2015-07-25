@@ -683,7 +683,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="290" id="Hf5-Dx-ULd" customClass="ToolManCell" customModule="hotviewer" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toolManCell" rowHeight="290" id="Hf5-Dx-ULd" customClass="ToolManCell" customModule="hotviewer" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hf5-Dx-ULd" id="CCr-7q-wIo">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -715,7 +715,7 @@
                                     <outlet property="thumbanilImageView" destination="fbg-ys-QW4" id="vHR-ok-OaQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="304" id="2yk-7u-In6" customClass="PrincessCell" customModule="hotviewer" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="princessCell" rowHeight="304" id="2yk-7u-In6" customClass="PrincessCell" customModule="hotviewer" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2yk-7u-In6" id="sMb-Lb-hSd">
                                     <autoresizingMask key="autoresizingMask"/>

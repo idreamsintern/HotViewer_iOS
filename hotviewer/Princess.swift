@@ -14,11 +14,12 @@ class Princess {
     var userId: String!
     var requestMessage: String?
     var toolmen = [ToolMan]()
+    var thumbnailURL: NSURL?
     
     init(userId: String, toolManUpdate: (() -> ())) {
         self.userId = userId
 
-        firebase.childByAppendingPath(userId).observeEventType(.ChildAdded, withBlock: { snapshot in
+        firebase.childByAppendingPath(userId + "/toolman").observeEventType(.ChildAdded, withBlock: { snapshot in
             self.toolmen.append(ToolMan(userId: snapshot.key))
             
             toolManUpdate()
@@ -31,6 +32,7 @@ class Princess {
     init(userId: String, requestMessage: String) {
         self.userId = userId
         self.requestMessage = requestMessage
+        self.thumbnailURL = NSURL(string: "https://graph.facebook.com/v2.4/\(userId)/picture")
     }
     func updateRequestMessage(message: String) {
         firebase.childByAppendingPath(userId).setValue(["request": message])
