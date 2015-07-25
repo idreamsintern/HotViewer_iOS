@@ -242,7 +242,7 @@ extension UIView {
             var toastSize = toast.bounds.size
             var viewSize  = self.bounds.size
             if position.lowercaseString == HRToastPositionTop {
-                return CGPointMake(viewSize.width/2, toastSize.height/2 + HRToastVerticalMargin)
+                return CGPointMake(viewSize.width/2, toastSize.height/2 + HRToastVerticalMargin + 60.0)
             } else if position.lowercaseString == HRToastPositionDefault {
                 return CGPointMake(viewSize.width/2, viewSize.height - toastSize.height/2 - HRToastVerticalMargin)
             } else if position.lowercaseString == HRToastPositionCenter {

@@ -38,7 +38,7 @@ class FbLoginViewController: UIViewController , FBSDKLoginButtonDelegate{
                 if let err = error {
                     println(err)
                 } else if let fullImage = image {
-                    viewCtrl.view.makeToast(message: "Welcome \(name)", duration: 2, position: HRToastPositionCenter, title: "Have a nice day!", image: fullImage)
+                    viewCtrl.view.makeToast(message: "Welcome \(name)", duration: 2, position: HRToastPositionTop, title: "Have a nice day!", image: fullImage)
                 }
             }
         })
