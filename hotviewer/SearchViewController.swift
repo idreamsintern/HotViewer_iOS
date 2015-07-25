@@ -74,7 +74,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
         var cell = tableView.dequeueReusableCellWithIdentifier(reusedCellIdentifier[currentArticleTypeIndex]) as? UITableViewCell
         
         if (indexPath.row % 2 == 1) {
-            cell?.backgroundColor = UIColor(red: 255/255, green: 250/255, blue: 205/255, alpha: 1)
+            cell?.backgroundColor = UIColor(red: 240/255, green: 248/255, blue: 255/255, alpha: 1)
         } else {
             cell?.backgroundColor = UIColor.whiteColor()
         }
@@ -103,6 +103,14 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
                     cell.title.text = pttArticle.title
                     cell.board.text = pttArticle.board
                     cell.push.text = pttArticle.push
+                    var img: UIImage?
+                    if cell.push.text?.toInt() >= 500 {
+                        img = UIImage(named: "pushHot")
+                    }
+                    else {
+                        img = UIImage(named: "pushNotHot")
+                    }
+                    cell.pushImageView.image = img
                 }
             default:
                 if let cell = cell as? FBFanpageCell, let fbFanpage = fbFanpages?[indexPath.row] as FBFanpage? {
