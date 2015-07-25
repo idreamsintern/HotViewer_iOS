@@ -91,7 +91,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
                         article.getArticle({
                             if indexPath.row < tableView.numberOfRowsInSection(0) {
                                 cell.thumbnailURL = article.thumbnailURL
-                                cell.content?.text = article.content
                                 tableView.beginUpdates()
                                 cell.content?.text = article.content
                                 tableView.endUpdates()
@@ -176,6 +175,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
         if keyword != "" {
             self.indicatorView.startAnimating()
             self.pttArticles?.removeAll()
+            
             SERAPI.instance.searchPTTTopArticleByKeyword("title",keyword: keyword,limit:10, sort: "time_desc",onLoad: {
                 (pttArticles: [PTTArticle]?) in
                 self.pttArticles = pttArticles

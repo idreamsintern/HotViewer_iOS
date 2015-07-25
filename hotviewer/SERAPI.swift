@@ -12,7 +12,7 @@ import MapKit
 class SERAPI: API {
     static let instance = SERAPI()
     init() {
-        super.init(apiUrl: "http://api.ser.ideas.iii.org.tw/api/", tokenUrl: "user/get_token", tokenParams: ["id":"a1411f06f306e17dad9956dc6ba86cdb", "secret_key":"1369ac51fd6fc95db2e9dde7b74cc3b8"])
+        super.init(apiUrl: "http://api.ser.ideas.iii.org.tw/api/", tokenUrl: "user/get_token", tokenParams: ["id":"f96b19549299c4aac64d6f05507a4f2a", "secret_key":"dcf0810b6fd371cba78d01ba3db325f8"])
     }
     func searchFBCheckin(#coordinate: CLLocationCoordinate2D, radius: Float, keyword: String? = nil, category: String? = nil, limit: Int? = 10, period: FBCheckinPeriod, sort: FBCheckinSortType, onLoad: (checkins:[FBCheckin]?) -> ()) {
         self.ensureValidToken() {

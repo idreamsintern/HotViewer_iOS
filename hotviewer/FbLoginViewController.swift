@@ -29,7 +29,7 @@ class FbLoginViewController: UIViewController , FBSDKLoginButtonDelegate{
         let name = FBSDKProfile.currentProfile().name
         let userId = FBSDKProfile.currentProfile().userID
         let thumbnailURL = NSURL(string: "https://graph.facebook.com/\(userId)/picture")!
-
+        println("userId: " + userId)
         let defaults = NSUserDefaults.standardUserDefaults()
         let firstTime = !defaults.boolForKey("hasViewedWalkthrough")
         let viewCtrl = self.storyboard?.instantiateViewControllerWithIdentifier(firstTime ? "PageViewController" : "tabController") as! UIViewController
