@@ -245,7 +245,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 for category in prefController.selectedCategories {
                     // We use ensureValidToken here to prevent simultaneously request multiple tokens for the first time
                     SERAPI.instance.ensureValidToken() {
-                        SERAPI.instance.searchPTTTopArticle(period: 10, board: category.tag, limit: 100 / prefController.selectedCount, onLoad: {
+                        SERAPI.instance.searchPTTTopArticle(period: 10, board: category.tag, limit: 10, onLoad: {
                             (pttArticles: [PTTArticle]?) in
                             if let articles = pttArticles {
                                 self.pttArticles? += articles
