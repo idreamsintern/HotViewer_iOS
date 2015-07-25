@@ -18,7 +18,7 @@ class PTTArticle {
         self.url = NSURL(string: pttJSON["url"].stringValue)
         self.title = pttJSON["title"].string
         self.board = pttJSON["board"].string
-        self.push = pttJSON["push"].string
+        self.push = pttJSON["push"].string ?? String(pttJSON["push_count"].intValue)
         self.time = pttJSON["time"].string
     }
 }
