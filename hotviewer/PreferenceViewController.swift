@@ -18,10 +18,10 @@ class PreferenceViewController : UIViewController, FongerCategoryDelegate {
             FongerCategoryItem(text: "Food", imageNamed: "food", tag: "食記"),
             FongerCategoryItem(text: "Travel", imageNamed: "travel", tag: "旅行"),
             FongerCategoryItem(text: "Technology", imageNamed: "food", tag: "科技"),
-            FongerCategoryItem(text: "Entertainment", imageNamed: "", tag: "新奇搞笑"),
-            FongerCategoryItem(text: "News", imageNamed: "", tag: "時事"),
-            FongerCategoryItem(text: "Health", imageNamed: "", tag: "健康"),
-            FongerCategoryItem(text: "Movie", imageNamed: "", tag: "電影")
+            FongerCategoryItem(text: "Entertainment", imageNamed: "entertainment", tag: "新奇搞笑"),
+            FongerCategoryItem(text: "News", imageNamed: "news", tag: "時事"),
+            FongerCategoryItem(text: "Health", imageNamed: "health", tag: "健康"),
+            FongerCategoryItem(text: "Movie", imageNamed: "movie", tag: "電影")
         ],
         [
             FongerCategoryItem(text: "Food", imageNamed: "food", tag: "food"),
