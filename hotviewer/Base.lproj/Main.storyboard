@@ -503,7 +503,7 @@
                                     <action selector="close:" destination="q7L-zO-ntf" eventType="touchUpInside" id="rs4-dY-6TG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-UD-Hs3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-UD-Hs3">
                                 <rect key="frame" x="278" y="185" width="44" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="3Dk-9c-5qg"/>
@@ -650,24 +650,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c36-3i-Mep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1373" y="-289"/>
-        </scene>
-        <!--Fb Graph View Controller-->
-        <scene sceneID="XJC-Yc-WMe">
-            <objects>
-                <viewController storyboardIdentifier="Controller" id="wd3-qk-BEU" customClass="fbGraphViewController" customModule="hotviewer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="548-NI-wyr"/>
-                        <viewControllerLayoutGuide type="bottom" id="yAT-Wa-0Ee"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="c1Y-Em-R43">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GVk-I9-fAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-741" y="-289"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1103,6 +1085,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="articleTypeSegment" destination="CEj-fA-ycD" id="KYT-35-UF6"/>
                         <outlet property="articlesTableView" destination="pkR-wa-qaL" id="8px-cJ-mhX"/>
                         <segue destination="hHg-JB-4Fa" kind="show" identifier="showWebView" id="eGQ-L7-DHI"/>
                     </connections>
