@@ -44,7 +44,9 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var princess = Princess(userId: FBSDKProfile.currentProfile().userID)
+        var princess = Princess(userId: FBSDKProfile.currentProfile().userID) {
+            
+        }
         princess.updateRequestMessage("我想吃茹絲葵")
         var toolman = ToolMan(userId: FBSDKProfile.currentProfile().userID) {
             

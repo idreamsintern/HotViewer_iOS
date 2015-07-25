@@ -1,9 +1,6 @@
-//
+//123123
 //  Princess.swift
 //  hotviewer
-//
-//  Created by  Hsu Ching Feng on 7/25/15.
-//  Copyright (c) 2015 傑瑞. All rights reserved.
 //
 
 import Foundation
@@ -45,4 +42,5 @@ class Princess {
     println("\(snapshot.key) -> \(snapshot.value)")
     })
 */
+
 }
