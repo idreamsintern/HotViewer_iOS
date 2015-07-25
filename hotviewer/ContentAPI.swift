@@ -10,7 +10,7 @@ import Foundation
 class ContentAPI: API {
     static let instance = ContentAPI()
     init() {
-        super.init(apiUrl: "http://contentparty.org/api/", tokenUrl: "get_token", tokenParams: ["user_code":"0a556cd13e85397f623f2a3adef54cf4"])
+        super.init(apiUrl: "http://contentparty.org/api/", tokenUrl: "get_token", tokenParams: ["user_code": "0a556cd13e85397f623f2a3adef54cf4"])
     }
     func searchArticleId(#limit: Int, page: Int, sort: ContentSortType, keyword: String? = nil, tag: String? = nil, onLoad: (articles:[ContentArticle]?) -> ()) {
         

@@ -39,6 +39,7 @@ class ToolMan {
                     break
                 }
             }
+            
             if princessIndex != nil {
                 self.princesses.removeAtIndex(princessIndex)
                 princessUpdate()
@@ -48,4 +49,5 @@ class ToolMan {
                 println(error.description)
         })
     }
+    
 }

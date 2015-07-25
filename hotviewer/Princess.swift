@@ -15,11 +15,11 @@ class Princess {
     var requestMessage: String?
     var toolmen = [ToolMan]()
     var thumbnailURL: NSURL?
-    
+    private var toolmanPath: String!
     init(userId: String, toolManUpdate: (() -> ())) {
         self.userId = userId
-
-        firebase.childByAppendingPath(userId + "/toolman").observeEventType(.ChildAdded, withBlock: { snapshot in
+        toolmanPath = userId + "/toolman"
+        firebase.childByAppendingPath(toolmanPath).observeEventType(.ChildAdded, withBlock: { snapshot in
             self.toolmen.append(ToolMan(userId: snapshot.key))
             
             toolManUpdate()
@@ -37,12 +37,10 @@ class Princess {
     func updateRequestMessage(message: String) {
         firebase.childByAppendingPath(userId).setValue(["request": message])
     }
-    
-/*
-    myRootRef.observeEventType(.Value, withBlock: {
-    snapshot in
-    println("\(snapshot.key) -> \(snapshot.value)")
-    })
-*/
-
+    func addToolMan(toolManId: String) {
+        firebase.childByAppendingPath(toolmanPath).setValue(false, forKey: toolManId)
+    }
+    func removeSelf() {
+        firebase.childByAppendingPath(toolmanPath).removeValue()
+    }
 }
