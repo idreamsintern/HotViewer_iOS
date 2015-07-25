@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "health.jpg"
+      "filename" : "news@1x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "health-1.jpg"
+      "filename" : "news@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "health-2.jpg"
+      "filename" : "news@3x.png"
     }
   ],
   "info" : {
