@@ -10,10 +10,11 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+var identity: Int = 1 // 0 = Princess, 1 = Toolman
+
 class MatchTableViewController: UITableViewController, MatchButtonDelegate, RequestMessageDelegate {
     var princess: Princess?
     var toolMan: ToolMan?
-    var identity: Int = 1 // 0 = Princess, 1 = Toolman
     var indicatorView: UIActivityIndicatorView!
     
     @IBOutlet weak var newRequestButton: UIBarButtonItem!
@@ -92,15 +93,21 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate, Requ
     func iDoClick(numberOfRow: Int) {
         if identity == 0 {
             // If I am princess and I pick a toolman...
+            self.view.makeToast(message: "配對成功！請聯絡對方吧！", duration: 1.5, position: HRToastPositionTop)
+
+            if let toolman = princess?.toolmen[numberOfRow] {
+                UIApplication.sharedApplication().openURL(NSURL(string: "https://www.facebook.com/\(toolman.userId)")!)
+            }
             princess?.removeSelf()
+
             self.initPrincess()
-            // @TODO: Open Toolman's Facebook Page
+            
         } else {
             // If I am toolman and I pick a princess...
             if let princess = toolMan?.princesses[numberOfRow] {
                 princess.addToolMan(toolMan!.userId)
                 toolMan?.princesses.removeAtIndex(numberOfRow)
-                self.view.makeToast(message: "成功囉！請期待女神同意吧～")
+                self.view.makeToast(message: "成功囉！請期待女神同意吧～", duration: 1.5, position: HRToastPositionTop)
                 self.tableView.reloadData()
             }
         }
@@ -119,7 +126,7 @@ class MatchTableViewController: UITableViewController, MatchButtonDelegate, Requ
     }
     func newRequest(requestMsg: String) {
         princess?.updateRequestMessage(requestMsg)
-        self.view.makeToast(message: "請求已經成功囉！")
+        self.view.makeToast(message: "請求已經成功囉！", duration: 1.5, position: HRToastPositionTop)
     }
 
     /*

@@ -58,9 +58,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
     @IBAction func articleTypeChanged(sender: UISegmentedControl) {
         currentArticleTypeIndex = sender.selectedSegmentIndex
         switch currentArticleTypeIndex {
-        case 0:
-            searchController.searchBar.placeholder = "請輸入文章標題關鍵字"
-        case 1:
+        case 0, 1:
             searchController.searchBar.placeholder = "請輸入文章標題關鍵字"
         default :
             searchController.searchBar.placeholder = "請輸入粉絲頁標題關鍵字"
